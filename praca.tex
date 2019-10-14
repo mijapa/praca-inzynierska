@@ -1,7 +1,83 @@
-\documentclass[10pt,a4paper,titlepage]{article}
-\author{Michał Patyk}
-\title{Praca Inżynierska}
-\begin{document}
+ \hoffset1cm %%% przesunięcie poziome (przykładowo) o 1cm przeznaczone na oprawę
+ \documentclass[11pt,a4paper]{report}
 
-MP
-\end{document}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+ 
+ \usepackage{amsmath}
+ \usepackage{amssymb}
+ \usepackage{indentfirst}
+ \pagestyle{headings}
+ \renewcommand{\chaptername}{Rozdział}
+ \renewcommand{\contentsname}{Spis treści}
+ \renewcommand{\bibname}{Bibliografia}
+
+ \begin{document}
+
+ \begin{titlepage}
+ \center{\large\scshape Politechnika Krakowska \\
+         \normalsize im. Tadeusza Kościuszki}
+ \center{\scshape Wydział Inżynierii Elektrycznej i Komputerowej\\
+         Kierunek Informatyka}
+ \vspace{0.1\textheight}
+ \center{\scshape Michał Patyk}
+ \bigskip
+ \center{\LARGE\bfseries Sterownik pieca kominkowego, w oprarciu o mikrokontroler (lub platformę komputerową), zgodny ze szkicem specyfikacji Wep Thing API}
+ \center{(praca licencjacka)}
+ \vspace{0.3\textheight}
+ \par
+ \rightline{Promotor: Dr Radosław Czarnecki}
+
+ \vspace{0.1\textheight}
+ \center{Kraków 2019}
+ \end{titlepage}
+
+ \tableofcontents
+
+ \chapter*{Wstęp}
+ \addcontentsline{toc}{chapter}{Wstęp}
+
+ Głównym celem pracy jest \ldots
+ \par
+ Praca ta opiera się na wiadomościach zaczerpniętych między innymi
+ z~podręcznika \cite{panek}.
+
+ \chapter{Tytuł pierwszego rozdziału}
+ Poniżej opisujemy \dots
+
+ \section{Tytuł pierwszego podrozdziału}\label{sec:wybor}
+ Wybraliśmy tak:
+ \begin{itemize}
+ \item
+ obiekt pierwszy,
+ \item
+ obiekt drugi,
+ \item
+ ... itd.
+ \end{itemize}
+ Teraz zajmiemy się pojęciem \emph{funkcjonału}.\label{poj:funkcjonal}
+ \section{Tytuł drugiego podrozdziału}\label{sec:nastepnie}
+ Następnie \ldots
+
+
+ \chapter{Tytuł drugiego rozdziału}
+ W tym rozdziale wykorzystamy pojęcie funkcjonału, które
+ wprowadziliśmy na stronie~\pageref{poj:funkcjonal}.
+
+ \chapter*{Podsumowanie}
+ \addcontentsline{toc}{chapter}{Podsumowanie}
+
+ Nasz wybór (patrz: s.~\pageref{sec:wybor}) miał istotne znaczenie.
+ O tym, co było następnie, pisaliśmy w podrozdziale \ref{sec:nastepnie}.
+ Konsekwencje\,\ldots
+
+ \begin{thebibliography}{9}
+ \addcontentsline{toc}{chapter}{Spis literatury}
+ \bibitem{panek}
+ E. Panek, \emph{Ekonomia matematyczna}, Akademia Ekonomiczna w Poznaniu,
+ Poznań 2003.
+ \bibitem{kolejnapozycja}
+ \ldots
+ \end{thebibliography}
+
+ \end{document}
