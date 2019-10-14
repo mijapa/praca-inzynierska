@@ -42,22 +42,54 @@
  Praca ta opiera się na wiadomościach zaczerpniętych między innymi
  z~podręcznika \cite{panek}.
 
- \chapter{Tytuł pierwszego rozdziału}
- Poniżej opisujemy \dots
+ \chapter{Cele pracy, zakres pracy, założenia}
 
- \section{Tytuł pierwszego podrozdziału}\label{sec:wybor}
- Wybraliśmy tak:
- \begin{itemize}
- \item
- obiekt pierwszy,
- \item
- obiekt drugi,
- \item
- ... itd.
- \end{itemize}
- Teraz zajmiemy się pojęciem \emph{funkcjonału}.\label{poj:funkcjonal}
- \section{Tytuł drugiego podrozdziału}\label{sec:nastepnie}
- Następnie \ldots
+ \section{Cele pracy}
+ Celem niniejszej pracy jest opracowanie sterownika pieca kominkowego zgodnego ze szkicem specyfikacji Web Thing API.
+ 
+ \section{Zakres pracy}
+ Zakres pracy obejmuje:
+ \begin{enumerate}
+ \item rozeznanie wśród istniejących rozwiązań - zarówno sprzętowych jak i programowych; komputerowe systemy sterowania, inżynieria systemów informacyjnnch
+ \item opracowanie koncepcji; komputerowe systemy sterowania, mikroprocesory i mikrokontrolery, systemy operacyjne, 
+ \item wybór podzespołów; architektura systemów komputerowych, podstawy elektroniki i techniki cyfrowej, mikroprocesory i mikrokontrolery, systemy wbudowane
+ \item wykonanie prototypu na płytce stykowej; systemy wbudowane
+ \item stworzenie oprogramowania; symulacja komputerowa, systemy wbudowane, technologie obiektowe, programowanie obiektowe, sieci komputerowe
+ \item testowanie oprogramowania; systemy odporne na błędy
+ \item zaprojektowanie płytki drukowanej - PCB; elektrotechnika, podstawy elektroniki i techniki cyfrowej
+ \item zaprojektowanie obudowy; 
+ \item integracja z Mozilla Gateway
+ \end{enumerate}
+ 
+ \section{Założenia i wymagania}
+ 
+ Wykrzystane narzędzia:
+ \begin{enumerate}
+ \item[•] środowisko programistyczne CLion
+ \item[•] ekosystem PlatformIO
+ \item[•] oprogramowanie do projektowania PCB KiCad
+ \item[•] platforma monitoringu i kontroli urządzeń WebThing Mozilla
+ \end{enumerate}
+ Sterownik ma umożliwić:
+ \begin{enumerate}
+ \item[•] monitorowanie pracy pieca
+ \item[•] lokalne i zdalen zadawanie temperatur
+ \item[•] informowanie o zdarzeniach
+ Wymagania:
+ \item[•] zgodność z Web Thing API
+ \item[•] watchdog
+ \item[•] możliwość rozbudowy o dodatkowe czujniki i elementy wykonawcze
+ 
+  
+ \end{enumerate}
+ 
+  
+ 
+ \section{Efekt końcowy}
+ Efektem końcowym pracy jest stworzenie sterownika pieca kominkowego pozwalającego na bezopsługową pracę pieca pomiędzy momentami uzupełniania paliwa.
+ %Czym ta aplikacja różni się od innych?
+ Wykorzystanie Web Thing REST API.
+ 
 
 
  \chapter{Tytuł drugiego rozdziału}
