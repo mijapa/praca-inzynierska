@@ -55,40 +55,42 @@
  \item wybór podzespołów; architektura systemów komputerowych, podstawy elektroniki i techniki cyfrowej, mikroprocesory i mikrokontrolery, systemy wbudowane
  \item wykonanie prototypu na płytce stykowej; systemy wbudowane
  \item stworzenie oprogramowania; symulacja komputerowa, systemy wbudowane, technologie obiektowe, programowanie obiektowe, sieci komputerowe
- \item testowanie oprogramowania; systemy odporne na błędy
+ \item przetestowanie oprogramowania; systemy odporne na błędy
  \item zaprojektowanie płytki drukowanej - PCB; elektrotechnika, podstawy elektroniki i techniki cyfrowej
- \item zaprojektowanie obudowy; 
- \item integracja z Mozilla Gateway
+ \item zaprojektowanie obudowy
+ \item zintegrowanie z Mozilla Gateway
  \end{enumerate}
  
  \section{Założenia i wymagania}
  
- Wykrzystane narzędzia:
+ Wykorzystane narzędzia:
  \begin{enumerate}
  \item[•] środowisko programistyczne CLion
  \item[•] ekosystem PlatformIO
  \item[•] oprogramowanie do projektowania PCB KiCad
  \item[•] platforma monitoringu i kontroli urządzeń WebThing Mozilla
  \end{enumerate}
+ 
  Sterownik ma umożliwić:
  \begin{enumerate}
- \item[•] monitorowanie pracy pieca
- \item[•] lokalne i zdalen zadawanie temperatur
+ \item[•] monitorowanie pracy pieca kominkowego
+ \item[•] lokalne i zdalne zadawanie temperatur
  \item[•] informowanie o zdarzeniach
+ \end{enumerate}
+ 
  Wymagania:
+ \begin{enumerate}
  \item[•] zgodność z Web Thing API
  \item[•] watchdog
  \item[•] możliwość rozbudowy o dodatkowe czujniki i elementy wykonawcze
- 
-  
  \end{enumerate}
  
   
  
  \section{Efekt końcowy}
- Efektem końcowym pracy jest stworzenie sterownika pieca kominkowego pozwalającego na bezopsługową pracę pieca pomiędzy momentami uzupełniania paliwa.
- %Czym ta aplikacja różni się od innych?
- Wykorzystanie Web Thing REST API.
+ Planowanym efektem końcowym pracy będzie stworzenie sterownika pieca kominkowego, pozwalającego na bezobsługową pracę paleniska pomiędzy momentami uzupełniania paliwa.
+
+ Element wyróżniający wykonany sterownik stanowi wykorzystanie Web Thing REST API, który pozwala na wykorzystanie sieci jako zunifikowanej warstwy abstarakcji dla zdecentralizowanego internetu rzeczy.
  
 
 
