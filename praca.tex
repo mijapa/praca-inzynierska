@@ -7,7 +7,9 @@
  \usepackage{amsmath}
  \usepackage{amssymb}
  \usepackage{indentfirst}
+ 
  \pagestyle{headings}
+ 
  \renewcommand{\chaptername}{Rozdział}
  \renewcommand{\contentsname}{Spis treści}
  \renewcommand{\bibname}{Bibliografia}
@@ -32,33 +34,33 @@
  \center{Kraków 2019}
  \end{titlepage}
 
+
  \tableofcontents
 
- \chapter*{Wstęp}
- \addcontentsline{toc}{chapter}{Wstęp}
 
- Głównym celem pracy jest \ldots
- \par
- Praca ta opiera się na wiadomościach zaczerpniętych między innymi
- z~podręcznika \cite{panek}.
+ \chapter*{Wstęp}
+ %\addcontentsline{toc}{chapter}{Wstęp}
+
+Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz poświęcanej uwagi potrzebnych do obsługi pieca kominkowego będącego głównym źródłem ciepła w domu jednorodzinnym.
 
  \chapter{Cele pracy, zakres pracy, założenia}
 
  \section{Cele pracy}
- Celem niniejszej pracy jest opracowanie sterownika pieca kominkowego zgodnego ze szkicem specyfikacji Web Thing API.
+ Celem niniejszej pracy jest \textbf{opracowanie koncepcji sterownika pieca kominkowego} zgodnego ze szkicem specyfikacji Web Thing API.
  
  \section{Zakres pracy}
  Zakres pracy obejmuje:
  \begin{enumerate}
- \item rozeznanie wśród istniejących rozwiązań - zarówno sprzętowych jak i programowych; komputerowe systemy sterowania, inżynieria systemów informacyjnnch
- \item opracowanie koncepcji; komputerowe systemy sterowania, mikroprocesory i mikrokontrolery, systemy operacyjne, 
- \item wybór podzespołów; architektura systemów komputerowych, podstawy elektroniki i techniki cyfrowej, mikroprocesory i mikrokontrolery, systemy wbudowane
- \item wykonanie prototypu na płytce stykowej; systemy wbudowane
- \item stworzenie oprogramowania; symulacja komputerowa, systemy wbudowane, technologie obiektowe, programowanie obiektowe, sieci komputerowe
- \item przetestowanie oprogramowania; systemy odporne na błędy
- \item zaprojektowanie płytki drukowanej - PCB; elektrotechnika, podstawy elektroniki i techniki cyfrowej
+ \item \textbf{przegląd istniejących rozwiązań} - zarówno sprzętowych jak i programowych; (komputerowe systemy sterowania, inżynieria systemów informacyjnnch)
+ \item opracowanie koncepcji; (komputerowe systemy sterowania, mikroprocesory i mikrokontrolery, systemy operacyjne)
+ \item wybór podzespołów; (architektura systemów komputerowych, podstawy elektroniki i techniki cyfrowej, mikroprocesory i mikrokontrolery, systemy wbudowane)
+ \item wykonanie prototypu na płytce stykowej; (systemy wbudowane)
+ \item stworzenie oprogramowania; (symulacja komputerowa, systemy wbudowane, technologie obiektowe, programowanie obiektowe, sieci komputerowe)
+ \item przetestowanie oprogramowania; (systemy odporne na błędy)
+ \item zaprojektowanie płytki drukowanej - PCB; (elektrotechnika, podstawy elektroniki i techniki cyfrowej)
  \item zaprojektowanie obudowy
  \item zintegrowanie z Mozilla Gateway
+ \item przygotowanie instrukcji obsługi
  \end{enumerate}
  
  \section{Założenia i wymagania}
@@ -66,9 +68,11 @@
  Wykorzystane narzędzia:
  \begin{enumerate}
  \item[•] środowisko programistyczne CLion
+ \item[•] język programowania C/C++
  \item[•] ekosystem PlatformIO
  \item[•] oprogramowanie do projektowania PCB KiCad
  \item[•] platforma monitoringu i kontroli urządzeń WebThing Mozilla
+ \item[•] wzorzec projektowy - \dots
  \end{enumerate}
  
  Sterownik ma umożliwić:
@@ -83,6 +87,12 @@
  \item[•] zgodność z Web Thing API
  \item[•] watchdog
  \item[•] możliwość rozbudowy o dodatkowe czujniki i elementy wykonawcze
+ \item[•] przywracanie nastaw po utracie zasilania
+ \item[•] zamknięcie dolotu powietrza na czas dokładania paliwa
+ \item[•] minimalizacja otwarcia przepustnicy w przypadku zaniku napięcia
+ \item[•] sygnalizacja uszkodzenia czujnika temperatury
+ \item[•] regulowana jasność wyświetlacza - zwiększana na czas zmiany ustawień (opcja)
+ \item[•] sygnalizator dźwiękowy który informuje gdy temperatura wzrośnie do niebezpiecznego poziomu
  \end{enumerate}
  
   
@@ -92,11 +102,42 @@
 
  Element wyróżniający wykonany sterownik stanowi wykorzystanie Web Thing REST API, który pozwala na wykorzystanie sieci jako zunifikowanej warstwy abstarakcji dla zdecentralizowanego internetu rzeczy.
  
+ \section{Dalsze kierunki rozwoju}
+ W tej części zostaną opisane możliwe kierunki rozwoju sterownika.
+ 
+ Integracja z systemem odzyskiwania ciepła ze spalin.
+ \ldots
+ 
 
-
- \chapter{Tytuł drugiego rozdziału}
- W tym rozdziale wykorzystamy pojęcie funkcjonału, które
- wprowadziliśmy na stronie~\pageref{poj:funkcjonal}.
+ \chapter{Charakterystyka metod obsługi} 
+ Obsługa w pełni manualna - wymaga stałego nadzoru nad przebiegiem spalania. Jest bardzo absorbująca. Łatwo prowadzi do przekroczenia pożądanych temperatur. Pogarsza efektywność procesu spalania co prowadzi do obniżenia sprawności kotła, większego zapotrzebowania na opał, a w konsekwencji znacznie wyższych kosztów ogrzewania.
+ 
+ Obsługa półautomatyczna - pozwala na samodzielną pracę urządzenia pomiędzy momentami dokładania paliwa. Możemy ją podzielić na:
+ mechaniczną - głowica termostatyczna połaczona z mechanizmem dźwigni, na ramieniu której znajduje się łańcuszek lub linka. Zaletą jest niski koszt.
+ elektroniczną - sterownik pokojowy z serwomechanizmem. Umiarkowany koszt rozwiązania. Szerokie możliwości regulacji.
+ 
+ Obsługa automatyczna - kocioł z podajnikiem paliwa pracuje samodzielnie do kilku dni. Najbardziej autonomiczne i jednocześnie najdroższe rozwiązanie.
+ 
+ 
+ \chapter{Przegląd istniejących rozwiązań}
+  
+ \chapter{Opracowanie koncepcji}
+ 
+ \chapter{Techniczne środki realizacji}
+ 
+ \chapter{Wybór podzespołów}
+ 
+ \chapter{Wykonanie prototypu na płytce stykowej}
+ 
+ \chapter{Przetestowanie oprogramowania}
+ 
+ \chapter{Zaprojektowanie płytki drukowanej}
+ 
+ \chapter{Zaprojektowanie obudowy}
+ 
+ \chapter{Zintegrowanie z Mozilla Gateway}
+ 
+ 
 
  \chapter*{Podsumowanie}
  \addcontentsline{toc}{chapter}{Podsumowanie}
