@@ -1,18 +1,26 @@
  \hoffset1cm %%% przesunięcie poziome (przykładowo) o 1cm przeznaczone na oprawę
- \documentclass[11pt,a4paper]{report}
-
+ \documentclass[12pt]{report}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsfonts}
+%\usepackage{txfonts}
 \usepackage{polski}
  
  \usepackage{amsmath}
  \usepackage{amssymb}
  \usepackage{indentfirst}
+ \usepackage{listings}
  
  \pagestyle{headings}
  
- \renewcommand{\chaptername}{Rozdział}
- \renewcommand{\contentsname}{Spis treści}
- \renewcommand{\bibname}{Bibliografia}
+\renewcommand{\chaptername}{Rozdział}
+\renewcommand{\contentsname}{Spis treści}
+\renewcommand{\figurename}{Rys.}
+\renewcommand{\tablename}{Tab.}
+\renewcommand{\listfigurename}{Spis rysunków}
+\renewcommand{\listtablename}{Spis tabel}
+\renewcommand{\bibname}{Bibliografia}
 
  \begin{document}
 
@@ -41,7 +49,7 @@
  \chapter*{Wstęp}
  %\addcontentsline{toc}{chapter}{Wstęp}
 
-Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz poświęcanej uwagi potrzebnych do obsługi pieca kominkowego będącego głównym źródłem ciepła w domu jednorodzinnym.
+Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz poświęcanej uwagi potrzebnych do obsługi pieca kominkowego pracującego jako główne źródło ciepła w domu jednorodzinnym.
 
  \chapter{Cele pracy, zakres pracy, założenia}
 
@@ -51,7 +59,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \section{Zakres pracy}
  Zakres pracy obejmuje:
  \begin{enumerate}
- \item \textbf{przegląd istniejących rozwiązań} - zarówno sprzętowych jak i programowych; (komputerowe systemy sterowania, inżynieria systemów informacyjnnch)
+ \item przegląd istniejących rozwiązań - zarówno sprzętowych jak i programowych; (komputerowe systemy sterowania, inżynieria systemów informacyjnnch)
  \item opracowanie koncepcji; (komputerowe systemy sterowania, mikroprocesory i mikrokontrolery, systemy operacyjne)
  \item wybór podzespołów; (architektura systemów komputerowych, podstawy elektroniki i techniki cyfrowej, mikroprocesory i mikrokontrolery, systemy wbudowane)
  \item wykonanie prototypu na płytce stykowej; (systemy wbudowane)
@@ -114,20 +122,45 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
  Obsługa półautomatyczna - pozwala na samodzielną pracę urządzenia pomiędzy momentami dokładania paliwa. Możemy ją podzielić na:
  mechaniczną - głowica termostatyczna połaczona z mechanizmem dźwigni, na ramieniu której znajduje się łańcuszek lub linka. Zaletą jest niski koszt.
- elektroniczną - sterownik pokojowy z serwomechanizmem. Umiarkowany koszt rozwiązania. Szerokie możliwości regulacji.
+ elektroniczną - sterownik pokojowy z serwomechanizmem. Umiarkowany koszt rozwiązania. Szerokie możliwości regulacji. Umożliwia dokonywanie nastaw lokalnie lub zdalnie.
  
  Obsługa automatyczna - kocioł z podajnikiem paliwa pracuje samodzielnie do kilku dni. Najbardziej autonomiczne i jednocześnie najdroższe rozwiązanie.
  
  
  \chapter{Przegląd istniejących rozwiązań}
+ Szroka gama rozwiązań przeznaczonych do kotłów na paliwo stałe.
+ Niewielka ilość sterowników przeznaczonych dla kominków - tylko z dodatkową przepustnicą co ogranicza możliwość regulacji (powietrze pierwotne i wtórne).
   
  \chapter{Opracowanie koncepcji}
  
  \chapter{Techniczne środki realizacji}
+ Może lepiej umieścić przed rozdziałem \label{rozdz.stworzenie}
  
  \chapter{Wybór podzespołów}
+ ESP32 - układ SoC, następca ESP8266, wbudowane wi-fi, bluetooth, dwa rdzenie, energooszczędnośc, stosunkowo niska cena, gotowy moduł pozwalający na wygodne prototypowanie, 
  
  \chapter{Wykonanie prototypu na płytce stykowej}
+ Pierwsze kroki - podłaczenie mikrokontrolera oraz 2x16 LCD
+ 
+ \chapter{Stworzenie oprogramowania}\label{rozdz.stworzenie}
+ 
+ \section{Stworzenie projektu}
+ Do programowania sterownika wykorzystano środowisko programistyczne CLion wraz z ekosystem PlatformIO.
+ Aby inicializować projekt w nowym folderze należy w konsoli wydać polecenie:
+ \begin{lstlisting}
+pio init --ide clion --board esp32doit-devkit-v1 
+ \end{lstlisting}
+ 
+ 
+ 
+ \section{Portal przechwytujący}
+ Aby umożliwić łatwą konfigurację połączenia Wi-Fi w sterowniku wykorzystano bibliotekę WiFiManager która pozwala na automatyczne tworzenie sieci wifi i wystawienia portalu przechwytującego dającego możliwość wybrania i połączenia się z docelową siecią. 
+ 
+ Dla zapewnienia bezpieczeństwa dostęp do sieci wifi jest zabezpieczony prostym hasłem podanym w instrukcji obsługi, a także zapisanym na urządzeniu.
+ 
+ 
+ 
+ 
  
  \chapter{Przetestowanie oprogramowania}
  
@@ -136,6 +169,8 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \chapter{Zaprojektowanie obudowy}
  
  \chapter{Zintegrowanie z Mozilla Gateway}
+ 
+ \chapter{Przygotowanie instrukcji obsługi}
  
  
 
@@ -151,8 +186,10 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \bibitem{panek}
  E. Panek, \emph{Ekonomia matematyczna}, Akademia Ekonomiczna w Poznaniu,
  Poznań 2003.
- \bibitem{kolejnapozycja}
+ \bibitem{Technical Reference Manual}
+ %https://www.espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf
  \ldots
+ 
  \end{thebibliography}
 
  \end{document}
