@@ -1,4 +1,4 @@
- \hoffset1cm %%% przesunięcie poziome (przykładowo) o 1cm przeznaczone na oprawę
+ \hoffset1cm % przesunięcie poziome (przykładowo) o 1cm przeznaczone na oprawę
  \documentclass[12pt]{report}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -11,6 +11,7 @@
  \usepackage{amssymb}
  \usepackage{indentfirst}
  \usepackage{listings}
+ \usepackage{natbib}
  
  \pagestyle{headings}
  
@@ -144,13 +145,12 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
  \chapter{Stworzenie oprogramowania}\label{rozdz.stworzenie}
  
- \section{Stworzenie projektu}
+ \section{Utworzenie projektu}
  Do programowania sterownika wykorzystano środowisko programistyczne CLion wraz z ekosystem PlatformIO.
- Aby inicializować projekt w nowym folderze należy w konsoli wydać polecenie:
+ Projekt został zainicjalizowany w pustym katalogu poleceniem:
  \begin{lstlisting}
 pio init --ide clion --board esp32doit-devkit-v1 
  \end{lstlisting}
- 
  
  
  \section{Portal przechwytujący}
@@ -172,6 +172,8 @@ pio init --ide clion --board esp32doit-devkit-v1
  
  \chapter{Przygotowanie instrukcji obsługi}
  
+ W tekście \cite{guinard}, \citep{wallace}, \citep{huang}, \citep{grebosz} widzimy.
+ 
  
 
  \chapter*{Podsumowanie}
@@ -181,15 +183,17 @@ pio init --ide clion --board esp32doit-devkit-v1
  O tym, co było następnie, pisaliśmy w podrozdziale \ref{sec:nastepnie}.
  Konsekwencje\,\ldots
 
- \begin{thebibliography}{9}
- \addcontentsline{toc}{chapter}{Spis literatury}
- \bibitem{panek}
- E. Panek, \emph{Ekonomia matematyczna}, Akademia Ekonomiczna w Poznaniu,
- Poznań 2003.
- \bibitem{Technical Reference Manual}
- %https://www.espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf
- \ldots
+% \begin{thebibliography}{9}
+% \addcontentsline{toc}{chapter}{Spis literatury}
+% \bibitem{panek}
+% E. Panek, \emph{Ekonomia matematyczna}, Akademia Ekonomiczna w Poznaniu,
+% Poznań 2003.
+% \end{thebibliography}
+
  
- \end{thebibliography}
+ \nocite{*}
+ \bibliography{mendeley}
+ \bibliographystyle{plain}
 
  \end{document}
+
