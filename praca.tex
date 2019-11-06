@@ -11,7 +11,7 @@
  \usepackage{amssymb}
  \usepackage{indentfirst}
  \usepackage{listings}
- \usepackage{natbib}
+% \usepackage{natbib}
  
  \pagestyle{headings}
  
@@ -172,7 +172,6 @@ pio init --ide clion --board esp32doit-devkit-v1
  
  \chapter{Przygotowanie instrukcji obsługi}
  
- W tekście \cite{guinard}, \citep{wallace}, \citep{huang}, \citep{grebosz} widzimy.
  
  
 
@@ -192,8 +191,11 @@ pio init --ide clion --board esp32doit-devkit-v1
 
  
  \nocite{*}
- \bibliography{mendeley}
- \bibliographystyle{plain}
+ \bibliography{library}
+ \bibliographystyle{acm}
+ 
+ \chapter*{Materiały Firmowe i Normy}
+ 
 
  \end{document}
 
