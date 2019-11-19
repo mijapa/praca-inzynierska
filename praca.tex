@@ -1,5 +1,5 @@
  \hoffset1cm % przesunięcie poziome (przykładowo) o 1cm przeznaczone na oprawę
- \documentclass[12pt]{report}
+\documentclass[12pt]{report}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
@@ -13,7 +13,7 @@
  \usepackage{listings}
  \usepackage{}
 % \usepackage{natbib}
- \usepackage[backend=biber, bibencoding=utf8, style=ieee, url=false, isbn=false, doi=false]{biblatex}
+ \usepackage[backend=biber, bibencoding=utf8, style=ieee, url=false, isbn=false, doi=false, sorting=anyvt]{biblatex}
 %  \bibliographystyle{acm}
  \addbibresource{library.bib}
  \DeclareUnicodeCharacter{229}{ę}
@@ -40,7 +40,7 @@
  \center{\scshape Michał Patyk}
  \bigskip
  \center{\LARGE\bfseries Sterownik pieca kominkowego, w oprarciu o mikrokontroler (lub platformę komputerową), zgodny ze szkicem specyfikacji Web Thing API}
- \center{(praca licencjacka)}
+ \center{(praca inżynierska)}
  \vspace{0.3\textheight}
  \par
  \rightline{Promotor: Dr Radosław Czarnecki}
@@ -70,7 +70,7 @@
  Obecnie na rynku dostepny jest szeroki wachlarz rozwiązań, od prostych jednokomponentowych do bardziej zaawansownach, złozonych. Począwszy od regulatorów pokojowych, które jedynie włączają ogrzewanie kiedy temperatura pomieszczenia obniży się ponizej nastawionej wartości, poprzez rozbudowane, umożliwiające programowanie temperatury zarówno w ciągu doby (nizsza w nocy, wyższa po południu), jak i w wybrane dni tygodnia, skończywszy na automatyce pogodowej, która dzięki wykorzystaniu czujnika zewnętrznego, umieszczonego na ścianie domu, przewiduje zwiększone zapotrzebowanie na ciepło i wcześniej dostosowuje moc kotła.
  Coraz więcej dostępnych na rynku sterowników umożliwia zdalne nastawienie temperatury. W znakomitej większości standard komunikacji tych rozwiązań jest zamknięty, co utrudnia współpracę  z innymi inteligentnymi urządzeniami.
  \section{Innowacyjność projektu na tle współczesnych rozwiązań}
- W odróżnieniu od szeroko stosowanych rozwiązań mój projekt zakłada użycie specyfikacji Web Thing API \cite{Guinard2009}, która pozwala na ujednolicenie dostępu do inteligentnych rzeczy za pomocą dodatkowej warstwy abstrakcji. Oznacza to, że system kreuje przestrzeń kooperacji urządzeń. Możliwe interakcje wpływają pozytywnie na koherentność systemu.
+ W odróżnieniu od szeroko stosowanych rozwiązań mój projekt zakłada użycie specyfikacji Web Thing API \cite{Mazurek2018}, która pozwala na ujednolicenie dostępu do inteligentnych rzeczy za pomocą dodatkowej warstwy abstrakcji. Oznacza to, że system kreuje przestrzeń kooperacji urządzeń. Możliwe interakcje wpływają pozytywnie na koherentność systemu.
  
  
  \section{Motywacje}
