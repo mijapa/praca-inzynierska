@@ -11,7 +11,13 @@
  \usepackage{amssymb}
  \usepackage{indentfirst}
  \usepackage{listings}
+ \usepackage{}
 % \usepackage{natbib}
+ \usepackage[backend=biber, bibencoding=utf8, style=ieee, url=false, isbn=false, doi=false]{biblatex}
+%  \bibliographystyle{acm}
+ \addbibresource{library.bib}
+ \DeclareUnicodeCharacter{229}{ę}
+ \DeclareUnicodeCharacter{327}{}
  
  \pagestyle{headings}
  
@@ -33,14 +39,14 @@
  \vspace{0.1\textheight}
  \center{\scshape Michał Patyk}
  \bigskip
- \center{\LARGE\bfseries Sterownik pieca kominkowego, w oprarciu o mikrokontroler (lub platformę komputerową), zgodny ze szkicem specyfikacji Wep Thing API}
+ \center{\LARGE\bfseries Sterownik pieca kominkowego, w oprarciu o mikrokontroler (lub platformę komputerową), zgodny ze szkicem specyfikacji Web Thing API}
  \center{(praca licencjacka)}
  \vspace{0.3\textheight}
  \par
  \rightline{Promotor: Dr Radosław Czarnecki}
 
  \vspace{0.1\textheight}
- \center{Kraków 2019}
+ \center{Kraków 2020}
  \end{titlepage}
 
 
@@ -49,16 +55,26 @@
 
  \chapter{Wstęp}
 % \addcontentsline{toc}{chapter}{Wstęp}
- \section{Rys historyczny (nazwy podrozdziałów mogą byc inne}
- Krótka historia \ldots
- \section{Stan aktualnej wiedzy (state of art)}
+ \section{Rys historyczny - ujęcie problemowe}
+ Problem ogrzewania pomieszczeń towarzyszy człowiekowi od zarania dziejów. Zwykle był to proces wymagający ciągłego nadzoru. Potrzeba automatyzacji wydaje się naturalną konsekwencją zmiany trybu życia człowieka. Wraz z pojawieniem się nowoczesnych kotłów powstały pierwsze mechanizmy kontrolujące pracę urządzenia bez nieustannej koniecznosci doglądania go.
+ Pojawienie się sterowników cyfrowych zaoferowało zupełnie nowe możliwości, takie jak:
+  \begin{enumerate}
+ \item[•] większą efektywność pracy systemu grzewczego
+ \item[•] zmniejszenie emitowanych zanieczyszczeń
+ \item[•] wzrost komfortu użytkowania
+ \item[•] poprawę bezpieczeństwa
+ \item[•] w nowszych modelach - zdalne sterowanie
+  \end{enumerate}
+ Sterowniki cyfrowe wydają się również odpowiedzią na coraz bardziej dostrzegany problem odpowiedzialnego wykorzystywania zasobów naturalnych, gdyż za ich pomocą do zapewnienia komfortu termicznego pomieszczeń potrzebna jest znacznie mniejsza ilość paliwa. Stanowią one również propozycję rozwiązania problemu ubóstwa energetycznego.
+ \section{Stan aktualnej wiedzy}
+ Obecnie na rynku dostepny jest szeroki wachlarz rozwiązań, od prostych jednokomponentowych do bardziej zaawansownach, złozonych. Począwszy od regulatorów pokojowych, które jedynie włączają ogrzewanie kiedy temperatura pomieszczenia obniży się ponizej nastawionej wartości, poprzez rozbudowane, umożliwiające programowanie temperatury zarówno w ciągu doby (nizsza w nocy, wyższa po południu), jak i w wybrane dni tygodnia, skończywszy na automatyce pogodowej, która dzięki wykorzystaniu czujnika zewnętrznego, umieszczonego na ścianie domu, przewiduje zwiększone zapotrzebowanie na ciepło i wcześniej dostosowuje moc kotła.
+ Coraz więcej dostępnych na rynku sterowników umożliwia zdalne nastawienie temperatury. W znakomitej większości standard komunikacji tych rozwiązań jest zamknięty, co utrudnia współpracę  z innymi inteligentnymi urządzeniami.
+ \section{Innowacyjność projektu na tle współczesnych rozwiązań}
+ W odróżnieniu od szeroko stosowanych rozwiązań mój projekt zakłada użycie specyfikacji Web Thing API \cite{Guinard2009}, która pozwala na ujednolicenie dostępu do inteligentnych rzeczy za pomocą dodatkowej warstwy abstrakcji. Oznacza to, że system kreuje przestrzeń kooperacji urządzeń. Możliwe interakcje wpływają pozytywnie na koherentność systemu.
  
- \section{Temat projektu na tele aktualnego stanu wiedzy}
  
  \section{Motywacje}
- Gdzie czułem największy niedosyt wśród istniejących rozwiązań
-
-Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz poświęcanej uwagi potrzebnych do obsługi pieca kominkowego pracującego jako główne źródło ciepła w domu jednorodzinnym.
+Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz poświęcanej uwagi potrzebnych do obsługi pieca kominkowego, pracującego jako główne źródło ciepła w domu jednorodzinnym. Ponadto niekomfortowym ograniczeniem dotychczas stosowanych rozwiązań jest zmuszanie klienta do użytkowania produktów pochodzących od tego samego producenta, co w znaczącym stopniu ogranicza możliwość wyboru preferowanego sprzętu.
 
  \chapter{Cele pracy, zakres pracy, założenia}
 
@@ -117,13 +133,13 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \section{Efekt końcowy}
  Planowanym efektem końcowym pracy będzie stworzenie sterownika pieca kominkowego, pozwalającego na bezobsługową pracę paleniska pomiędzy momentami uzupełniania paliwa.
 
- Element wyróżniający wykonany sterownik stanowi wykorzystanie Web Thing REST API, który pozwala na wykorzystanie sieci jako zunifikowanej warstwy abstarakcji dla zdecentralizowanego internetu rzeczy.
+ Element wyróżniający wykonany sterownik stanowi wykorzystanie Web Thing REST API, który pozwala na wykorzystanie sieci jako zunifikowanej warstwy abstrakcji dla zdecentralizowanego internetu rzeczy.
  
  Rysunek~\ref{fig:wizja} na stronie~\pageref{fig:wizja} przedstawia wizję struktury elementów sterownika
  \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/fritzing_bredboard_v1.png}
-\caption{Wizja elementów sterownika. Opracowani własne.}
+\caption{Wizja elementów sterownika. Opracowanie własne.}
 \label{fig:wizja}
 \end{figure}
  
@@ -195,7 +211,7 @@ pio init --ide clion --board esp32doit-devkit-v1
  \addcontentsline{toc}{chapter}{Podsumowanie}
  Wnioski, jaką drogę przeszliśmy. Rozdział po rozdziale opisujemy co było wyzwaniem.
  
- \chapter*{Kierunki dalszych prac}
+ \chapter*{Dalszy kierunek prac}
  \addcontentsline{toc}{chapter}{Kierunki dalszych prac}
  Jeśli zaczynałbym projekt z moją dzisiejszą wiedzą jak podszedłbym do problemu. Jak dalej rozwijałbym pracę, jakie dalasze temety zostałyby podjęte. 
 
@@ -207,11 +223,22 @@ pio init --ide clion --board esp32doit-devkit-v1
 % Konsekwencje\,\ldots
 
  
- \nocite{*}
- \bibliography{library}
- \bibliographystyle{acm}
+  \nocite{*}
+% \bibliography{library}
+% \bibliographystyle{acm}
  
- \chapter*{Materiały Firmowe i Normy}
+ \inputencoding{utf8}
+ \addcontentsline{toc}{chapter}{Książki}
+ \printbibliography[title={Książki},type=book]
+ \addcontentsline{toc}{chapter}{Artykuły}
+ \printbibliography[title={Artykuły},type=article]
+ \addcontentsline{toc}{chapter}{Prace dyplomowe}
+ \printbibliography[title={Prace dyplomowe}, type=thesis]
+ \addcontentsline{toc}{chapter}{Materiały konferencyjne}
+ \printbibliography[title={Materiały konferencyjne},type=inproceedings]
+ \addcontentsline{toc}{chapter}{Pozostałe źródła}
+ \printbibliography[title={Pozostałe źródła}, nottype=article, nottype=book, nottype=inproceedings, nottype=thesis]
+
  
 
  \end{document}
