@@ -55,6 +55,7 @@
 
  \chapter{Wstęp}
 % \addcontentsline{toc}{chapter}{Wstęp}
+dodaj wykres popularności źródeł w czasie
  \section{Rys historyczny - ujęcie problemowe}
  Problem ogrzewania pomieszczeń towarzyszy człowiekowi od zarania dziejów. Zwykle był to proces wymagający ciągłego nadzoru. Potrzeba automatyzacji wydaje się naturalną konsekwencją zmiany trybu życia człowieka. Wraz z pojawieniem się nowoczesnych kotłów powstały pierwsze mechanizmy kontrolujące pracę urządzenia bez nieustannej koniecznosci doglądania go.
  Pojawienie się sterowników cyfrowych zaoferowało zupełnie nowe możliwości, takie jak:
@@ -165,6 +166,21 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Niewielka ilość sterowników przeznaczonych dla kominków - tylko z dodatkową przepustnicą co ogranicza możliwość regulacji (powietrze pierwotne i wtórne).
   
  \chapter{Opracowanie koncepcji}
+ Regulacja dopływu powietrza do komory spalania. Jak dobrać otwarcie przepustnicy? Pomiar temperatury spalin.
+ W minimalnej wersji: pomiar temperatury spalin i dobranie otwarcia przepustnicy. Potrzebne tylko mikrokontroler, serwo oraz termopara.
+ Dodatki:
+ \begin{enumerate}
+ \item termometr mierzący temperaturę w pomieszczeniu aby zwiększać moc przy większym zapotrzebowaniu na energię
+ \item wyświetlacz przekazujący informacje użytkownikowi
+ \item wyjście sterujące wentylatorem wymuszający obieg powietrza do innych pomieszczeń dla lepszej dystrybucji energii
+ \item czujnik otwarcia drzwi paleniska aby zmieniać parametry pracy po dołożeniu drewna
+ \item zdalny dostęp do sterownika dla ułatwienia obsługi
+ \item rtc dla programowania zadań czasowych
+ \item połączenie ethernet, usunięcie niepotrzebnego ruchu wifi.
+ \item zapasowe źródło zasilania, pozwalające na kontrolę pracy pieca w razie zaniku napięcia w sieci
+ \item zewnętrzny termometr, automatyka pogodowa
+ \item przyciski na sterowniku, do zmiany podstawowych parametrów
+ \end{enumerate}  
  
  \chapter{Techniczne środki realizacji}
  Może lepiej umieścić przed rozdziałem \label{rozdz.stworzenie}
@@ -173,7 +189,11 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  ESP32 - układ SoC, następca ESP8266, wbudowane wi-fi, bluetooth, dwa rdzenie, energooszczędnośc, stosunkowo niska cena, gotowy moduł pozwalający na wygodne prototypowanie, 
  
  \chapter{Wykonanie prototypu na płytce stykowej}
- Pierwsze kroki - podłaczenie mikrokontrolera oraz 2x16 LCD
+ \section{Podłączenie mikrokontrolera oraz LCD}
+ \section{Podłączenie układu DHT22 - termometr i czujnik wilgotności}
+ \section{Podłączenie układu MAX6675 - termopara}
+ \section{Podłączenie serwomechanizmu}
+ \section{Podłączenie układu W5500 - erhernet}
  
  \chapter{Stworzenie oprogramowania}\label{rozdz.stworzenie}
  
@@ -183,6 +203,8 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \begin{lstlisting}
 pio init --ide clion --board esp32doit-devkit-v1 
  \end{lstlisting}
+ 
+ 
  
  
  \section{Portal przechwytujący}
@@ -196,13 +218,16 @@ pio init --ide clion --board esp32doit-devkit-v1
  
  \chapter{Przetestowanie oprogramowania}
  
+ 
  \chapter{Zaprojektowanie płytki drukowanej}
  
  \chapter{Zaprojektowanie obudowy}
  
  \chapter{Zintegrowanie z Mozilla Gateway}
+ Dodanie polskiej wersji językowej do Mozilla Gateway dla zwiększenia dostępności rozwiązania.
  
  \chapter{Przygotowanie instrukcji obsługi}
+ Obserwacja - żadka konieczność dostosowywania parametrów sterownika sprawia, że użytkownicy zapominają o tym jak konfigurować sterownik.
  
  \chapter{Efekt końcowy na tle koncepcji}
  Reflekcja na temat tego jak wygląda to co zaplanowałem w stosunko tego co udało się uzyskać.
