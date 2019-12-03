@@ -13,7 +13,7 @@
  \usepackage{listings}
  \usepackage{}
 % \usepackage{natbib}
- \usepackage[backend=biber, bibencoding=utf8, style=ieee, url=false, isbn=false, doi=false, sorting=anyvt]{biblatex}
+ \usepackage[backend=biber, bibencoding=utf8, style=ieee, isbn=false, doi=false, sorting=anyvt]{biblatex}
 %  \bibliographystyle{acm}
  \addbibresource{library.bib}
  \DeclareUnicodeCharacter{229}{ę}
@@ -163,9 +163,9 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
  
  \chapter{Przegląd istniejących rozwiązań} 
- \section{Komunikacja IoT}
- 
- 
+ \section{Standardy integracji inteligentnych urządzeń}
+ Zamiast wymyślac kompletnie nowe standardy, Web of Things wykorzystuje istniejące, dobrze znane standardy webowe.
+  
  \section{Sterowniki kominkowe}
  Szroka gama rozwiązań przeznaczonych do kotłów na paliwo stałe.
  Niewielka ilość sterowników przeznaczonych dla kominków - tylko z dodatkową przepustnicą co ogranicza możliwość regulacji (powietrze pierwotne i wtórne).
@@ -183,6 +183,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
   \subsection{Podsumowanie}
   Tylko jeden z wymienionych producentów pozwala na zdalny dostęp do sterownika, jednak jest on tylko możliwy za pośrednictwem serwerów producenta. Brak publicznego API. Cena tego rozwiązania jest wysoka.
   Tylko jeden z wymienionych sterowników posiada czujnik pozwalający na mierzenie temperatury spalin.
+  
   
  \chapter{Opracowanie koncepcji}
  Regulacja dopływu powietrza do komory spalania. Jak dobrać otwarcie przepustnicy? Pomiar temperatury spalin.
@@ -255,6 +256,8 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
  \section{Zasilanie awaryjne}
  Najprostrze rozwiązanie - powerbank, brak kontroli nad tym z jakiego źródła pochodzi zasilanie.
+ \section{Rodzaj połaczenia}
+ Ze względu na łatwość i pewność połączenia zdecydowano na wybranie standardu złącza 8P8C wykorzystywanego w róznego rodzaju sprzęcie telekomunikacyjnym i komputerowym. Rozpowszechnione jako złącze do budowy sieci w standardzie ethernet. 8P8C to złącze o ośmiu miejscach na styk i ośmiu stykach.
  
  
  \chapter{Wykonanie prototypu na płytce stykowej}
@@ -331,6 +334,8 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Głównie testy manualne działajacego sprzętu.
  Wybresy w Bramie pokażą możliwość ciągłej pracy.
  Testy jednostkowe logiki aplikacji, najlepiej TDD.
+ \section{Testy jednostkowe}
+ Testy jednostkowe zostały wykonane z wykorzystaniem Platformio Unit Testing \cite{PIOUnitTesting}. Pozwala na wykonywanie testów na urządzeniu docelowym lub z użyciem platformy Native, wtedy testy sa przeprowadzane tylko w środowisku programistycznym.
  
  
  \chapter{Zaprojektowanie płytki drukowanej}
