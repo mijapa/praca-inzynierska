@@ -153,13 +153,11 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
 
  \chapter{Charakterystyka metod obsługi} 
- Obsługa w pełni manualna - wymaga stałego nadzoru nad przebiegiem spalania. Jest bardzo absorbująca. Łatwo prowadzi do przekroczenia pożądanych temperatur. Pogarsza efektywność procesu spalania co prowadzi do obniżenia sprawności kotła, większego zapotrzebowania na opał, a w konsekwencji znacznie wyższych kosztów ogrzewania.
+ Obsługa w pełni manualna wymaga stałego nadzoru nad przebiegiem spalania. Jest bardzo absorbująca. Łatwo prowadzi do przekroczenia pożądanych temperatur. Pogarsza efektywność procesu spalania, co prowadzi do obniżenia ogónej sprawności kotła, większego zapotrzebowania na opał, a w konsekwencji znacznie wyższych kosztów ogrzewania.
  
- Obsługa półautomatyczna - pozwala na samodzielną pracę urządzenia pomiędzy momentami dokładania paliwa. Możemy ją podzielić na:
- mechaniczną - głowica termostatyczna połaczona z mechanizmem dźwigni, na ramieniu której znajduje się łańcuszek lub linka. Zaletą jest niski koszt.
- elektroniczną - sterownik pokojowy z serwomechanizmem. Umiarkowany koszt rozwiązania. Szerokie możliwości regulacji. Umożliwia dokonywanie nastaw lokalnie lub zdalnie.
+ Obsługa półautomatyczna pozwala na samodzielną pracę urządzenia pomiędzy momentami dokładania paliwa. Można wyróżnić dwie jej odsłony. Mechaniczna, w której głowica termostatyczna połączona jest z mechanizmem dźwigni. Na jej ramieniu znajduje się łańcuszek lub linka. Zaletą jest niski koszt. Elektroniczna, gdzie stosuje się sterownik pokojowy z serwomechanizmem. Koszt tego rozwiązania jest umiarkowany oraz zapewnia szerokie możliwości regulacji, umożliwiając dokonywanie nastaw lokalnie lub zdalnie.
  
- Obsługa automatyczna - kocioł z podajnikiem paliwa pracuje samodzielnie do kilku dni. Najbardziej autonomiczne i jednocześnie najdroższe rozwiązanie.
+ Najdroższe jak i najbardziej autonomiczne rozwiązanie stanowi obsługa automatyczna, w której kocioł z podajnikiem paliwa pracuje samodzielnie do kilku dni
  
  
  \chapter{Przegląd istniejących rozwiązań} 
@@ -167,8 +165,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Zamiast wymyślac kompletnie nowe standardy, Web of Things wykorzystuje istniejące, dobrze znane standardy webowe.
   
  \section{Sterowniki kominkowe}
- Szroka gama rozwiązań przeznaczonych do kotłów na paliwo stałe.
- Niewielka ilość sterowników przeznaczonych dla kominków - tylko z dodatkową przepustnicą co ogranicza możliwość regulacji (powietrze pierwotne i wtórne).
+ Na rynku istnieje szeroka gama rozwiązań przeznaczonych do kotłów na paliwo stałe, jednak stosunkowo niewielka ilość sterowników przeznaczonych dla kominków. - tylko z dodatkową przepustnicą co ogranicza możliwość regulacji (powietrze pierwotne i wtórne).
  \subsection{TECH STEROWNIKI}
  Firma TECH ma w swojej aktualnej ofercie \cite{Tech} trzy sterowniki do kominków. Dwa znich są do kominków z płaszczem wodnym. Trzeci \cite{TechSterownik} przeznaczony jest do kominków z dystrybucją gorącego powietrza i mógłby zostać zastosowany przy piecu kominkowym. Czujnik mierzy temperaturę spalin.
  Aby mieć możliwość zdalnego dostępu do sterownika należy skorzystać z jednego z dwóch dodatkowych modułów komunikacyjnych - GSM lub Ethernet. Dosęp jest możliwy jedynie przez stronę producenta lub aplikację mobilną, brak publicznego API.
@@ -269,7 +266,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  I2C to szeregowa, dwukierunkowa magistrala która wykorzystuje tylko dwie linie komunikacyjne - Serial Data oraz Serial Clock. Transfer danych może być zainicjowany tlko gdy magistrala nie jest zajęta.
   
  \section{Podłączenie układu DHT22 - termometr i czujnik wilgotności}
- DHT22 do komunikacji z mikrokontrolerem wykorzytuje magistralę 1-Wire która wykorzystuje pojedyńczą linię komunikacyjną.
+ DHT22 do komunikacji z mikrokontrolerem wykorzytuje magistralę 1-Wire która wykorzystuje pojedyńczą linię komunikacyjną. 
  \subsection{Okablowanie}
 Aby umożliwić umieszczenie czujnika temperatury w dogodnym miejscu, zdala od źródła ciepła, zdecydowano o wykorzystaniu przewodu w standardzie telefonicznym.
  
