@@ -39,7 +39,7 @@
  \vspace{0.1\textheight}
  \center{\scshape Michał Patyk}
  \bigskip
- \center{\LARGE\bfseries Sterownik pieca kominkowego, w oprarciu o mikrokontroler (lub platformę komputerową), zgodny ze szkicem specyfikacji Web Thing API}
+ \center{\LARGE\bfseries Sterownik pieca kominkowego, w oparciu o mikrokontroler (lub platformę komputerową), zgodny ze szkicem specyfikacji Web Thing API}
  \center{(praca inżynierska)}
  \vspace{0.3\textheight}
  \par
@@ -57,7 +57,7 @@
 % \addcontentsline{toc}{chapter}{Wstęp}
 dodaj wykres popularności źródeł w czasie
  \section{Rys historyczny - ujęcie problemowe}
- Problem ogrzewania pomieszczeń towarzyszy człowiekowi od zarania dziejów. Zwykle był to proces wymagający ciągłego nadzoru. Potrzeba automatyzacji wydaje się naturalną konsekwencją zmiany trybu życia człowieka. Wraz z pojawieniem się nowoczesnych kotłów powstały pierwsze mechanizmy kontrolujące pracę urządzenia bez nieustannej koniecznosci doglądania go.
+ Problem ogrzewania pomieszczeń towarzyszy człowiekowi od zarania dziejów. Zwykle był to proces wymagający ciągłego nadzoru. Potrzeba automatyzacji wydaje się naturalną konsekwencją zmiany trybu życia człowieka. Wraz z pojawieniem się nowoczesnych kotłów powstały pierwsze mechanizmy kontrolujące pracę urządzenia bez nieustannej konieczności doglądania go.
  Pojawienie się sterowników cyfrowych zaoferowało zupełnie nowe możliwości, takie jak:
   \begin{enumerate}
  \item[•] większą efektywność pracy systemu grzewczego
@@ -69,7 +69,7 @@ dodaj wykres popularności źródeł w czasie
  Sterowniki cyfrowe wydają się również odpowiedzią na coraz bardziej dostrzegany problem odpowiedzialnego wykorzystywania zasobów naturalnych, gdyż za ich pomocą do zapewnienia komfortu termicznego pomieszczeń potrzebna jest znacznie mniejsza ilość paliwa. Stanowią one również propozycję rozwiązania problemu ubóstwa energetycznego.
  
  \section{Stan aktualnej wiedzy}
- Obecnie na rynku dostepny jest szeroki wachlarz rozwiązań, od prostych jednokomponentowych do bardziej zaawansownach, złozonych. Począwszy od regulatorów pokojowych, które jedynie włączają ogrzewanie kiedy temperatura pomieszczenia obniży się ponizej nastawionej wartości, poprzez rozbudowane, umożliwiające programowanie temperatury zarówno w ciągu doby (nizsza w nocy, wyższa po południu), jak i w wybrane dni tygodnia, skończywszy na automatyce pogodowej, która dzięki wykorzystaniu czujnika zewnętrznego, umieszczonego na ścianie domu, przewiduje zwiększone zapotrzebowanie na ciepło i wcześniej dostosowuje moc kotła.
+ Obecnie na rynku dostępny jest szeroki wachlarz rozwiązań, od prostych jednokomponentowych do bardziej zaawansowanych, złożonych. Począwszy od regulatorów pokojowych, które jedynie włączają ogrzewanie kiedy temperatura pomieszczenia obniży się poniżej nastawionej wartości, poprzez rozbudowane, umożliwiające programowanie temperatury zarówno w ciągu doby (niższa w nocy, wyższa po południu), jak i w wybrane dni tygodnia, skończywszy na automatyce pogodowej, która dzięki wykorzystaniu czujnika zewnętrznego, umieszczonego na ścianie domu, przewiduje zwiększone zapotrzebowanie na ciepło i wcześniej dostosowuje moc kotła.
  Coraz więcej dostępnych na rynku sterowników umożliwia zdalne nastawienie temperatury. W znakomitej większości standard komunikacji tych rozwiązań jest zamknięty, co utrudnia współpracę  z innymi inteligentnymi urządzeniami.
  
  \section{Innowacyjność projektu na tle współczesnych rozwiązań}
@@ -87,7 +87,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \section{Zakres pracy}
  Zakres pracy obejmuje:
  \begin{enumerate}
- \item przegląd istniejących rozwiązań - zarówno sprzętowych jak i programowych; (komputerowe systemy sterowania, inżynieria systemów informacyjnnch)
+ \item przegląd istniejących rozwiązań - zarówno sprzętowych jak i programowych; (komputerowe systemy sterowania, inżynieria systemów informacyjnych)
  \item opracowanie koncepcji; (komputerowe systemy sterowania, mikroprocesory i mikrokontrolery, systemy operacyjne)
  \item wybór podzespołów; (architektura systemów komputerowych, podstawy elektroniki i techniki cyfrowej, mikroprocesory i mikrokontrolery, systemy wbudowane)
  \item wykonanie prototypu na płytce stykowej; (systemy wbudowane)
@@ -153,7 +153,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
 
  \chapter{Charakterystyka metod obsługi} 
- Obsługa w pełni manualna wymaga stałego nadzoru nad przebiegiem spalania. Jest bardzo absorbująca. Łatwo prowadzi do przekroczenia pożądanych temperatur. Pogarsza efektywność procesu spalania, co prowadzi do obniżenia ogónej sprawności kotła, większego zapotrzebowania na opał, a w konsekwencji znacznie wyższych kosztów ogrzewania.
+ Obsługa w pełni manualna wymaga stałego nadzoru nad przebiegiem spalania. Jest bardzo absorbująca. Łatwo prowadzi do przekroczenia pożądanych temperatur. Pogarsza efektywność procesu spalania, co prowadzi do obniżenia ogólnej sprawności kotła, większego zapotrzebowania na opał, a w konsekwencji znacznie wyższych kosztów ogrzewania.
  
  Obsługa półautomatyczna pozwala na samodzielną pracę urządzenia pomiędzy momentami dokładania paliwa. Można wyróżnić dwie jej odsłony. Mechaniczna, w której głowica termostatyczna połączona jest z mechanizmem dźwigni. Na jej ramieniu znajduje się łańcuszek lub linka. Zaletą jest niski koszt. Elektroniczna, gdzie stosuje się sterownik pokojowy z serwomechanizmem. Koszt tego rozwiązania jest umiarkowany oraz zapewnia szerokie możliwości regulacji, umożliwiając dokonywanie nastaw lokalnie lub zdalnie.
  
@@ -162,20 +162,20 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
  \chapter{Przegląd istniejących rozwiązań} 
  \section{Standardy integracji inteligentnych urządzeń}
- Zamiast wymyślac kompletnie nowe standardy, Web of Things wykorzystuje istniejące, dobrze znane standardy webowe.
+ Zamiast wymyślać kompletnie nowe standardy, Web of Things wykorzystuje istniejące, dobrze znane standardy webowe.
   
  \section{Sterowniki kominkowe}
  Na rynku istnieje szeroka gama rozwiązań przeznaczonych do kotłów na paliwo stałe, jednak stosunkowo niewielka ilość sterowników przeznaczonych dla kominków. - tylko z dodatkową przepustnicą co ogranicza możliwość regulacji (powietrze pierwotne i wtórne).
  \subsection{TECH STEROWNIKI}
  Firma TECH ma w swojej aktualnej ofercie \cite{Tech} trzy sterowniki do kominków. Dwa znich są do kominków z płaszczem wodnym. Trzeci \cite{TechSterownik} przeznaczony jest do kominków z dystrybucją gorącego powietrza i mógłby zostać zastosowany przy piecu kominkowym. Czujnik mierzy temperaturę spalin.
- Aby mieć możliwość zdalnego dostępu do sterownika należy skorzystać z jednego z dwóch dodatkowych modułów komunikacyjnych - GSM lub Ethernet. Dosęp jest możliwy jedynie przez stronę producenta lub aplikację mobilną, brak publicznego API.
+ Aby mieć możliwość zdalnego dostępu do sterownika należy skorzystać z jednego z dwóch dodatkowych modułów komunikacyjnych - GSM lub Ethernet. Dostęp jest możliwy jedynie przez stronę producenta lub aplikację mobilną, brak publicznego API.
  Sam moduł Ethernet kosztuje około 500zł \cite{TechEthernetCena}.
  \subsection{EUROSTER}
  Firma EUROSTER ma w swojej aktualnej ofercie \cite{Euroster} tylko jeden seteronik do kominków. Jest on \cite{EurosterSterownik} przeznaczony do współpracy z kominkiem z płaszczem wodnym więc nie może być zastosowany do pieca kominkowego. Nie posiada możliwości zdalnego dostępu. Czujnik mierzy temperaturę wody obiegowej.
  Cena samego sterownika to około 300zł \cite{EurosterSterownikCena}. Dodatkowo należy zakupić przepustnicę.
  \subsection{Kratki}
- Firma Kratki ma w swoje ofercie \cite{Kratki} jeden sterownik do kominków występującwy w kilku wersjach różniących sie obudową i wielkością dołączonej do zestawu przepustnicy.
- Jest on przeznaczony do współpracy z kominkami każdego rodzaju dlatego może zostac zastosowany do pieca kominkowego. Nie posiada możliwości zdalnego dostępu. Czujnik miezy temperaturę w pobliżu paleniska. 
+ Firma Kratki ma w swoje ofercie \cite{Kratki} jeden sterownik do kominków występujący w kilku wersjach różniących się obudową i wielkością dołączonej do zestawu przepustnicy.
+ Jest on przeznaczony do współpracy z kominkami każdego rodzaju dlatego może zostać zastosowany do pieca kominkowego. Nie posiada możliwości zdalnego dostępu. Czujnik mierzy temperaturę w pobliżu paleniska. 
  Cena samego sterownika to około 400zł \cite{KratkiSterownik}.
   \subsection{Podsumowanie}
   Tylko jeden z wymienionych producentów pozwala na zdalny dostęp do sterownika, jednak jest on tylko możliwy za pośrednictwem serwerów producenta. Brak publicznego API. Cena tego rozwiązania jest wysoka.
@@ -193,7 +193,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \item czujnik otwarcia drzwi paleniska aby zmieniać parametry pracy po dołożeniu drewna
  \item zdalny dostęp do sterownika dla ułatwienia obsługi
  \item rtc dla programowania zadań czasowych
- \item połączenie ethernet, usunięcie niepotrzebnego ruchu wifi.
+ \item połączenie Ethernet, usunięcie niepotrzebnego ruchu WiFi.
  \item zapasowe źródło zasilania, pozwalające na kontrolę pracy pieca w razie zaniku napięcia w sieci
  \item zewnętrzny termometr, automatyka pogodowa
  \item przyciski na sterowniku, do zmiany podstawowych parametrów
@@ -221,12 +221,12 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
  ////Tabela porównująca z książki WoT////
  
- Ze względu na koszt jak i rozdzielenie odpowiedzilności zdecydowano się na wybór mikrokontrolera.
- ESP32 - układ SoC, następca ESP8266, wbudowane wi-fi, bluetooth, dwa rdzenie, energooszczędnośc, stosunkowo niska cena, gotowy moduł pozwalający na wygodne prototypowanie.
+ Ze względu na koszt jak i rozdzielenie odpowiedzialności zdecydowano się na wybór mikrokontrolera.
+ ESP32 - układ SoC, następca ESP8266, wbudowane wi-fi, bluetooth, dwa rdzenie, energooszczędność, stosunkowo niska cena, gotowy moduł pozwalający na wygodne prototypownie.
  
  \section{Wyświetlacz}
  Ze sterownika będą też korzystać osoby o pogorszonym wzroku, dlatego wyświetlacz powinien być duży i kontrastowy.
- Ze względu na to, że wszytkie parametry sterownika będą dostępne przez stronę internetową, wybrany został wyświetlacz LCD 2x16 który pozwoli na prezentowanie tylko kilku wybranych parametrów.
+ Ze względu na to, że wszytki parametry sterownika będą dostępne przez stronę internetową, wybrany został wyświetlacz LCD 2x16 który pozwoli na prezentowanie tylko kilku wybranych parametrów.
  
  \section{Termometr}
  Wybrany układ termometru DHT22 pozwala na pomiar temperatury i wilgotności jednocześnie zapewniając dobrą dokładność odczytów.
@@ -237,13 +237,13 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \section{Układ poruszający przepustnicą} 
  Potrzebne przemieszczanie liniowe przepustnicy jednak liniowe serwomechanizmy są wciąż drogie i przewyższałyby swoją ceną koszt całego sterownika.
  Możliwość zaprojektowania i wydrukowania adaptera, jednak długi czas produkcji oraz testowania wytrzymałości nie pozwala.
-  Ze względu na niewielką wymaganą precyzję ustawienia przepustnicy oraz zaistniałe opory, wybrano standardowej wielkości, analogwe serwo MG-995, bez adapterów przekształcających na ruch liniowy.
+  Ze względu na niewielką wymaganą precyzję ustawienia przepustnicy oraz zaistniałe opory, wybrano standardowej wielkości, analogowe serwo MG-995, bez adapterów przekształcających na ruch liniowy.
  
  \section{Moduł Ethernet}
  Moduł W5500 Lite jest nieznacznie droższy ale za to znacznie bardziej kompaktowy niż inne rozwiązania oparte o układ W5500.
  
  \section{Zegar czasu rzeczywistego}
- Pierwotnie planowano wykorzystanie modułu czasu rzeczywistego z podtrzymniem. Dalsza analiza wykazała bezzasadność takiego rozwiązania. Sterownik przez wiekszość czasu będzie podłączony do internetu skąd może pozsyskć aktualną godzinę.
+ Pierwotnie planowano wykorzystanie modułu czasu rzeczywistego z podtrzymaniem. Dalsza analiza wykazała bezzasadność takiego rozwiązania. Sterownik przez większość czasu będzie podłączony do internetu skąd może pozyskać aktualną godzinę.
  
  \section{Przyciski??}
  Ponieważ ESP32 posiada specjalne piny umożliwiające rozpoznawanie dotyku, zdecydowano się zastąpić pushbuttony panelem dotykowym.
@@ -252,9 +252,9 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Wykorzystano prosty przekaźnik podłączony do pinu cyfrowego mikrokontrolera.
  
  \section{Zasilanie awaryjne}
- Najprostrze rozwiązanie - powerbank, brak kontroli nad tym z jakiego źródła pochodzi zasilanie.
- \section{Rodzaj połaczenia}
- Ze względu na łatwość i pewność połączenia zdecydowano na wybranie standardu złącza 8P8C wykorzystywanego w róznego rodzaju sprzęcie telekomunikacyjnym i komputerowym. Rozpowszechnione jako złącze do budowy sieci w standardzie ethernet. 8P8C to złącze o ośmiu miejscach na styk i ośmiu stykach.
+ Najprostsze rozwiązanie - powerbank, brak kontroli nad tym z jakiego źródła pochodzi zasilanie.
+ \section{Rodzaj połączenia}
+ Ze względu na łatwość i pewność połączenia zdecydowano na wybranie standardu złącza 8P8C wykorzystywanego w rożnego rodzaju sprzęcie telekomunikacyjnym i komputerowym. Rozpowszechnione jako złącze do budowy sieci w standardzie Ethernet. 8P8C to złącze o ośmiu miejscach na styk i ośmiu stykach.
  
  
  \chapter{Wykonanie prototypu na płytce stykowej}
@@ -263,37 +263,46 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
  \section{Podłączenie mikrokontrolera oraz LCD}
  LCD 16x2 posiada dodatkowo konwerter I2C który zmniejsza ilość linii niezbędnych do komunikacji z 16 do 4.
- I2C to szeregowa, dwukierunkowa magistrala która wykorzystuje tylko dwie linie komunikacyjne - Serial Data oraz Serial Clock. Transfer danych może być zainicjowany tlko gdy magistrala nie jest zajęta.
+ I2C to szeregowa, dwukierunkowa magistrala która wykorzystuje tylko dwie linie komunikacyjne - Serial Data oraz Serial Clock. Transfer danych może być zainicjowany tylko gdy magistrala nie jest zajęta.
   
  \section{Podłączenie układu DHT22 - termometr i czujnik wilgotności}
- DHT22 do komunikacji z mikrokontrolerem wykorzytuje magistralę 1-Wire która wykorzystuje pojedyńczą linię komunikacyjną. 
+ DHT22 do komunikacji z mikrokontrolerem wykorzystuje magistralę 1-Wire która wykorzystuje pojedynczą linię komunikacyjną. 
  \subsection{Okablowanie}
-Aby umożliwić umieszczenie czujnika temperatury w dogodnym miejscu, zdala od źródła ciepła, zdecydowano o wykorzystaniu przewodu w standardzie telefonicznym.
+Aby umożliwić umieszczenie czujnika temperatury w dogodnym miejscu, zdała od źródła ciepła, zdecydowano o wykorzystaniu przewodu w standardzie telefonicznym.
  
  \section{Podłączenie układu MAX6675 - termopara}
- MAX6675 wykorzystuje do komunnikacji magistralę SPI która potrzebuje 3 linii komunikacyjnych: SO, CS, SCK.
+ MAX6675 wykorzystuje do komunikacji magistralę SPI która potrzebuje 3 linii komunikacyjnych: SO, CS, SCK.
  \subsection{Okablowanie}
- Wykorzystano skrętkę ekranowaną zabezpieczjącą przed zakłuceniami.
+ Wykorzystano skrętkę ekranowaną zabezpieczającą przed zakłóceniami.
  Wykorzystano wtyki RJ-45 ze względu na taniość rozwiązania oraz łatwość wykonywania złączy na końcach przewodu.
  
  \section{Podłączenie serwomechanizmu}
  Do podłączenia serwomechanizmu wystarczy jedna linia komunikacyjna przesyłająca sygnał PWM.
  \subsection{Okablowanie}
- Ponieważ serwomechanizm oraz czujnik otwarcia drzwi paleniska znajdują się w bezpośrednim sąsiedztwie pieca kominkowego zdecydowano o podłaczeniu ich pojedyńczym przewodem - skrętką ekranowaną.
+ Ponieważ serwomechanizm oraz czujnik otwarcia drzwi paleniska znajdują się w bezpośrednim sąsiedztwie pieca kominkowego zdecydowano o podłączeniu ich pojedynczym przewodem - skrętką ekranowaną.
  
  \section{Podłączenie przekaźnika}
- Przekaźnik podłączony jest pojedyńczą linią komunikacyjną.
+ Przekaźnik podłączony jest pojedyncza linią komunikacyjną.
  
-  \section{Podłączenie układu W5500 - erhernet}
+  \section{Podłączenie układu W5500 - Ethernet}
  W5500 wykorzystuje do komunikacji magistralę SPI.
  Podczas podłączania napotkano wiele problemów z komunikacją.
  Konieczna rekonfiguracja pinów.
  \subsection{Okablowanie}
- 
- 
+ Podobnie jak w przypadku termopary zdecydowano się wykorzystać skrętkę ekranowaną.
+
  \section{Panel dotykowy}
  Stworzenie i podłączenie panelu dotykowego.
- Trudność w podłączaniu - błednie nazwane piny ESP32.
+ Trudność w podłączaniu - błędnie nazwane piny ESP32.
+ 
+ \chapter{Wykonanie prototypu na płytce uniwersalnej}
+ \section{Rozmieszczenie elementów}
+ Dla wygodnego połączenia elementów wybrano płytkę uniwersalną o rozmiarach 9cm x 15cm ze standardowym rastrem otworów.
+ Na początku na płytce zostały umieszczone największe elementy: bateria z układem zabezpieczającym oraz mikrokontroler. Elementy te zostały połączone z płytką przy pomocy goldpinów. Kolejne elementy rozmieszczano tak aby porty komunikacyjne oraz zasilania znajdowały się na dwóch krawędziach płytki.
+ \section{Połączenie elementów}
+ Złącza dla goldpinów wszystkich elementów zostały przylutowane do płytki uniwersalnej, a następnie połączone jednożyłowymi przewodami miedzianymi w izolacji. Różne kolory izolacji ułatwiają identyfikację połączeń. Zasilanie do złączy RJ-45 zostało doprowadzone tak aby oba przewody znajdowały się w jednej parze, co pozwala na zmniejszenie ilości generowanych zakłóceń.
+ Sprawdzenia poprawności połączeń dokonano przy pomocy miernika uniwersalnego.
+ 
  
  \chapter{Stworzenie oprogramowania}\label{rozdz.stworzenie}
  
@@ -309,16 +318,16 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Następnie projekt został otwarty w CLion, gdzie przebiega dalszy proces programowania.
  
  \section{Portal przechwytujący}
- Aby umożliwić łatwą konfigurację połączenia Wi-Fi w sterowniku wykorzystano bibliotekę WiFiManager która pozwala na automatyczne tworzenie sieci wifi i wystawienia portalu przechwytującego dającego możliwość wybrania i połączenia się z docelową siecią. 
+ Aby umożliwić łatwą konfigurację połączenia Wi-Fi w sterowniku wykorzystano bibliotekę WiFiManager która pozwala na automatyczne tworzenie sieci WiFi i wystawienia portalu przechwytującego dającego możliwość wybrania i połączenia się z docelową siecią. 
  
- Dla zapewnienia bezpieczeństwa dostęp do sieci wifi jest zabezpieczony prostym hasłem podanym w instrukcji obsługi, a także zapisanym na urządzeniu.
+ Dla zapewnienia bezpieczeństwa dostęp do sieci WiFi jest zabezpieczony prostym hasłem podanym w instrukcji obsługi, a także zapisanym na urządzeniu.
  
  \section{Over The Air Update}
  Mechanizm OTA pozwala na wgrywanie nowych wersji oprogramowania przez sieć LAN.
  
  \section{Web Thing Adapter}
  Wykorzystanie biblioteki WebThingAdapter pozwala na łatwe przekształcenie mikrokontrolera w Rzecz Webową.
- Dodanie dwuch osobnych Rzeczy pozwoli na rozdzieleni funkcji administracyjnych od opcji przeznaczonych dla zwykłego użytkownika.
+ Dodanie dwóch osobnych Rzeczy pozwoli na rozdzieleni funkcji administracyjnych od opcji przeznaczonych dla zwykłego użytkownika.
  
  \section{User Menu}
  Na głównym ekranie wyświetlone są parametry pracy sterownika.
@@ -336,11 +345,11 @@ platformio init --ide clion --board esp32doit-devkit-v1
  
  
  \chapter{Przetestowanie oprogramowania}
- Głównie testy manualne działajacego sprzętu.
- Wybresy w Bramie pokażą możliwość ciągłej pracy.
+ Głównie testy manualne działającego sprzętu.
+ Wykresy w Bramie pokażą możliwość ciągłej pracy.
  Testy jednostkowe logiki aplikacji, najlepiej TDD.
  \section{Testy jednostkowe}
- Testy jednostkowe zostały wykonane z wykorzystaniem Platformio Unit Testing \cite{PIOUnitTesting}. Pozwala na wykonywanie testów na urządzeniu docelowym lub z użyciem platformy Native, wtedy testy sa przeprowadzane tylko w środowisku programistycznym.
+ Testy jednostkowe zostały wykonane z wykorzystaniem Platformio Unit Testing \cite{PIOUnitTesting}. Pozwala na wykonywanie testów na urządzeniu docelowym lub z użyciem platformy Native, wtedy testy są przeprowadzane tylko w środowisku programistycznym.
  
  
  \chapter{Zaprojektowanie płytki drukowanej}
@@ -353,8 +362,8 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \section{Lokalizacja Bramy Mozilla WebThing}
  Dodanie polskiej wersji językowej do Mozilla Gateway dla zwiększenia dostępności rozwiązania.
  \section{Instalacja Bramy na Raspberry Pi}
- \section{Dodanie urzadzeń do Bramy}
- \section{Dodanie urzytkowników}
+ \section{Dodanie urządzeń do Bramy}
+ \section{Dodanie użytkowników}
  \section{Dodanie powiadomień}
  
  \chapter{Przygotowanie instrukcji obsługi}
@@ -362,7 +371,7 @@ platformio init --ide clion --board esp32doit-devkit-v1
  
  
  \chapter{Efekt końcowy na tle koncepcji}
- Reflekcja na temat tego jak wygląda to co zaplanowałem w stosunko tego co udało się uzyskać.
+ Refleksja na temat tego jak wygląda to co zaplanowałem w stosunku tego co udało się uzyskać.
  
  
  \chapter*{Podsumowanie}
@@ -372,7 +381,7 @@ platformio init --ide clion --board esp32doit-devkit-v1
  
  \chapter*{Dalszy kierunek prac}
  \addcontentsline{toc}{chapter}{Kierunki dalszych prac}
- Jeśli zaczynałbym projekt z moją dzisiejszą wiedzą jak podszedłbym do problemu. Jak dalej rozwijałbym pracę, jakie dalasze temety zostałyby podjęte. 
+ Jeśli zaczynałbym projekt z moją dzisiejszą wiedzą jak podszedłbym do problemu. Jak dalej rozwijałbym pracę, jakie dalsze tematy zostałyby podjęte. 
 
 
 % \chapter*{Podsumowanie}
