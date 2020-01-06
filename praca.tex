@@ -393,7 +393,44 @@ platformio init --ide clion --board esp32doit-devkit-v1
  
  \chapter{Napisanie oprogramowania - część druga}\label{prog:2}
  W tym rozdziale opisano dalszą część tworzenia oprogramowania sterownika. 
- \section{•}
+
+  \section{Rozbudowa portalu przechwytującego}
+  W portalu przechwytującym zaprogramowano funkcję, wywoływaną w pętli głównej, podejmującą próbę podłączenia do zapamiętanej sieci WiFi w przypadku utraty łączności.
+  
+ \section{Rozbudowa obsługi DHT22}
+ Ponieważ jako punkt odniesienia dla sterownika postanowiono wykorzystać indeks cieplny zamiast temperatury w pliku dht stworzono funkcję pozwalającą na przekazanie indeksu do zmiennej. Dla zabezpieczenia poprawnej pracy sterownika funkcja ta zwraca informację o błędzie w przypadku niepowodzenia lub wątpliwych wartości temperatury i wilgotności na podstawie których obliczany jest indeks cieplny. 
+
+ \section{Rozbudowa obsługi MAX6675}
+ Dla zabezpieczenia poprawnej pracy sterownika jeśli odczyt temperatury się nie powiedzie, odczytane wartości są nierzeczywiste lub temperatura różni się znacznie od poprzedniego odczytu funkcja zwraca wartość 999 oraz wypisuje komunikat o błędzie. Zwrócenie przez funkcję tak wysokiej temperatury spowoduje szybkie zamknięcie przepustnicy przez regulator PID co będzie chroniło piec przed przegrzaniem.
+ 
+ \section{Rozbudowa obsługi LCD}
+ Z obsługi LCD usunięto funkcję testową. Dodana została funkcja wyświetlająca podstawowe nastawy sterownika: zadaną temperaturę w kominie, aktualną temperaturę w kominie, zadany indeks cieplny w pomieszczeniu, aktualny indeks cieplny w pomieszczeni oraz procentowe otwarcie przepustnicy. Dodana została funkcja pozwalająca na włączanie podświetlenia LCD i wyłączanie go po zadanym czasie.
+
+ \section{Rozbudowa obsługi serwomechanizmu}
+ Obsługę serwomechanizmu uzupełniono o wyłączanie sygnału sterującego po zmianie pozycji co w znaczącym stopniu przyczyniło się do poprawy kultury pracy. Często występującym problemem było blokowanie się przepustnicy ze względu na duże opory przy nieznacznej zmianie wychylenia. Po wyłączeniu sygnału PWM serwomechanizm przestaje próbować ustawić zadawaną pozycję i zostaje w tej którą osiągnął wcześniej. Zapobiega to niepotrzebnemu poborowi energii oraz redukuje głośny dźwięk wydawany przez urządzenie.
+
+ \section{Dodanie biblioteki dla PID}
+
+ \section{Dodanie biblioteki dla DS18B20}
+
+ \section{Dodanie biblioteki dla W5500}
+
+ \section{Dodanie biblioteki WebThing}
+
+ 
+ \section{Dodanie zdalnego uaktualniania oprogramowania}
+
+ 
+ \section{Dodanie odczytu napięć}
+
+ 
+ \section{Dodanie wykrywania dotyku}
+
+ 
+ \section{Dodanie obsługi brzęczyka}
+
+ 
+ \section{Testowanie sterownika}
  
  
  \section{Web Thing Adapter}
