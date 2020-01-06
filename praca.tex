@@ -1,5 +1,5 @@
  \hoffset1cm % przesunięcie poziome (przykładowo) o 1cm przeznaczone na oprawę
-\documentclass[12pt]{report}
+\documentclass[11pt]{report}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
@@ -162,17 +162,17 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \chapter{Charakterystyka metod obsługi} 
  Obsługa w pełni manualna wymaga stałego nadzoru nad przebiegiem spalania. Jest bardzo absorbująca. Łatwo prowadzi do przekroczenia pożądanych temperatur. Pogarsza efektywność procesu spalania, co prowadzi do obniżenia ogólnej sprawności kotła, większego zapotrzebowania na opał, a w konsekwencji znacznie wyższych kosztów ogrzewania.
  
- Obsługa półautomatyczna pozwala na samodzielną pracę urządzenia pomiędzy momentami dokładania paliwa. Można wyróżnić dwie jej odsłony. Mechaniczna, w której głowica termostatyczna połączona jest z mechanizmem dźwigni. Na jej ramieniu znajduje się łańcuszek lub linka. Zaletą jest niski koszt. Elektroniczna, gdzie stosuje się sterownik pokojowy z serwomechanizmem. Koszt tego rozwiązania jest umiarkowany oraz zapewnia szerokie możliwości regulacji, umożliwiając dokonywanie nastaw lokalnie lub zdalnie.
+ Obsługa półautomatyczna pozwala na samodzielną pracę urządzenia pomiędzy momentami dokładania paliwa. Można wyróżnić dwie jej odsłony. Mechaniczna, w której głowica termostatyczna połączona jest z mechanizmem dźwigni. Na jej ramieniu znajduje się łańcuszek lub linka. Zaletą jest niski koszt. Elektroniczna, gdzie stosuje się sterownik pokojowy z serwomechanizmem. Koszt tego rozwiązania jest umiarkowany oraz zapewnia szerokie możliwości regulacji, umożliwiając dokonywanie nastaw lokalnie lub zdalnie. 
  
  Najdroższe jak i najbardziej autonomiczne rozwiązanie stanowi obsługa automatyczna, w której kocioł z podajnikiem paliwa pracuje samodzielnie do kilku dni
  
  
  \chapter{Przegląd istniejących rozwiązań} 
  \section{Standardy integracji inteligentnych urządzeń}
- Zamiast wymyślać kompletnie nowe standardy, Web of Things wykorzystuje istniejące, dobrze znane standardy webowe.
+ W przypadku internetu rzeczy producenci nie zwracali uwagi na stworzenie otwartych systemów komunikujących się ze sobą urządzeń. W szczególności ograniczone były działania  podejmowane dla umożliwienia doraźnego współdziałania elementów składających się na internet rzeczy pomimo, że organizacje standaryzacyjne zaproponowały wiele protokołów. Żaden z tych standardów nie zdobył na tyle dużej popularności by zdominować pozostałe rozwiązania. Coraz więcej urządzeń podłączanych do internetu udostępnia API, jednak każdy z nich został zaimplementowany z wykorzystaniem innych protokołów i używa innego modelu danych. Zamiast proponować kompletnie nowe standardy, Web of Things wykorzystuje istniejące, dobrze znane standardy webowe.
   
  \section{Sterowniki kominkowe}
- Na rynku istnieje szeroka gama rozwiązań przeznaczonych do kotłów na paliwo stałe, jednak stosunkowo niewielka ilość sterowników przeznaczonych dla kominków. - tylko z dodatkową przepustnicą co ogranicza możliwość regulacji (powietrze pierwotne i wtórne).
+ Na Polskim rynku istnieje szeroka gama rozwiązań przeznaczonych do kotłów na paliwo stałe, jednak stosunkowo niewielka ilość sterowników przeznaczonych dla kominków. - tylko z dodatkową przepustnicą co ogranicza możliwość regulacji (powietrze pierwotne i wtórne).
  \subsection{TECH STEROWNIKI}
  Firma TECH ma w swojej aktualnej ofercie \cite{Tech} trzy sterowniki do kominków. Dwa znich są do kominków z płaszczem wodnym. Trzeci \cite{TechSterownik} przeznaczony jest do kominków z dystrybucją gorącego powietrza i mógłby zostać zastosowany przy piecu kominkowym. Czujnik mierzy temperaturę spalin.
  Aby mieć możliwość zdalnego dostępu do sterownika należy skorzystać z jednego z dwóch dodatkowych modułów komunikacyjnych - GSM lub Ethernet. Dostęp jest możliwy jedynie przez stronę producenta lub aplikację mobilną, brak publicznego API.
@@ -417,7 +417,7 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \printbibliography[title={Materiały konferencyjne},type=inproceedings]
  
  \addcontentsline{toc}{chapter}{Pozostałe źródła}
- \printbibliography[title={Pozostałe źródła}, nottype=article, nottype=book, nottype=inproceedings, nottype=thesis]
+% \printbibliography[title={Pozostałe źródła}, nottype=article, nottype=book, nottype=inproceedings, nottype=thesis]
 
  
 
