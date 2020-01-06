@@ -250,6 +250,9 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \section{Zasilanie awaryjne}
  Najprostszym z rozważanych rozwiązań było zastosowanie dodatkowego, zewnętrznego modułu typu powerbank, jednak jego wykorzystanie nie dawałoby, żadnej kontroli nad trybem zasilania sterownika, co mogło by skutkować nagłym przerwaniem dostaw energii, a w konsekwencji możliwością przegrzania pieca. Wybrano płytkę rozszerzeń typu battery shield z dwoma akumulatorami litowo-jonowymi 18650 o pojemności około 3600mAh każda oraz układem ładowania i zabezpieczającym przed całkowitym rozładowaniem.
  
+ \section{Źródło dźwięku}
+ Jako źródło dźwięku w projekcie zdecydowano się wykorzystać brzęczyk pasywny. Brzęczyk pasywny w odróżnieniu od aktywnego, umożliwiają generowanie dźwięków o zmiennej częstotliwości za pomocą sygnału PWM. Dla łatwiejszego wykorzystania w projekcie zdecydowano się wybrać moduł brzęczyka zawierający tranzystor sterujący który chroni źródło sygnału przed przeciążeniem prądowym.
+ 
  \section{Rodzaj połączenia czujników zewnętrznych}
  Ze względu na łatwość i pewność połączenia zdecydowano na wybranie standardu złącza 8P8C wykorzystywanego w rożnego rodzaju sprzęcie telekomunikacyjnym i komputerowym. Rozpowszechnione jako złącze do budowy sieci w standardzie Ethernet. 8P8C to złącze o ośmiu miejscach na styk i ośmiu stykach.
  
@@ -282,7 +285,11 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Moduł W5500 wykorzystuje do komunikacji magistralę SPI - 4 linie komunikacyjne: MO - Master Output Slave Input, SO - Master Input Slave Output ,CS - Chip Select, SCK - Serial Clock.
  Podczas podłączania układu napotkano problemy z komunikacją. Konieczna była zmiana wykorzystywanych pinów mikrokontrolera.
  
- \subsection{Wykonanie okablowania}
+ \section{Podłączenie brzęczyka}
+ Do podłączenia brzęczyka potrzebna jest jedna linia komunikacyjna przesyłająca sygnał PWM oraz zasilanie 5V. Podczas podłączania napotkano problemy z komunikacją. Przyczyną okazało się błędne nazewnictwo pinów. Pin 32 został zamieniony z pinem 33 w opisie wyprowadzeń na płytce.
+ 
+ 
+ \section{Wykonanie okablowania}
  Podłączenie zewnętrznych czujników do sterownika wykonano z wykorzystaniem skrętki ekranowanej która zapewnia odporność komunikacji na zakłócenia transmisji.
  
  
@@ -344,6 +351,10 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \section{Dodanie wykrywania dotyku}
  Mikrokontroler ESP32 posiada wbudowane 10 pojemnościowych sensorów dotyku ale wykorzystana w projekcie płytka deweloperska ma wyprowadzone ich tylko 9. Odczyt sensorów dotyku jest bardzo prosty, wystarczy użyć funkcji touchRead jako argument podając numer pinu.
  
+ \section{Dodanie obsługi brzęczyka}
+ Do wytwarzania dźwięku brzęczyk potrzebuje sygnału PWM. Do generowania sygnału PWM przez mikrokontroler wykorzystano moduł LED Control. W pierwszej kolejności należy skorzystać z funkcji ledcSetup podając trzy argumetny: kanał, częstotliwość oraz rozdzielczość. Następnie aby rozpocząć generowanie należ skorzystać z funkcji ledcAttachPin podając dwa argumenty: numer pinu do którego podłączone jest wejście sygnałowe brzęczyka oraz kanał.
+ Aby zaprzestać generowania należy skorzystac z funkcji ledcWrite podając dwa argumenty: kanał oraz 0 (cykl pracy).
+ 
  \section{Testowanie sterownika}
  Po każdym etapie dodawania kolejnych modułów projektu działanie sterownika było testowane z wykorzystaniem monitora portu szeregowego poprzez odczytanie mierzonych przez sterownik wartości.
 
@@ -355,9 +366,9 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \section{Rozmieszczenie elementów}
  Dla wygodnego połączenia elementów wybrano płytkę uniwersalną o rozmiarach 9cm x 15cm ze standardowym rastrem otworów 2,54mm.
  Na początku na płytce zostały umieszczone gniazda pod największe elementy: moduł zasilania o wymiarach 9,8cm x 2,9cm oraz mikrokontroler o wymiarach 5,5cm x 2,8cm. Gniazda pod kolejne elementy rozmieszczano tak aby porty komunikacyjne oraz zasilania znajdowały się na dwóch krawędziach płytki. 
- Największą trudność sprawiło umieszczenie na płytce portów sieciowych, gdyż wyprowadzenie ich połączeń sygnałowych nie jest zgodne z rastrem 2,54mm.
+ Największą trudność sprawiło umieszczenie na płytce portów sieciowych, gdyż wyprowadzenie ich połączeń sygnałowych nie jest zgodne z rastrem 2,54mm, a dodatkowo potrzebne są otwory montażowe.
   
-  \section{Wykonanie panel dotykowy}
+  \section{Wykonanie panelu dotykowego}
  Panel dotykowy został wykonany z blaszek miedzianych o wymiarach 2cm x 2cm, przyklejonych do pokrywy sterownika, przylutowanych do przewodów zakończonych gniazdami. Podczas wycinania elementów należało zachować szczególną staranność dla zapewniania estetyki wykonania.
 
  \section{Połączenie elementów}
@@ -369,15 +380,20 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \subsection{Dodanie dzielnika napięcia}
  W celu wyrywania aktualnego źródła zasilania sterownika zdecydowano o pomiarze napięcia zasilania diod sygnalizacyjnych w układzie modułu zasilania awaryjnego. Aby dostosować napięcia do zakresu bezpiecznego dla mikrokontrolera zastosowano dzielniki napięcia składające się z rezystorów 1k Ohm.
  \subsection{Dodanie głównego włącznika zasilania}
- Dla umożliwienia łatwiejszego włączania zasilania zdecydowano się umieścić w projekcie dodatkowy przełącznik zasilania podłączony do modułu zasilania awaryjnego.
+ Dla umożliwienia łatwiejszego włączania zasilania zdecydowano się umieścić w projekcie dodatkowy przełącznik zasilania podłączony do modułu zasilania awaryjnego. Do małego przełącznika znajdującego się w module zasilania przylutowano dwa goldpiny. Duży przełącznik został podłączony do przewodów zakończonych gniazdami szpilkowymi pasującymi do goldpinów.
 
  \section{Testowanie prototypu}
+ Po podłączeniu wszystkich elementów sterownika do płytki uniwersalnej sprawdzono działanie z wykorzystaniem monitora portu szeregowego.
  
- 
- 
- 
+ \chapter{Wykonanie obudowy}
+ Pierwotnie rozważano możliwość wydruku obudowy na drukarce 3D jednak wielkość potrzebnej obudowy oraz czas niezbędny do wykonania projektu obudowy przesądziły o wykorzystaniu gotowej skrzynki z plastiku z przeźroczystym wieczkiem o rozmiarze 15,8cm x 9cm x 6cm pozwalającym na swobodne zmieszczenie wszystkich komponentów sterownika. Płytka uniwersalna została przycięta na rogach ponieważ skrzynka posada tam miejsca na śruby. W skrzynce wykonano w sumie 5 otworów. Jeden na górnej powierzchni obudowy, na port micro USB, przeznaczony na wypadek potrzeby bezpośredniego podłączenia do mikrokontrolera. Jeden na prawym brzegu obudowy, na port micro USB, przeznaczony do zasilania podczas normalnej pracy. Trzy otwory na dolnej powierzchni obudowy. Z lewej strony otwór na gniazdo 8p8c (często błędnie nazywane RJ-45) przeznaczone do połączenia z internetem. W środkowej części potrójne gniazdo 8p8c przeznaczone do komunikacji z czujnikami zewnętrznymi oraz serwomechanizmem. Z prawej strony otwór na główny włącznik.
+ Po wykonaniu otworów i zamontowaniu komponentów sterownika przystąpiono do montowania panelu dotykowego. Poszczególne pola panelu zostały przyklejone do przezroczystego wieczka obudowy na kształt "+", każdy w odległości około 4mm od drugiego, co pozwala na minimalizację zakłóceń.
+ Ostatnim etapem wykonania obudowy było wklejenie ekranu lcd w lewym górnym rogu przeźroczystego wieczka sterownika.
+ Po umieszczeniu w obudowie i podłączeniu wszystkich elementów sterownika sprawdzono działanie z wykorzystaniem monitora portu szeregowego.
  
  \chapter{Napisanie oprogramowania - część druga}\label{prog:2}
+ W tym rozdziale opisano dalszą część tworzenia oprogramowania sterownika. 
+ \section{•}
  
  
  \section{Web Thing Adapter}
