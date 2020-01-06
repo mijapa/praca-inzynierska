@@ -96,14 +96,13 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \begin{enumerate}
  \item przegląd istniejących rozwiązań - zarówno sprzętowych jak i programowych; (komputerowe systemy sterowania, inżynieria systemów informacyjnych)
  \item opracowanie koncepcji; (komputerowe systemy sterowania, mikroprocesory i mikrokontrolery, systemy operacyjne)
- \item wybór podzespołów; (architektura systemów komputerowych, podstawy elektroniki i techniki cyfrowej, mikroprocesory i mikrokontrolery, systemy wbudowane)
- \item wykonanie prototypu na płytce stykowej; (systemy wbudowane)
- \item stworzenie oprogramowania; (symulacja komputerowa, systemy wbudowane, technologie obiektowe, programowanie obiektowe, sieci komputerowe)
- \item przetestowanie oprogramowania; (systemy odporne na błędy)
- \item zaprojektowanie płytki drukowanej - PCB; (elektrotechnika, podstawy elektroniki i techniki cyfrowej)
- \item zaprojektowanie obudowy
+ \item wybór podzespołów;
+ \item wykonanie prototypu na płytce stykowej;
+ \item stworzenie oprogramowania;
+ \item przetestowanie oprogramowania; 
+ \item wykonanie prototypu na płytce uniwersalnej;
+ \item wykonanie obudowy;
  \item zintegrowanie z Mozilla Gateway
- \item przygotowanie instrukcji obsługi
  \end{enumerate}
  
  \section{Założenia i wymagania}
@@ -113,28 +112,24 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \item[•] środowisko programistyczne CLion
  \item[•] język programowania C/C++
  \item[•] ekosystem PlatformIO
- \item[•] oprogramowanie do projektowania PCB KiCad
  \item[•] platforma monitoringu i kontroli urządzeń WebThing Mozilla
- \item[•] wzorzec projektowy - \dots
  \end{enumerate}
  
  Sterownik ma umożliwić:
  \begin{enumerate}
  \item[•] monitorowanie pracy pieca kominkowego
- \item[•] lokalne i zdalne zadawanie temperatur
+ \item[•] zdalne zadawanie temperatur
  \item[•] informowanie o zdarzeniach
  \end{enumerate}
  
  Wymagania:
  \begin{enumerate}
  \item[•] zgodność z Web Thing API
- \item[•] watchdog
  \item[•] możliwość rozbudowy o dodatkowe czujniki i elementy wykonawcze
  \item[•] przywracanie nastaw po utracie zasilania
- \item[•] zamknięcie dolotu powietrza na czas dokładania paliwa
  \item[•] minimalizacja otwarcia przepustnicy w przypadku zaniku napięcia
  \item[•] sygnalizacja uszkodzenia czujnika temperatury
- \item[•] regulowana jasność wyświetlacza - zwiększana na czas zmiany ustawień (opcja)
+ \item[•] regulowana jasność wyświetlacza - zwiększana na czas zmiany ustawień
  \item[•] sygnalizator dźwiękowy który informuje gdy temperatura wzrośnie do niebezpiecznego poziomu
  \end{enumerate}
  
@@ -159,7 +154,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \ldots
  
 
- \chapter{Charakterystyka metod obsługi} 
+ \chapter{Charakterystyka metod obsługi pieca} 
  Obsługa w pełni manualna wymaga stałego nadzoru nad przebiegiem spalania. Jest bardzo absorbująca. Łatwo prowadzi do przekroczenia pożądanych temperatur. Pogarsza efektywność procesu spalania, co prowadzi do obniżenia ogólnej sprawności kotła, większego zapotrzebowania na opał, a w konsekwencji znacznie wyższych kosztów ogrzewania.
  
  Obsługa półautomatyczna pozwala na samodzielną pracę urządzenia pomiędzy momentami dokładania paliwa. Można wyróżnić dwie jej odsłony. Mechaniczna, w której głowica termostatyczna połączona jest z mechanizmem dźwigni. Na jej ramieniu znajduje się łańcuszek lub linka. Zaletą jest niski koszt. Elektroniczna, gdzie stosuje się sterownik pokojowy z serwomechanizmem. Koszt tego rozwiązania jest umiarkowany oraz zapewnia szerokie możliwości regulacji, umożliwiając dokonywanie nastaw lokalnie lub zdalnie. 
@@ -206,11 +201,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \item przyciski na sterowniku, do zmiany podstawowych parametrów
  \end{enumerate}  
  
- 
- \chapter{Techniczne środki realizacji}
- Może lepiej umieścić przed rozdziałem \label{rozdz.stworzenie}
- 
- 
+  
  \chapter{Wybór podzespołów}
  \section{Mikrokontroler lub platforma komputerowa}
  Rozważanymi kandydatami na serce sterownika były platformy komputerowe:
@@ -226,8 +217,6 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \item ESP32
  \end{enumerate}
  
- ////Tabela porównująca z książki WoT////
- 
  Ze względu na koszt jak i rozdzielenie odpowiedzialności zdecydowano się na wybór mikrokontrolera.
  ESP32 - układ SoC, następca ESP8266, wbudowane wi-fi, bluetooth, dwa rdzenie, energooszczędność, stosunkowo niska cena, gotowy moduł pozwalający na wygodne prototypownie.
  
@@ -239,64 +228,92 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Wybrany układ termometru DHT22 pozwala na pomiar temperatury i wilgotności jednocześnie zapewniając dobrą dokładność odczytów.
  
  \section{Termopara}
- Układ MAX6675 jest starszy, a dzięki temu niedrogi i dobrze przetestowany. 
+ Układ MAX6675 jest jednym ze starszych rozwiązań dostępnych na rynku, a dzięki temu niedrogi i dobrze przetestowany. 
 
  \section{Układ poruszający przepustnicą} 
- Potrzebne przemieszczanie liniowe przepustnicy jednak liniowe serwomechanizmy są wciąż drogie i przewyższałyby swoją ceną koszt całego sterownika.
- Możliwość zaprojektowania i wydrukowania adaptera, jednak długi czas produkcji oraz testowania wytrzymałości nie pozwala.
+ Posiadany piec kominkowy potrzebuje przemieszczania liniowego przepustnicy jednak odpowiednie serwomechanizmy są wciąż drogie i przewyższałyby swoją ceną koszt pozostałych podzespołów całego sterownika.
+ Istnieje możliwość zaprojektowania i wydrukowania właściwego adaptera serwomechanizmu, jednak długi czas produkcji oraz testowania wytrzymałości przekraczałby zakres tej pracy.
   Ze względu na niewielką wymaganą precyzję ustawienia przepustnicy oraz zaistniałe opory, wybrano standardowej wielkości, analogowe serwo MG-995, bez adapterów przekształcających na ruch liniowy.
  
  \section{Moduł Ethernet}
- Moduł W5500 Lite jest nieznacznie droższy ale za to znacznie bardziej kompaktowy niż inne rozwiązania oparte o układ W5500.
+ Ponieważ sterownik bez przerwy komunikuje się z Bramą, to aby nie generować smogu elektromagnetycznego zdecydowano na dołączenie dodatkowego modułu komunikacji Ethernet. Wybrany moduł W5500 Lite jest nieznacznie droższy ale za to bardziej kompaktowy niż inne rozwiązania oparte o układ W5500.
  
  \section{Zegar czasu rzeczywistego}
- Pierwotnie planowano wykorzystanie modułu czasu rzeczywistego z podtrzymaniem. Dalsza analiza wykazała bezzasadność takiego rozwiązania. Sterownik przez większość czasu będzie podłączony do internetu skąd może pozyskać aktualną godzinę.
+ Pierwotnie planowano wykorzystanie modułu czasu rzeczywistego z podtrzymaniem, jednak ponieważ sterownik przez większość czasu będzie podłączony do internetu skąd może pozyskać aktualną godzinę, zrezygnowano z tego rozwiązania.
  
- \section{Przyciski??}
- Ponieważ ESP32 posiada specjalne piny umożliwiające rozpoznawanie dotyku, zdecydowano się zastąpić pushbuttony panelem dotykowym.
+ \section{Urządzenie wskazujące}
+ Pierwszym planowanym rozwiązaniem było wykorzystanie przycisków typu pushbutton. Ponieważ mikrokontroler ESP32 posiada specjalne piny umożliwiające rozpoznawanie dotyku poprzez detekcję zmian pojemności, zdecydowano się zastąpić pushbuttony panelem dotykowym.
  
  \section{Czujnik otwarcia drzwi paleniska}
- Wykorzystano prosty przekaźnik podłączony do pinu cyfrowego mikrokontrolera.
+ Czujnik otwarcia drzwi paleniska pozwoli na wykrywanie momentów dokładania paliwa. W projekcie wykorzystano prosty przełącznik podłączony do pinu cyfrowego mikrokontrolera.
  
  \section{Zasilanie awaryjne}
- Najprostsze rozwiązanie - powerbank, brak kontroli nad tym z jakiego źródła pochodzi zasilanie.
- \section{Rodzaj połączenia}
+ Najprostszym z rozważanych rozwiązań było zastosowanie dodatkowego, zewnętrznego modułu typu powerbank, jednak jego wykorzystanie nie dawałoby, żadnej kontroli nad trybem zasilania sterownika. Wybrano płytkę rozszerzeń typu battery shield z dwoma bateriami litowo-jonowymi 18650 o pojemności około 3600mAh każda.
+ \section{Rodzaj połączenia czujników zewnętrznych}
  Ze względu na łatwość i pewność połączenia zdecydowano na wybranie standardu złącza 8P8C wykorzystywanego w rożnego rodzaju sprzęcie telekomunikacyjnym i komputerowym. Rozpowszechnione jako złącze do budowy sieci w standardzie Ethernet. 8P8C to złącze o ośmiu miejscach na styk i ośmiu stykach.
  
  
  \chapter{Wykonanie prototypu na płytce stykowej}
  W tym rozdziale opisany został proces prototypowania z wykorzystaniem płytki stykowej.
- Płytka stykowa pozwala na łatwe połączenie elementów układu i testowanie ich współdziałania.
+ Płytka stykowa pozwala na łatwe połączenie elementów tworzonego układu. W pierwszej kolejności podzespoły wpinane są w płytkę, a następnie łączone elektrycznie przy pomocy specjalnych przewodów.
+ Pierwszym, elementem sterownika umieszczonym na płytce był mikrokontroler ESP32. Ponieważ może być on zasilany przez port USB nie wymagał więc dodatkowych podłączeń. 
  
  \section{Podłączenie mikrokontrolera oraz LCD}
- LCD 16x2 posiada dodatkowo konwerter I2C który zmniejsza ilość linii niezbędnych do komunikacji z 16 do 4.
- I2C to szeregowa, dwukierunkowa magistrala która wykorzystuje tylko dwie linie komunikacyjne - Serial Data oraz Serial Clock. Transfer danych może być zainicjowany tylko gdy magistrala nie jest zajęta.
+ Użyty w projekcie wyświetlacz LCD 16x2 posiada dodatkowo konwerter I2C który zmniejsza ilość linii niezbędnych do komunikacji z 16 do 4. Wykorzystana do komunikacji magistrala I2C to szeregowa, dwukierunkowa magistrala która wykorzystuje tylko dwie linie komunikacyjne - Serial Data oraz Serial Clock. Transfer danych może być zainicjowany tylko gdy magistrala nie jest zajęta. Poza liniami transferu danych wyświetlacz potrzebuje także pary linii zasilania - masy oraz 5V.
   
  \section{Podłączenie układu DHT22 - termometr i czujnik wilgotności}
- DHT22 do komunikacji z mikrokontrolerem wykorzystuje magistralę 1-Wire która wykorzystuje pojedynczą linię komunikacyjną. 
- \subsection{Okablowanie}
-Aby umożliwić umieszczenie czujnika temperatury w dogodnym miejscu, zdała od źródła ciepła, zdecydowano o wykorzystaniu przewodu w standardzie telefonicznym.
+ Moduł DHT22 do komunikacji z mikrokontrolerem wykorzystuje magistralę 1-Wire która wykorzystuje pojedynczą linię komunikacyjną. W zależności od długości przewodów należy wybrać właściwy rezystor podciągający. Mikrokontroler ESP32 posiada wbudowany rezystor podciągający o wartości około 50k Ohmów dlatego jeśli przewody przyłączeniowe nie są długie nie ma potrzeby wykorzystywania dodatkowego rezystora.
+ Moduł termometru DHT22 potrzebuje dodatkowo zasilania 3,3V.
  
  \section{Podłączenie układu MAX6675 - termopara}
- MAX6675 wykorzystuje do komunikacji magistralę SPI która potrzebuje 3 linii komunikacyjnych: SO, CS, SCK.
- \subsection{Okablowanie}
- Wykorzystano skrętkę ekranowaną zabezpieczającą przed zakłóceniami.
- Wykorzystano wtyki RJ-45 ze względu na taniość rozwiązania oraz łatwość wykonywania złączy na końcach przewodu.
+ Układ MAX6675 wykorzystuje do komunikacji magistralę SPI - 3 linie komunikacyjne: SO - Master Input Slave Output ,CS - Chip Select, SCK - Serial Clock. Do zasilania potrzebne jest napięcie 3,3V.
  
  \section{Podłączenie serwomechanizmu}
- Do podłączenia serwomechanizmu wystarczy jedna linia komunikacyjna przesyłająca sygnał PWM.
- \subsection{Okablowanie}
- Ponieważ serwomechanizm oraz czujnik otwarcia drzwi paleniska znajdują się w bezpośrednim sąsiedztwie pieca kominkowego zdecydowano o podłączeniu ich pojedynczym przewodem - skrętką ekranowaną.
+ Do podłączenia serwomechanizmu wystarczy jedna linia komunikacyjna przesyłająca sygnał PWM oraz zasilanie 5V.
  
- \section{Podłączenie przekaźnika}
- Przekaźnik podłączony jest pojedyncza linią komunikacyjną.
+ \section{Podłączenie czujnika otwarcia paleniska}
+ Czujnik otwarcia drzwi paleniska w postaci prostego przełącznika został podłączony do pinu cyfrowego mikrokontrolera pojedynczą linią komunikacyjną. Linia ta będzie ustawiana w stan wysoki przy pomocy rezystora podciągającego. Otwarcie drzwi spowoduje zwarcie linii do masy. 
  
   \section{Podłączenie układu W5500 - Ethernet}
- W5500 wykorzystuje do komunikacji magistralę SPI.
- Podczas podłączania napotkano wiele problemów z komunikacją.
- Konieczna rekonfiguracja pinów.
+ Moduł W5500 wykorzystuje do komunikacji magistralę SPI - 4 linie komunikacyjne: MO - Master Output Slave Input, SO - Master Input Slave Output ,CS - Chip Select, SCK - Serial Clock.
+ Podczas podłączania układu napotkano problemy z komunikacją. Konieczna była zmiana wykorzystywanych pinów mikrokontrolera.
+ 
  \subsection{Okablowanie}
- Podobnie jak w przypadku termopary zdecydowano się wykorzystać skrętkę ekranowaną.
+ Podłączenie zewnętrznych czujników do sterownika wykonano z wykorzystaniem skrętki ekranowanej która zapewnia odporność komunikacji na zakłócenia transmisji.
+ 
+ 
+ \chapter{Napisanie oprogramowania}
+ W tym rozdziale opisano proces pisania pierwszej części oprogramowania stanowiącej podstawę komunikacji z modułami sterownika.
+ 
+ \section{Utworzenie projektu}
+ Do programowania sterownika wykorzystano środowisko programistyczne CLion wraz z ekosystem PlatformIO.
+ CLion to wieloplatformowe zintegrowane środowisko programistyczne (IDE) przeznaczone dla języków C/C++.
+ PlatformIO Core jest sercem całego ekosystemu PlatformIO ułatwiającego programowanie mikrokontrolerów. Dostarcza interfejs wiersza poleceń. Jest napisane w Pythonie.
+ Projekt oprogramowania sterownika został zainicjalizowany w pustym katalogu poleceniem:
+ \begin{lstlisting}
+platformio init --ide clion --board esp32doit-devkit-v1 
+ \end{lstlisting}
+ Definiuje ono z jakiego IDE chcemy skorzystać, oraz jaki mikrokontroler będzie programowany.
+ Następnie projekt został otwarty w CLion, gdzie przebiega dalszy proces programowania.
+ 
+ \section{Konfiguracja Projektu}
+ W celu konfigurowania projektu należy poddać edycji plik platformio.ini. Daje on przede wszystkim możliwość wybrania frameworka, dodatkowych bibliotek, prędkości komunikacji z mikrokontrolerem przez monitor portu szeregowego oraz parametrów wgrywania oprogramowania.
+ 
+ \section{Szkielet do budowy aplikacji}
+ Spośród dwóch dostępnych dla mikrokontrolera ESP32 frameworków ze względu na dużą ilość gotowych bibliotek do komunikacji z modułami zdecydowano się na wykorzystanie platformy programistycznej Arduino.
+ Program napisany dla tej platformy musi posiadać plik main w którym są dwie funkcje: setup oraz loop.
+ Setup wykonywany jest tylko raz po uruchomieniu mikrokontrolera, natomiast loop wykonuje się w nieskończonej pętli aż do momentu zakończenia pracy.
+ 
+ \section{Dodanie bibliotek i podstawowa komunikacja z urządzeniami}
+ Aby sprawdzić poprawność działania prototypu wykonanego na płytce stykowej pisanie oprogramowania rozpoczęto od dodania bibliotek pozwalających na komunikację z urządzeniami. Dla każdego urządzenia stworzono osobny plik .h zawierający deklaracje funkcji oraz plik .cpp zawierający ich definicje.
+ W dalszej kolejności zostało opisane użycie poszczególnych bibliotek.
+  \subsection{Portal przechwytujący}
+ W pierwszej kolejności aby umożliwić łatwą konfigurację połączenia Wi-Fi w sterowniku wykorzystano bibliotekę ESP Acync WiFiManager \cite{WiFiManager} która pozwala na automatyczne tworzenie sieci WiFi i portalu przechwytującego dającego możliwość wybrania i połączenia się z docelową siecią WiFi zapewniającą łączność sterownika z Internetem. 
+ Dla utworzenia  WiFi Menagera należy konstruktorowi przekazać dwa obiekty: serwer web oraz server dns. Następnie należy dodać funkcję zwrotną (callback) wykonywaną w momencie utworzenia przez WiFi Manger acces pointa. Aby uruchomić Menager należy wywołać metodę autoConnect przekazując jej jako opcjonalne parametry nazwę acces pointa oraz hasło. Po uruchomieniu Menager próbuje się połączyć z poprzednio zapamiętaną siecią WiFi. Jeśli jej nie odnajdzie, tworzy acces point oraz portal przechwytujący w którym można wybrać inną sieć. Po poprawnym połączeniu na port szeregowy wypisywany jest adres ip sterownika.
+ 
+ \section{Over The Air Update}
+ Mechanizm OTA pozwala na wgrywanie nowych wersji oprogramowania przez sieć LAN.
+ 
 
  \section{Panel dotykowy}
  Stworzenie i podłączenie panelu dotykowego.
@@ -310,27 +327,6 @@ Aby umożliwić umieszczenie czujnika temperatury w dogodnym miejscu, zdała od 
  Złącza dla goldpinów wszystkich elementów zostały przylutowane do płytki uniwersalnej, a następnie połączone jednożyłowymi przewodami miedzianymi w izolacji. Różne kolory izolacji ułatwiają identyfikację połączeń. Zasilanie do złączy RJ-45 zostało doprowadzone tak aby oba przewody znajdowały się w jednej parze, co pozwala na zmniejszenie ilości generowanych zakłóceń.
  Sprawdzenia poprawności połączeń dokonano przy pomocy miernika uniwersalnego.
  
- 
- \chapter{Stworzenie oprogramowania}\label{rozdz.stworzenie}
- 
- \section{Utworzenie projektu}
- Do programowania sterownika wykorzystano środowisko programistyczne CLion wraz z ekosystem PlatformIO.
- CLion to wieloplatformowe zintegrowane środowisko programistyczne (IDE) przeznaczone dla języków C/C++.
- PlatformIO Core jest sercem całego ekosystemu PlatformIO. Dostarcza interfejs wiersza poleceń. Jest napisane w Pythonie.
- Projekt został zainicjalizowany w pustym katalogu poleceniem:
- \begin{lstlisting}
-platformio init --ide clion --board esp32doit-devkit-v1 
- \end{lstlisting}
- Definiuje ono z jakiego IDE chcemy skorzystać, oraz jaki mikrokontroler będzie programowany.
- Następnie projekt został otwarty w CLion, gdzie przebiega dalszy proces programowania.
- 
- \section{Portal przechwytujący}
- Aby umożliwić łatwą konfigurację połączenia Wi-Fi w sterowniku wykorzystano bibliotekę WiFiManager która pozwala na automatyczne tworzenie sieci WiFi i wystawienia portalu przechwytującego dającego możliwość wybrania i połączenia się z docelową siecią. 
- 
- Dla zapewnienia bezpieczeństwa dostęp do sieci WiFi jest zabezpieczony prostym hasłem podanym w instrukcji obsługi, a także zapisanym na urządzeniu.
- 
- \section{Over The Air Update}
- Mechanizm OTA pozwala na wgrywanie nowych wersji oprogramowania przez sieć LAN.
  
  \section{Web Thing Adapter}
  Wykorzystanie biblioteki WebThingAdapter pozwala na łatwe przekształcenie mikrokontrolera w Rzecz Webową.
@@ -357,12 +353,6 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Testy jednostkowe logiki aplikacji, najlepiej TDD.
  \section{Testy jednostkowe}
  Testy jednostkowe zostały wykonane z wykorzystaniem Platformio Unit Testing \cite{PIOUnitTesting}. Pozwala na wykonywanie testów na urządzeniu docelowym lub z użyciem platformy Native, wtedy testy są przeprowadzane tylko w środowisku programistycznym.
- 
- 
- \chapter{Zaprojektowanie płytki drukowanej}
- 
- 
- \chapter{Zaprojektowanie obudowy}
 
  
  \chapter{Zintegrowanie z Mozilla Gateway}
@@ -370,8 +360,6 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Dodanie polskiej wersji językowej do Mozilla Gateway dla zwiększenia dostępności rozwiązania.
  \section{Instalacja Bramy na Raspberry Pi}
  \section{Dodanie urządzeń do Bramy}
- \section{Dodanie użytkowników}
- \section{Dodanie powiadomień}
  
  \chapter{Przygotowanie instrukcji obsługi}
  Obserwacja - rzadka konieczność dostosowywania parametrów sterownika sprawia, że użytkownicy zapominają o tym jak konfigurować sterownik.
