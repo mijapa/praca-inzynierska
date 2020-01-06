@@ -310,19 +310,40 @@ platformio init --ide clion --board esp32doit-devkit-v1
   \subsection{Portal przechwytujący}
  W pierwszej kolejności aby umożliwić łatwą konfigurację połączenia Wi-Fi w sterowniku wykorzystano bibliotekę ESP Acync WiFiManager \cite{WiFiManager} która pozwala na automatyczne tworzenie sieci WiFi i portalu przechwytującego dającego możliwość wybrania i połączenia się z docelową siecią WiFi zapewniającą łączność sterownika z Internetem. 
  Dla utworzenia  WiFi Menagera należy konstruktorowi przekazać dwa obiekty: serwer web oraz server dns. Następnie należy dodać funkcję zwrotną (callback) wykonywaną w momencie utworzenia przez WiFi Manger acces pointa. Aby uruchomić Menager należy wywołać metodę autoConnect przekazując jej jako opcjonalne parametry nazwę acces pointa oraz hasło. Po uruchomieniu Menager próbuje się połączyć z poprzednio zapamiętaną siecią WiFi. Jeśli jej nie odnajdzie, tworzy acces point oraz portal przechwytujący w którym można wybrać inną sieć. Po poprawnym połączeniu na port szeregowy wypisywany jest adres ip sterownika.
+ \subsection{Biblioteka dla DHT22}
+ Do komunikacji z czujnikiem temperatury i wilgotności wykorzystano bibliotekę DHT sensor library for ESPx \cite{DHTlibrary}. Aby zainicjować działanie biblioteki należy skorzystać z metody setup podając jako parametry numer pinu do którego podłączony jest czujnik oraz model czujnika. Do odczytania pomiarów służą metody getTemperature oraz getHumididity.
+ \subsection{Biblioteka dla MAX6675}
+ Do komunikacji z termoparą wykorzystano bibliotekę MAX6675 library \cite{MAX6675library}. Aby zainicjować bibliotekę należy skorzystać z konstruktora przekazując jako parametry numery pinów do komunikacji magistralą SPI.
+ W celu odczytania temperatury należy skorzystać z metody readCelsius.
+ \subsection{Biblioteka dla LCD}
+ Do komunikacji z wyświetlaczem LCD z wykorzystaniem magistrali I2C wykorzystano bibliotekę LiquidCrystal PCF8574 \cite{LCDlibrary}. Aby zainicjować bibliotekę należy skorzystać z konstruktora przekazując jako parametr adres wyświetlacza na magistrali. Aby włączyć podświetlenie wyświetlacza należy skorzystać z metody setBacklight. Do wypisywania tekstu na wyświetlaczu służą metody print oraz println.
+ \subsection{Biblioteka dla serwomechanizmu}
+ Do komunikacji z serwomechanizmem wykorzystano bibliotekę ESP32Servo \cite{Servolibrary}. Aby rozpocząć pracę należy skorzystać z metody attach podając jako argument numer pinu będącego wyjściem sygnałowym. W celu ustawienia mechanizmu na wybraną pozycję należy skorzystać z metody write. Metoda detach służy do przerwania komunikacji z serwomechanizmem.
+ \subsection{Biblioteka PID}
+ Do sterowania wychyleniem serwa oraz ustalaniem zadanej temperatury w kominie wykorzystano bibliotekę PID \cite{PIDlibrary}. Pozwala ona wykorzystanie regulatora proporcjonalno-całkująco-różniczkującego do utrzymywania wartości wyjściowej na zadanym poziomie.
+ Aby zainicjować bibliotekę  należy skorzystać z konstruktora przekazując jako parametr referencje do wartości wejściowej, wyjściowej, zadanej oraz trzy parametry regulatora. Przy pomocy funkcji SetSampleTime należy ustalić jak często regulator ma obliczać wartość wyjściową. Funkcja SetOutputLimits służy do określenia granic parametru wyjściowego, funkcja SetControlDirection służy do określenia kierunku sprzężenia wejścia z wyjściem, funkcja SetMode(AUTOMATIC) uruchamia działanie regulatora.
+ \subsection{Biblioteka dla DS18B20}
+ Do komunikacji z termometrem Dallas wykorzystano bibliotekę DallasTemperature \cite{dallaslibrary}. Aby zainicjować bibliotekę należy skorzystać z konstruktora przekazując jako parametr referencję do obiektu oneWire. W celu odczytania temperatury nalezy skorzystać z metody requestTemperatures, a następnie getTempCByIndex.
+ \subsection{Biblioteka dla W5500}
+ Do komunikacji z modułem W5500 wykorzystano bibliotekę Ethernet Library for Arduino \cite{ethernetlibrary}. Aby zainicjować bibliotekę należy użyć metody init podając jako parametr numer pinu Chip Select. Następnie należy skorzystać z metody WizReset wykonującej sekwencję resetowania modułu. W celu rozpoczęcia połączenia Ethernetowego należy użyć metody begin podając jako parametry adres MAC, adres IP, adres DNS, adres bramy oraz maskę.
+ \subsection{Biblioteka WebThing}
+ Do obsługiwania sterownika jako rzecz webową wykorzystano bibliotekę webthing-arduino \cite{webthinglibrary}. Biblioteka tworzy prosty serwer implementujący Web of Things API.
+ Aby zainicjować bibliotekę należy skorzystać z konstruktora przekazując jako parametry nazwę oraz adres IP. Następnie należy utworzyć instancję urządzenia oraz dodać do urządzenia jego właściwości. Aby rozpocząć pracę serwera należy skorzystać z metody begin. Do przekazywania wartości właściwości urządzenia służą metody setValue oraz update.
  
- \section{Over The Air Update}
- Mechanizm OTA pozwala na wgrywanie nowych wersji oprogramowania przez sieć LAN.
+ \section{Zdalne uaktualnianie oprogramowania}
+ Mechanizm Over The Air Update pozwala na wgrywanie nowych wersji oprogramowania przez sieć LAN lub Internet (jeśli urządzenie posiada publiczny adres IP). W celu uruchomieniu OTA należy w pliku konfiguracyjnym jako protokół wgrywania wybrać espota, a następnie podać adres urządzenia. Dodatkowo dla zabezpieczenie przed nieuprawnioną zmianą oprogramowania należy ustawić hasło blokujące dostęp.
  
+ \section{Odczyt napięć}
+ Aby odczytać wartości napięć pinów mikrokontrolera w pierwszej kolejności należy przy pomocy metody pinMode określić numer pinu oraz tryb pracy (INPUT), a następnie skorzystać z metody analogRead.
 
- \section{Panel dotykowy}
- Stworzenie i podłączenie panelu dotykowego.
- Trudność w podłączaniu - błędnie nazwane piny ESP32.
  
  \chapter{Wykonanie prototypu na płytce uniwersalnej}
  \section{Rozmieszczenie elementów}
  Dla wygodnego połączenia elementów wybrano płytkę uniwersalną o rozmiarach 9cm x 15cm ze standardowym rastrem otworów.
  Na początku na płytce zostały umieszczone największe elementy: bateria z układem zabezpieczającym oraz mikrokontroler. Elementy te zostały połączone z płytką przy pomocy goldpinów. Kolejne elementy rozmieszczano tak aby porty komunikacyjne oraz zasilania znajdowały się na dwóch krawędziach płytki.
+  \section{Panel dotykowy}
+ Stworzenie i podłączenie panelu dotykowego.
+ Trudność w podłączaniu - błędnie nazwane piny ESP32.
  \section{Połączenie elementów}
  Złącza dla goldpinów wszystkich elementów zostały przylutowane do płytki uniwersalnej, a następnie połączone jednożyłowymi przewodami miedzianymi w izolacji. Różne kolory izolacji ułatwiają identyfikację połączeń. Zasilanie do złączy RJ-45 zostało doprowadzone tak aby oba przewody znajdowały się w jednej parze, co pozwala na zmniejszenie ilości generowanych zakłóceń.
  Sprawdzenia poprawności połączeń dokonano przy pomocy miernika uniwersalnego.
