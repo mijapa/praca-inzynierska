@@ -56,7 +56,7 @@
  \chapter{Wstęp}
 % \addcontentsline{toc}{chapter}{Wstęp}
  \section{Rys historyczny - ujęcie problemowe}
- \subsection{Ogrzewanie}
+ \subsection{Problem ogrzewania}
  Problem ogrzewania pomieszczeń towarzyszy człowiekowi od zarania dziejów \cite{Hoppe2018}. Zwykle był to proces wymagający ciągłego nadzoru. Potrzeba automatyzacji wydaje się naturalną konsekwencją zmiany trybu życia człowieka. Wraz z pojawieniem się nowoczesnych kotłów powstały pierwsze mechanizmy kontrolujące pracę urządzenia bez nieustannej konieczności doglądania go.
  Pojawienie się sterowników cyfrowych zaoferowało zupełnie nowe możliwości, takie jak:
   \begin{enumerate}
@@ -86,11 +86,11 @@
  Obecnie na rynku dostępny jest szeroki wachlarz rozwiązań, od prostych jednokomponentowych do bardziej zaawansowanych, złożonych. Począwszy od regulatorów pokojowych, które jedynie włączają ogrzewanie kiedy temperatura pomieszczenia obniży się poniżej nastawionej wartości, poprzez rozbudowane, umożliwiające programowanie temperatury zarówno w ciągu doby (niższa w nocy, wyższa po południu), jak i w wybrane dni tygodnia, skończywszy na automatyce pogodowej, która dzięki wykorzystaniu czujnika zewnętrznego, umieszczonego na ścianie domu, przewiduje zwiększone zapotrzebowanie na ciepło i wcześniej dostosowuje moc kotła.
  Coraz więcej dostępnych na rynku sterowników umożliwia zdalne nastawienie temperatury. W znakomitej większości standard komunikacji tych rozwiązań jest zamknięty, co utrudnia współpracę  z innymi inteligentnymi urządzeniami.
  \subsection{Internet rzeczy i WWW rzeczy}
- W Europie wschodniej występuje wciąż mała na tle konkurencji liczba firm oferujących rozwiązania IoT.
+ W Europie Wschodniej występuje wciąż mała na tle konkurencji liczba firm oferujących rozwiązania IoT.
   \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/liczba_firm_rozwiazania_iot.png}
-\caption{Liczba firm oferujących rozwiązania IoT na poszczególnych rynkach. Zródło: \cite{gov2019}}
+\caption{Liczba firm oferujących rozwiązania IoT na poszczególnych rynkach. (źródło: \cite{gov2019})}
 \label{fig:firmy}
 \end{figure}
  Wzmożony rozwój tematu WWW rzeczy zapoczątkowany został przez pracę doktorską Dominique'a Guinarda \cite{Guinard2011}, a pogłębiło go wydanie książki \cite{Guinard2017} podsumowującej dotychczasowe prace autora w tym temacie \cite{Guinard2009} \cite{Guinard2010} \cite{Guinard2010a} \cite{Guinard2011} \cite{Guinard2011a}.
@@ -99,14 +99,14 @@
    \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/contributions.png}
-\caption{Ilość przesłanych fragmentów kodu przez społecznośc WebThings Gateway. Zródło: \cite{gatewaycommits2020}}
+\caption{Liczba przesłanych fragmentów kodu przez społecznośc WebThings Gateway. (zródło: \cite{gatewaycommits2020})}
 \label{fig:firmy}
 \end{figure}
 
  \section{Innowacyjność projektu na tle współczesnych rozwiązań}
  W odróżnieniu od szeroko stosowanych rozwiązań mój projekt zakłada użycie specyfikacji Web Thing API \cite{WebThing2020}, która pozwala na ujednolicenie dostępu do inteligentnych rzeczy za pomocą dodatkowej warstwy abstrakcji. Oznacza to, że system kreuje przestrzeń kooperacji urządzeń. Możliwe interakcje wpływają pozytywnie na koherentność systemu.
  
- \section{Motywacje}
+ \section{Motywacja}
 Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz poświęcanej uwagi potrzebnych do obsługi pieca kominkowego, pracującego jako główne źródło ciepła w domu jednorodzinnym. Ponadto niekomfortowym ograniczeniem dotychczas stosowanych rozwiązań jest zmuszanie klienta do użytkowania produktów pochodzących od tego samego producenta, co w znaczącym stopniu ogranicza możliwość wyboru preferowanego sprzętu.
 
  \chapter{Cele pracy, zakres pracy, założenia}
@@ -117,8 +117,8 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \section{Zakres pracy}
  Zakres pracy obejmuje:
  \begin{enumerate}
- \item przegląd istniejących rozwiązań - zarówno sprzętowych jak i programowych; (komputerowe systemy sterowania, inżynieria systemów informacyjnych)
- \item opracowanie koncepcji; (komputerowe systemy sterowania, mikroprocesory i mikrokontrolery, systemy operacyjne)
+ \item przegląd istniejących rozwiązań - zarówno sprzętowych jak i programowych;
+ \item opracowanie koncepcji;
  \item wybór podzespołów;
  \item wykonanie prototypu na płytce stykowej;
  \item stworzenie oprogramowania;
@@ -131,7 +131,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \section{Założenia i wymagania}
  Projekt sterownika zostanie wykonany zgodnie z dobrymi praktykami dotyczącymi programowania zawartymi między innymi w \cite{Grebosz2018} \cite{Francuz2015}. Część sprzętowa projektu zostanie opracowana na podstawie książek \cite{Monk2014} \cite{Monk2014a} \cite{Monk2018} \cite{Kurczyk2019} \cite{Huang2018} \cite{Wallace2019} oraz norm Polskiego Komitetu Normalizacyjnego \cite{PKN1999} \cite{PKN2000}.
  
- Wykorzystane narzędzia:
+ \subsection{Wykorzystane narzędzia}
  \begin{enumerate}
  \item[•] środowisko programistyczne CLion
  \item[•] język programowania C/C++
@@ -139,14 +139,14 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \item[•] platforma monitoringu i kontroli urządzeń WebThing Mozilla
  \end{enumerate}
  
- Sterownik ma umożliwić:
+ \subsection{Możliwości}
  \begin{enumerate}
  \item[•] monitorowanie pracy pieca kominkowego
  \item[•] zdalne zadawanie temperatur
  \item[•] informowanie o zdarzeniach
  \end{enumerate}
  
- Wymagania:
+ \subsection{Wymagania}
  \begin{enumerate}
  \item[•] zgodność z Web Thing API
  \item[•] możliwość rozbudowy o dodatkowe czujniki i elementy wykonawcze
@@ -162,11 +162,11 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
 
  Element wyróżniający wykonany sterownik stanowi wykorzystanie Web Thing REST API, który pozwala na wykorzystanie sieci jako zunifikowanej warstwy abstrakcji dla zdecentralizowanego internetu rzeczy.
  
- Rysunek~\ref{fig:wizja} na stronie~\pageref{fig:wizja} przedstawia wizję struktury elementów sterownika
+ Rysunek~\ref{fig:wizja} na stronie~\pageref{fig:wizja} przedstawia wizję struktury elementów sterownika.
  \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/fritzing_bredboard_v1.png}
-\caption{Wizja elementów sterownika. Opracowanie własne.}
+\caption{Wizja elementów sterownika. (opracowanie własne)}
 \label{fig:wizja}
 \end{figure}
  
@@ -227,7 +227,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
   Tylko jeden z wymienionych sterowników posiada czujnik pozwalający na mierzenie temperatury spalin.
   
   
- \chapter{Opracowanie koncepcji}
+ \chapter{Opracowanie koncepcji budowy sterownika pieca kominkowego}
  Regulacja dopływu powietrza do komory spalania. Jak dobrać otwarcie przepustnicy? Pomiar temperatury spalin.
  W minimalnej wersji: pomiar temperatury spalin i dobranie otwarcia przepustnicy. Potrzebne tylko mikrokontroler, serwo oraz termopara.
  Dodatki:
@@ -245,7 +245,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \end{enumerate}  
  
   
- \chapter{Wybór podzespołów}
+ \chapter{Wybór podzespołów sterownika pieca kominkowego}
  \section{Mikrokontroler lub platforma komputerowa}
  Rozważanymi kandydatami na serce sterownika były platformy komputerowe:
  \begin{enumerate}
@@ -300,7 +300,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Ze względu na łatwość i pewność połączenia zdecydowano na wybranie standardu złącza 8P8C wykorzystywanego w rożnego rodzaju sprzęcie telekomunikacyjnym i komputerowym. Rozpowszechnione jako złącze do budowy sieci w standardzie Ethernet. 8P8C to złącze o ośmiu miejscach na styk i ośmiu stykach.
  
  
- \chapter{Wykonanie prototypu na płytce stykowej}
+ \chapter{Wykonanie prototypu sterownika pieca kominkowego na płytce stykowej}
  W tym rozdziale opisany został proces prototypowania z wykorzystaniem płytki stykowej.
  Płytka stykowa pozwala na łatwe połączenie elementów tworzonego układu. W pierwszej kolejności podzespoły wpinane są w płytkę, a następnie łączone elektrycznie przy pomocy specjalnych przewodów.
  Pierwszym, elementem sterownika umieszczonym na płytce był mikrokontroler ESP32. Ponieważ może być on zasilany przez port USB nie wymagał więc dodatkowych podłączeń. 
@@ -336,7 +336,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Podłączenie zewnętrznych czujników do sterownika wykonano z wykorzystaniem skrętki ekranowanej która zapewnia odporność komunikacji na zakłócenia transmisji.
  
  
- \chapter{Napisanie oprogramowania - część pierwsza}
+ \chapter{Opracowanie oprogramowania - część pierwsza}
  W tym rozdziale opisano proces pisania pierwszej części oprogramowania stanowiącej podstawę komunikacji z modułami sterownika. Dalsza część procesu programowania została opisana w rozdziale \ref{prog:2}.
  
  \section{Utworzenie projektu}
@@ -374,13 +374,13 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \subsection{Dodanie biblioteki dla serwomechanizmu}
  Do komunikacji z serwomechanizmem wykorzystano bibliotekę ESP32Servo \cite{Servolibrary}. Aby rozpocząć pracę należy skorzystać z metody attach podając jako argument numer pinu będącego wyjściem sygnałowym. W celu ustawienia mechanizmu na wybraną pozycję należy skorzystać z metody write. Metoda detach służy do przerwania komunikacji z serwomechanizmem.
  \subsection{Dodanie biblioteki dla PID}
- Do sterowania wychyleniem serwa oraz ustalaniem zadanej temperatury w kominie wykorzystano bibliotekę PID \cite{PIDlibrary}. Pozwala ona wykorzystanie regulatora proporcjonalno-całkująco-różniczkującego do utrzymywania wartości wyjściowej na zadanym poziomie.
+ Do sterowania wychyleniem serwa wykorzystano bibliotekę PID \cite{PIDlibrary}. Pozwala ona na wykorzystanie regulatora proporcjonalno-całkująco-różniczkującego do utrzymywania wartości wyjściowej na zadanym poziomie.
  Aby zainicjować bibliotekę  należy skorzystać z konstruktora przekazując jako parametr referencje do wartości wejściowej, wyjściowej, zadanej oraz trzy parametry regulatora. Przy pomocy funkcji SetSampleTime należy ustalić jak często regulator ma obliczać wartość wyjściową. Funkcja SetOutputLimits służy do określenia granic parametru wyjściowego, funkcja SetControlDirection służy do określenia kierunku sprzężenia wejścia z wyjściem, funkcja SetMode(AUTOMATIC) uruchamia działanie regulatora.
  \subsection{Dodanie biblioteki dla DS18B20}
  Do komunikacji z termometrem Dallas wykorzystano bibliotekę DallasTemperature \cite{dallaslibrary}. Aby zainicjować bibliotekę należy skorzystać z konstruktora przekazując jako parametr referencję do obiektu oneWire. W celu odczytania temperatury nalezy skorzystać z metody requestTemperatures, a następnie getTempCByIndex.
  \subsection{Dodanie biblioteki dla W5500}
  Do komunikacji z modułem W5500 wykorzystano bibliotekę Ethernet Library for Arduino \cite{ethernetlibrary}. Aby zainicjować bibliotekę należy użyć metody init podając jako parametr numer pinu Chip Select. Następnie należy skorzystać z metody WizReset wykonującej sekwencję resetowania modułu. W celu rozpoczęcia połączenia Ethernetowego należy użyć metody begin podając jako parametry adres MAC, adres IP, adres DNS, adres bramy oraz maskę.
- \subsection{Dodanie biblioteki WebThing}
+ \subsection{Dodanie biblioteki WebThings}
  Do przekształcenia sterownika w rzecz webową wykorzystano bibliotekę webthing-arduino \cite{webthinglibrary}. Biblioteka tworzy prosty serwer implementujący Web of Things API.
  Aby zainicjować bibliotekę należy skorzystać z konstruktora przekazując jako parametry nazwę oraz adres IP. Następnie należy utworzyć instancję urządzenia oraz dodać do urządzenia jego właściwości. Aby rozpocząć pracę serwera należy skorzystać z metody begin. Do przekazywania wartości właściwości urządzenia służą metody setValue oraz update.
  
@@ -395,14 +395,14 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Mikrokontroler ESP32 posiada wbudowane 10 pojemnościowych sensorów dotyku ale wykorzystana w projekcie płytka deweloperska ma wyprowadzone ich tylko 9. Odczyt sensorów dotyku jest bardzo prosty, wystarczy użyć funkcji touchRead jako argument podając numer pinu.
  
  \section{Dodanie obsługi brzęczyka}
- Do wytwarzania dźwięku brzęczyk potrzebuje sygnału PWM. Do generowania sygnału PWM przez mikrokontroler wykorzystano moduł LED Control. W pierwszej kolejności należy skorzystać z funkcji ledcSetup podając trzy argumetny: kanał, częstotliwość oraz rozdzielczość. Następnie aby rozpocząć generowanie należ skorzystać z funkcji ledcAttachPin podając dwa argumenty: numer pinu do którego podłączone jest wejście sygnałowe brzęczyka oraz kanał.
- Aby zaprzestać generowania należy skorzystac z funkcji ledcWrite podając dwa argumenty: kanał oraz 0 (cykl pracy).
+ Do wytwarzania dźwięku brzęczyk potrzebuje sygnału PWM. Do generowania sygnału PWM przez mikrokontroler wykorzystano moduł LED Control z frameworka. W pierwszej kolejności należy skorzystać z funkcji ledcSetup podając trzy argumenty: kanał, częstotliwość oraz rozdzielczość. Następnie aby rozpocząć generowanie należ skorzystać z funkcji ledcAttachPin podając dwa argumenty: numer pinu do którego podłączone jest wejście sygnałowe brzęczyka oraz kanał.
+ Aby zaprzestać generowania należy skorzystać z funkcji ledcWrite podając dwa argumenty: kanał oraz 0 (cykl pracy).
  
  \section{Testowanie sterownika}
  Po każdym etapie dodawania kolejnych modułów projektu działanie sterownika było testowane z wykorzystaniem monitora portu szeregowego poprzez odczytanie mierzonych przez sterownik wartości.
 
  
- \chapter{Wykonanie prototypu na płytce uniwersalnej}
+ \chapter{Wykonanie prototypu sterownika pieca kominkowego na płytce uniwersalnej}
  W tym rozdziale opisano przeniesienie prototypu z płytki stykowej na płytkę uniwersalną.
  Wykorzystanie płytki uniwersalnej pozwala na pewniejsze połączenie podzespołów układu jednocześnie pozostawiając wciąż pewną elastyczność do zmian w projekcie w ten sposób umożliwiając dalsze doskonalenie.
  
@@ -434,11 +434,11 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Ostatnim etapem wykonania obudowy było wklejenie ekranu lcd w lewym górnym rogu przeźroczystego wieczka sterownika.
  Po umieszczeniu w obudowie i podłączeniu wszystkich elementów sterownika sprawdzono działanie z wykorzystaniem monitora portu szeregowego.
  
- \chapter{Napisanie oprogramowania - część druga}\label{prog:2}
+ \chapter{Opracowaniu oprogramowania - część druga}\label{prog:2}
  W tym rozdziale opisano dalszą część tworzenia oprogramowania sterownika. 
 
   \section{Rozbudowa portalu przechwytującego}
-  W portalu przechwytującym zaprogramowano funkcję, wywoływaną w pętli głównej, podejmującą próbę podłączenia do zapamiętanej sieci WiFi w przypadku utraty łączności.
+  W portalu przechwytującym zaprogramowano funkcję, wywoływaną w pętli głównej, podejmującą próbę połączenia z zapamiętaną siecią WiFi w przypadku utraty łączności.
   
  \section{Rozbudowa obsługi DHT22}
  Ponieważ jako punkt odniesienia dla sterownika postanowiono wykorzystać indeks cieplny zamiast temperatury w pliku dht stworzono funkcję pozwalającą na przekazanie indeksu do zmiennej. Dla zabezpieczenia poprawnej pracy sterownika funkcja ta zwraca informację o błędzie w przypadku niepowodzenia lub wątpliwych wartości temperatury i wilgotności na podstawie których obliczany jest indeks cieplny. 
@@ -446,42 +446,50 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \section{Rozbudowa obsługi MAX6675}
  Dla zabezpieczenia poprawnej pracy sterownika jeśli odczyt temperatury się nie powiedzie, odczytane wartości są nierzeczywiste lub temperatura różni się znacznie od poprzedniego odczytu funkcja zwraca wartość 999 oraz wypisuje komunikat o błędzie. Zwrócenie przez funkcję tak wysokiej temperatury spowoduje szybkie zamknięcie przepustnicy przez regulator PID co będzie chroniło piec przed przegrzaniem.
  
- \section{Rozbudowa obsługi LCD}
+ \section{Rozbudowa obsługi wyświetlacza LCD}
  Z obsługi LCD usunięto funkcję testową. Dodana została funkcja wyświetlająca podstawowe nastawy sterownika: zadaną temperaturę w kominie, aktualną temperaturę w kominie, zadany indeks cieplny w pomieszczeniu, aktualny indeks cieplny w pomieszczeni oraz procentowe otwarcie przepustnicy. Dodana została funkcja pozwalająca na włączanie podświetlenia LCD i wyłączanie go po zadanym czasie.
 
  \section{Rozbudowa obsługi serwomechanizmu}
- Obsługę serwomechanizmu uzupełniono o wyłączanie sygnału sterującego po zmianie pozycji co w znaczącym stopniu przyczyniło się do poprawy kultury pracy. Często występującym problemem było blokowanie się przepustnicy ze względu na duże opory przy nieznacznej zmianie wychylenia. Po wyłączeniu sygnału PWM serwomechanizm przestaje próbować ustawić zadawaną pozycję i zostaje w tej którą osiągnął wcześniej. Zapobiega to niepotrzebnemu poborowi energii oraz redukuje głośny dźwięk wydawany przez urządzenie.
+ Obsługę serwomechanizmu uzupełniono o wyłączanie sygnału sterującego po zmianie pozycji co w znaczącym stopniu przyczyniło się do poprawy kultury pracy. Często występującym problemem było blokowanie się przepustnicy, ze względu na duże opory, przy nieznacznej zmianie wychylenia. Po wyłączeniu sygnału PWM serwomechanizm przestaje próbować ustawić zadawaną pozycję i zostaje w tej którą osiągnął wcześniej. Zapobiega to niepotrzebnemu poborowi energii oraz redukuje głośny dźwięk wydawany przez urządzenie.
 
- \section{Dodanie biblioteki dla PID}
+ \section{Rozbudowa obsługi regulatora PID}
+ W celu poprawy komfortu termicznego w pomieszczeniu zostały wykorzystane dwa regulatory PID. Pierwszy z nich na podstawie aktualnej temperatury w pomieszczeniu i zadanej temperatury oblicza zadaną temperaturę dla spalin w kominie. Drugi na podstawie aktualnych odczytów temperatury z komina i temperatury zadanej przez pierwszy z regulatorów oblicza wychylenie serwomechanizmu, a co za tym idzie stopień otwarcia przepustnicy powietrza dolotowego do komory spalania.
+ Dla większej odporności na błędy dodano funkcje sprawdzające poprawność wartości wejściowych oraz obliczonych przez regulatory. Dodatkowo stworzono funkcję wypisującą powyższe wartości na port szeregowy.
 
- \section{Dodanie biblioteki dla DS18B20}
+ \section{Rozbudowa obsługi termometru Dallas DS18B20}
+ Obsługę termometru Dallas uzupełniono o sprawdzanie odczytywanej wartości oraz informowanie o błędnym odczycie.
 
- \section{Dodanie biblioteki dla W5500}
-
- \section{Dodanie biblioteki WebThing}
-
+ \section{Rozbudowa obsługi modułu Ethernet W5500}
+ Wbrew wcześniejszym założeniom nie udało się w przyjętym czasie przenieść komunikacji z radiowej na kablową. Obsługa modułu Ethernet W5500 została tylko poszerzona o funkcje z biblioteki sprawdzające rodzaj wykrytego urządzenia oraz status połączenia kablowego.
  
- \section{Dodanie zdalnego uaktualniania oprogramowania}
-
+ \section{Rozbudowa obsługi odczytu napięć}
+ Obsługę odczytu napięć uzupełniono o funkcję rozpoznającą źródło zasilania na podstawie dobranych doświadczalnie wartości progowych oraz cyklicznie przekazującą wyniki do części programu obsługującej WebThing.
  
- \section{Dodanie odczytu napięć}
-
+ \section{Rozbudowa obsługi wykrywania dotyku}
+ Rozpoznawanie dotyku uzupełniono o automatyczne dobieranie wartości progowych podczas uruchamiania sterownika. Dodano funkcję włączającą wyświetlacz LCD po wykryciu dotyku. Ponad to dodano funkcję cyklicznie wysyłającą odczytane przez detekcję dotyku wartości do części programu obsługującej Web Thing.
  
- \section{Dodanie wykrywania dotyku}
-
+ \section{Rozbudowa obsługi brzęczyka}
+ Do obsługi brzęczyka dodano funkcję włączającą oraz wyłączającą alarm.
  
- \section{Dodanie obsługi brzęczyka}
+ \section{Rozbudowa obsługi WebThings}
+ Do serwera WebThings dodano w sumie 6 różnych urządzeń dla których określono właściwości zgodne z  WoT Capability Schemas \cite{wotschemas2020}:
+ \begin{enumerate}
+ \item[•] Sensor DHT22 posiada dwie własności: temperaturę (TemperatureProperty) i wilgotność (LevelProperty).
+ \item[•] Sensor termopary posiada własność temperatury (TemperatureProperty).
+ \item[•] Sensor PID posiada 6 własności: stopień otwarcia przepustnicy pieca (LevelProperty), temperaturę pomieszczenia (TemperatureProperty), zadaną temperaturę pomieszczenia (TargetTemperatureProperty), własność grzanie/chłodzenie (HeatingCoolingProperty), temperaturę w kominie (TemperatureProperty) oraz zadaną temperaturę w kominie (TemperatureProperty).
+ \item[•] Sensor Dallas posiada jedną własność: temperaturę (TemperatureProperty).
+ \item[•] Sensor dotyku posiada 5 własności (OnOffSwitch), po jednej dla każdego pola sensora.
+ \item[•] Sensor zasilania posiada dwie własności (OnOffSwitch): zasilanie zewnętrzne oraz bateria pełna.
+ \end{enumerate}
+ Po określeniu właściwości dodatkowo należało przypisać każdej z nich odpowiednie atrybuty takie jak: tytuł, wielokrotność, jednostkę, tryb odczytu.
+ Na końcu do każdego z sensorów dodana została funkcja uaktualniająca wartości w serwerze.
+ \subsection{Napotkane problemy}
+ Pierwszym ze znalezionych problemów było zwracanie niepełnego opisu rzeczy webowej w formacie JSON przez serwer WebThings. Przyczyną było definiowanie przez bibliotekę webthing-arduino zbyt małego rozmiaru dokumentu JSON. Po zgłoszeniu problemu na stronie projektu został on naprawiony w najnowszej wersji biblioteki poprzez umożliwienie użytkownikom wyboru zwiększonego bufora lub definiowania własnego rozmiaru.
+ Drugim z napotkanych problemów było uaktualnianie tylko jednej z własności sensora po wywołaniu funkcji update z biblioteki webthing-arduino. Poszukiwania rozwiązania przyniosły odpowiedź: przyczyną problemu jest błąd w dodatku WebThing do Bramy Mozilli. Tymczasowym rozwiązaniem pozwalającym na poprawne przekazywanie wartości do bramy jest wywoływanie funkcji update po zmianie każdej własności z osobna.
 
- 
  \section{Testowanie sterownika}
- 
- 
- \section{Web Thing Adapter}
- Wykorzystanie biblioteki WebThingAdapter pozwala na łatwe przekształcenie mikrokontrolera w Rzecz Webową.
- Dodanie dwóch osobnych Rzeczy pozwoli na rozdzieleni funkcji administracyjnych od opcji przeznaczonych dla zwykłego użytkownika.
- 
- \section{User Menu}
- Na głównym ekranie wyświetlone są parametry pracy sterownika.
+ Po opracowaniu kolejnej części oprogramowania sprawdzono działanie sterownika z wykorzystaniem monitora portu szeregowego.
+
  
 % \section{Logika aplikacji}
 % \subsection{Czas rozpalania}
@@ -490,25 +498,32 @@ platformio init --ide clion --board esp32doit-devkit-v1
 % \subsection{Regulacja pracy wentylatora}
 % \subsection{Zamykanie przepustnicy po wypaleniu paliwa}
  
- \section{Dostrajanie parametrów}
- Parametry sterownika zostały dostrojone podczas wykorzystywania sterownika do kontrolowania pracy pieca kominkowego.
+% \section{Dostrajanie parametrów}
+% Parametry sterownika zostały dostrojone podczas wykorzystywania sterownika do kontrolowania pracy pieca kominkowego.
  
  
- \chapter{Przetestowanie oprogramowania}
- Głównie testy manualne działającego sprzętu.
- Wykresy w Bramie pokażą możliwość ciągłej pracy.
- Testy jednostkowe logiki aplikacji, najlepiej TDD.
- \section{Testy jednostkowe}
- Testy jednostkowe zostały wykonane z wykorzystaniem Platformio Unit Testing \cite{PIOUnitTesting}. Pozwala na wykonywanie testów na urządzeniu docelowym lub z użyciem platformy Native, wtedy testy są przeprowadzane tylko w środowisku programistycznym.
+% \chapter{Testowanie oprogramowania}
+% Głównie testy manualne działającego sprzętu.
+% Wykresy w Bramie pokażą możliwość ciągłej pracy.
+% Testy jednostkowe logiki aplikacji, najlepiej TDD.
+ %\section{Testy jednostkowe}
+% Testy jednostkowe zostały wykonane z wykorzystaniem Platformio Unit Testing \cite{PIOUnitTesting}. Pozwala na wykonywanie testów na urządzeniu docelowym lub z użyciem platformy Native, wtedy testy są przeprowadzane tylko w środowisku programistycznym.
 
+
+ \chapter{Zintegrowanie sterownika pieca kominkowego z Mozilla Gateway}
+ W tym rozdziale opisany został proces integrowania sterownika pieca kominkowego z Bramą Mozilli.
  
- \chapter{Zintegrowanie z Mozilla Gateway}
- \section{Lokalizacja Bramy Mozilla WebThing}
- Dodanie polskiej wersji językowej do Mozilla Gateway dla zwiększenia dostępności rozwiązania.
- \section{Instalacja Bramy na Raspberry Pi}
- \section{Dodanie urządzeń do Bramy}
+ \section{Przygotowanie lokalnej Bramy WebThings}
+  Projekt WebThings Gateway by Mozilla oferuje cztery możliwości instalacji: wykorzystanie obrazu dla Raspberry Pi, wykorzystanie obrazu Docker, instalacja pakietu na Arch Linux lub samodzielna budowa ze źródła. Wybrana została opcja wykorzystania gotowego obrazu dla Raspberry Pi.
+  Po wgraniu obrazu i uruchomieniu urządzenia należy przejść do konfiguracji \cite{gatewaystarted2019}. Połączyć się do utworzonej sicie WiFi i w portalu przechwytującym wskazać połączenie z jakiego będziemy korzystać. Następnie należy wybrać subdomenę oraz utworzyć konto pierwszego użytkownika. W tym momencie brama jest gotowa do działania.
+
+ \section{Dodanie rzeczy webowych do Bramy WebThings}
+ Kolejnym etapem integracji jest dodanie stworzonych przez sterownik rzeczy webowych do Bramy. Po włączeniu sterownika i połączeniu go z tą samą siecią lokalną co Brama należy wybrać opcję dodawania urządzeń. Brama automatycznie wykrywa rzeczy webowe i proponuje dodanie poszczególnych sensorów. Większość opcji można pozostawić jako domyślne potwierdzając tylko dodawanie.
  
- \chapter{Przygotowanie instrukcji obsługi}
+ \section{Tłumaczenie interfejsu Bramy WebThings}
+ Aby poprawić dostępność i wygodę stworzonego rozwiązania, dla osób nie znających języka angielskiego, postanowiono dokonać tłumaczenia interfejsu Bramy WebThings na język polski. Projekt Bramy WebThings umożliwia dodawanie tłumaczeń z wykorzystaniem systemu Fluent \cite{fluent2020} który zapewnia naturalne brzmienie przekładów. Przygotowane tłumaczenie zostało dodane do projektu Bramy WebThings jako pull request. Zostało zatwierdzone i będzie dostępne po opublikowaniu najnowszej wersji Bramy WebThings.
+
+ \chapter{Przygotowanie instrukcji obsługi sterownika pieca kominkowego}
  Obserwacja - rzadka konieczność dostosowywania parametrów sterownika sprawia, że użytkownicy zapominają o tym jak konfigurować sterownik.
  
  
@@ -516,13 +531,13 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Refleksja na temat tego jak wygląda to co zaplanowałem w stosunku tego co udało się uzyskać.
  
  
- \chapter*{Podsumowanie}
- \addcontentsline{toc}{chapter}{Podsumowanie}
+ \chapter{Podsumowanie}
+% \addcontentsline{toc}{chapter}{Podsumowanie}
  Wnioski, jaką drogę przeszliśmy. Rozdział po rozdziale opisujemy co było wyzwaniem.
  
  
- \chapter*{Dalszy kierunek prac}
- \addcontentsline{toc}{chapter}{Kierunki dalszych prac}
+ \chapter{Dalszy kierunek prac}
+% \addcontentsline{toc}{chapter}{Kierunki dalszych prac}
  Jeśli zaczynałbym projekt z moją dzisiejszą wiedzą jak podszedłbym do problemu. Jak dalej rozwijałbym pracę, jakie dalsze tematy zostałyby podjęte. 
 
 
