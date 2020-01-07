@@ -55,10 +55,9 @@
 
  \chapter{Wstęp}
 % \addcontentsline{toc}{chapter}{Wstęp}
-dodaj wykres popularności źródeł w czasie
  \section{Rys historyczny - ujęcie problemowe}
  \subsection{Ogrzewanie}
- Problem ogrzewania pomieszczeń towarzyszy człowiekowi od zarania dziejów. Zwykle był to proces wymagający ciągłego nadzoru. Potrzeba automatyzacji wydaje się naturalną konsekwencją zmiany trybu życia człowieka. Wraz z pojawieniem się nowoczesnych kotłów powstały pierwsze mechanizmy kontrolujące pracę urządzenia bez nieustannej konieczności doglądania go.
+ Problem ogrzewania pomieszczeń towarzyszy człowiekowi od zarania dziejów \cite{Hoppe2018}. Zwykle był to proces wymagający ciągłego nadzoru. Potrzeba automatyzacji wydaje się naturalną konsekwencją zmiany trybu życia człowieka. Wraz z pojawieniem się nowoczesnych kotłów powstały pierwsze mechanizmy kontrolujące pracę urządzenia bez nieustannej konieczności doglądania go.
  Pojawienie się sterowników cyfrowych zaoferowało zupełnie nowe możliwości, takie jak:
   \begin{enumerate}
  \item[•] większą efektywność pracy systemu grzewczego
@@ -67,24 +66,34 @@ dodaj wykres popularności źródeł w czasie
  \item[•] poprawę bezpieczeństwa
  \item[•] w nowszych modelach - zdalne sterowanie
   \end{enumerate}
- Sterowniki cyfrowe wydają się również odpowiedzią na coraz bardziej dostrzegany problem odpowiedzialnego wykorzystywania zasobów naturalnych, gdyż za ich pomocą do zapewnienia komfortu termicznego pomieszczeń potrzebna jest znacznie mniejsza ilość paliwa. Stanowią one również propozycję rozwiązania problemu ubóstwa energetycznego.
- \subsection{IoT}
- //Wykres chronologii źródeł w czasie
- Problem wymiany danych 
+ Sterowniki cyfrowe wydają się również odpowiedzią na coraz bardziej dostrzegany problem odpowiedzialnego wykorzystywania zasobów naturalnych \cite{Mazurek2018}\cite{Mazurek2018a}, gdyż za ich pomocą do zapewnienia komfortu termicznego pomieszczeń potrzebna jest znacznie mniejsza ilość paliwa. Stanowią one również propozycję rozwiązania problemu ubóstwa energetycznego.
+ \subsection{Integracja urządzeń}
+ Sukces internetu spowodował zainteresowanie naukowców podłączeniem do sieci fizycznych urządzeń.
+ Termin internet rzeczy powstał w 1999 roku wymyślony przez Kevina Ashtona \cite{Ashton2009} jednak jego popularność rozpoczęła się dopiero kilka lat temu, a w tej chwili przechodzi okres stagnacji.
+ Możemy wyróżnić wiele przypadków zastosowania internetu rzeczy:
+ \begin{enumerate}
+ \item[•] bezprzewodowe sieci czujników i pomiary rozproszone
+ \item[•] urządzenia ubieralne i pomiary osobiste
+ \item[•] inteligentne domy i budynki \cite{Kwasniewski2011}
+ \item[•] inteligentne miasta i sieci energetyczne
+ \item[•] inteligentna produkcja przemysłowa
+ \item[•] inteligentna logistyka i łańcuchy dostaw.
+\end{enumerate}
+ Przyjęte przez niewielkie grupy korporacji standardy internetu rzeczy podlegają ciągłej ewolucji spowodowanej rozwojem technologicznym, a zamknięte protokoły prowadzą do sytuacji w której zmiana dostawcy rozwiązań jest mocno utrudniona i może powodować konieczność zmiany sprzętu. Standardy webowe, takie jak HTTP, JSON i Web Socket, zawdzięczają swoją popularność otwartości oraz braku opłat. Ich zastosowanie do integracji urządzeń i aplikacji w znacznym stopniu może ułatwić wchodzenie w interakcję z rzeczami.
  
  \section{Stan aktualnej wiedzy}
  \subsection{Sterowniki}
- //Drzewko pokazujące rozgałęzienie dziedziny - zarówno dla WoT jak i sterowników
  Obecnie na rynku dostępny jest szeroki wachlarz rozwiązań, od prostych jednokomponentowych do bardziej zaawansowanych, złożonych. Począwszy od regulatorów pokojowych, które jedynie włączają ogrzewanie kiedy temperatura pomieszczenia obniży się poniżej nastawionej wartości, poprzez rozbudowane, umożliwiające programowanie temperatury zarówno w ciągu doby (niższa w nocy, wyższa po południu), jak i w wybrane dni tygodnia, skończywszy na automatyce pogodowej, która dzięki wykorzystaniu czujnika zewnętrznego, umieszczonego na ścianie domu, przewiduje zwiększone zapotrzebowanie na ciepło i wcześniej dostosowuje moc kotła.
  Coraz więcej dostępnych na rynku sterowników umożliwia zdalne nastawienie temperatury. W znakomitej większości standard komunikacji tych rozwiązań jest zamknięty, co utrudnia współpracę  z innymi inteligentnymi urządzeniami.
- \subsection{IoT}
+ \subsection{Internet rzeczy i WWW rzeczy}
+ 
+ 
  
  \section{Innowacyjność projektu na tle współczesnych rozwiązań}
- W odróżnieniu od szeroko stosowanych rozwiązań mój projekt zakłada użycie specyfikacji Web Thing API \cite{Mazurek2018}, która pozwala na ujednolicenie dostępu do inteligentnych rzeczy za pomocą dodatkowej warstwy abstrakcji. Oznacza to, że system kreuje przestrzeń kooperacji urządzeń. Możliwe interakcje wpływają pozytywnie na koherentność systemu.
+ W odróżnieniu od szeroko stosowanych rozwiązań mój projekt zakłada użycie specyfikacji Web Thing API \cite{WebThing2020}, która pozwala na ujednolicenie dostępu do inteligentnych rzeczy za pomocą dodatkowej warstwy abstrakcji. Oznacza to, że system kreuje przestrzeń kooperacji urządzeń. Możliwe interakcje wpływają pozytywnie na koherentność systemu.
  
  \section{Motywacje}
 Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz poświęcanej uwagi potrzebnych do obsługi pieca kominkowego, pracującego jako główne źródło ciepła w domu jednorodzinnym. Ponadto niekomfortowym ograniczeniem dotychczas stosowanych rozwiązań jest zmuszanie klienta do użytkowania produktów pochodzących od tego samego producenta, co w znaczącym stopniu ogranicza możliwość wyboru preferowanego sprzętu.
-
 
  \chapter{Cele pracy, zakres pracy, założenia}
 
@@ -106,6 +115,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \end{enumerate}
  
  \section{Założenia i wymagania}
+ Projekt sterownika zostanie wykonany zgodnie z dobrymi praktykami dotyczącymi programowania zawartymi między innymi w \cite{Grebosz2018} \cite{Francuz2015}. Część sprzętowa projektu zostanie opracowana na podstawie książek \cite{Monk2014} \cite{Monk2014a} \cite{Monk2018} \cite{Kurczyk2019} \cite{Huang2018} \cite{Wallace2019} oraz norm Polskiego Komitetu Normalizacyjnego \cite{PKN1999} \cite{PKN2000}.
  
  Wykorzystane narzędzia:
  \begin{enumerate}
@@ -386,7 +396,7 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Po podłączeniu wszystkich elementów sterownika do płytki uniwersalnej sprawdzono działanie z wykorzystaniem monitora portu szeregowego.
  
  \chapter{Wykonanie obudowy}
- Pierwotnie rozważano możliwość wydruku obudowy na drukarce 3D jednak wielkość potrzebnej obudowy oraz czas niezbędny do wykonania projektu obudowy przesądziły o wykorzystaniu gotowej skrzynki z plastiku z przeźroczystym wieczkiem o rozmiarze 15,8cm x 9cm x 6cm pozwalającym na swobodne zmieszczenie wszystkich komponentów sterownika. Płytka uniwersalna została przycięta na rogach ponieważ skrzynka posada tam miejsca na śruby. W skrzynce wykonano w sumie 5 otworów. Jeden na górnej powierzchni obudowy, na port micro USB, przeznaczony na wypadek potrzeby bezpośredniego podłączenia do mikrokontrolera. Jeden na prawym brzegu obudowy, na port micro USB, przeznaczony do zasilania podczas normalnej pracy. Trzy otwory na dolnej powierzchni obudowy. Z lewej strony otwór na gniazdo 8p8c (często błędnie nazywane RJ-45) przeznaczone do połączenia z internetem. W środkowej części potrójne gniazdo 8p8c przeznaczone do komunikacji z czujnikami zewnętrznymi oraz serwomechanizmem. Z prawej strony otwór na główny włącznik.
+ Pierwotnie rozważano możliwość wydruku obudowy na drukarce 3D \cite{Frence2014} jednak wielkość potrzebnej obudowy oraz czas niezbędny do wykonania projektu obudowy przesądziły o wykorzystaniu gotowej skrzynki z plastiku z przeźroczystym wieczkiem o rozmiarze 15,8cm x 9cm x 6cm pozwalającym na swobodne zmieszczenie wszystkich komponentów sterownika. Płytka uniwersalna została przycięta na rogach ponieważ skrzynka posada tam miejsca na śruby. W skrzynce wykonano w sumie 5 otworów. Jeden na górnej powierzchni obudowy, na port micro USB, przeznaczony na wypadek potrzeby bezpośredniego podłączenia do mikrokontrolera. Jeden na prawym brzegu obudowy, na port micro USB, przeznaczony do zasilania podczas normalnej pracy. Trzy otwory na dolnej powierzchni obudowy. Z lewej strony otwór na gniazdo 8p8c (często błędnie nazywane RJ-45) przeznaczone do połączenia z internetem. W środkowej części potrójne gniazdo 8p8c przeznaczone do komunikacji z czujnikami zewnętrznymi oraz serwomechanizmem. Z prawej strony otwór na główny włącznik.
  Po wykonaniu otworów i zamontowaniu komponentów sterownika przystąpiono do montowania panelu dotykowego. Poszczególne pola panelu zostały przyklejone do przezroczystego wieczka obudowy na kształt "+", każdy w odległości około 4mm od drugiego, co pozwala na minimalizację zakłóceń.
  Ostatnim etapem wykonania obudowy było wklejenie ekranu lcd w lewym górnym rogu przeźroczystego wieczka sterownika.
  Po umieszczeniu w obudowie i podłączeniu wszystkich elementów sterownika sprawdzono działanie z wykorzystaniem monitora portu szeregowego.
@@ -491,7 +501,7 @@ platformio init --ide clion --board esp32doit-devkit-v1
 % Konsekwencje\,\ldots
 
  
-  \nocite{*}
+%  \nocite{*}
 % \bibliography{library}
 % \bibliographystyle{acm}
  
@@ -510,7 +520,7 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \printbibliography[title={Materiały konferencyjne},type=inproceedings]
  
  \addcontentsline{toc}{chapter}{Pozostałe źródła}
-% \printbibliography[title={Pozostałe źródła}, nottype=article, nottype=book, nottype=inproceedings, nottype=thesis]
+ \printbibliography[title={Pozostałe źródła}, nottype=article, nottype=book, nottype=inproceedings, nottype=thesis]
 
  
 
