@@ -74,7 +74,7 @@
  \begin{enumerate}
  \item[•] bezprzewodowe sieci czujników i pomiary rozproszone
  \item[•] urządzenia ubieralne i pomiary osobiste
- \item[•] inteligentne domy i budynki \cite{Kwasniewski2011}
+ \item[•] inteligentne domy i budynki
  \item[•] inteligentne miasta i sieci energetyczne
  \item[•] inteligentna produkcja przemysłowa
  \item[•] inteligentna logistyka i łańcuchy dostaw.
@@ -86,9 +86,23 @@
  Obecnie na rynku dostępny jest szeroki wachlarz rozwiązań, od prostych jednokomponentowych do bardziej zaawansowanych, złożonych. Począwszy od regulatorów pokojowych, które jedynie włączają ogrzewanie kiedy temperatura pomieszczenia obniży się poniżej nastawionej wartości, poprzez rozbudowane, umożliwiające programowanie temperatury zarówno w ciągu doby (niższa w nocy, wyższa po południu), jak i w wybrane dni tygodnia, skończywszy na automatyce pogodowej, która dzięki wykorzystaniu czujnika zewnętrznego, umieszczonego na ścianie domu, przewiduje zwiększone zapotrzebowanie na ciepło i wcześniej dostosowuje moc kotła.
  Coraz więcej dostępnych na rynku sterowników umożliwia zdalne nastawienie temperatury. W znakomitej większości standard komunikacji tych rozwiązań jest zamknięty, co utrudnia współpracę  z innymi inteligentnymi urządzeniami.
  \subsection{Internet rzeczy i WWW rzeczy}
- 
- 
- 
+ W Europie wschodniej występuje wciąż mała na tle konkurencji liczba firm oferujących rozwiązania IoT.
+  \begin{figure}[ht]
+\centering
+\includegraphics[width=0.8 \textwidth]{fig/liczba_firm_rozwiazania_iot.png}
+\caption{Liczba firm oferujących rozwiązania IoT na poszczególnych rynkach. Zródło: \cite{gov2019}}
+\label{fig:firmy}
+\end{figure}
+ Wzmożony rozwój tematu WWW rzeczy zapoczątkowany został przez pracę doktorską Dominique'a Guinarda \cite{Guinard2011}, a pogłębiło go wydanie książki \cite{Guinard2017} podsumowującej dotychczasowe prace autora w tym temacie \cite{Guinard2009} \cite{Guinard2010} \cite{Guinard2010a} \cite{Guinard2011} \cite{Guinard2011a}.
+ W 2014 roku przy World Wide Web Consortium, grupie zajmującej się ustanawianiem standardów pisania i przesyłu stron WWW, powstała Web of Things Interest Group \cite{wotig2014} która pracuje nad dokumentami opisującymi Rzeczy Webowe \cite{thingdescription} oraz Architekturę \cite{wotarchitecture}.
+ W 2017 roku do projektowania Web of Things przyłącza się fundacja Mozilli \cite{mozilla2017} tworząc i rozbudowując projekt WebThings Gateway. Przyciągnął on liczną i aktywną społeczność znacząco rozwijającą przedsięwzięcie.  W następnych latach przybywa kolejnych prac naukowych na temat Web of Things \cite{IEEE2018} \cite{Raggett2018} \cite{Korkan2019}.
+   \begin{figure}[ht]
+\centering
+\includegraphics[width=0.8 \textwidth]{fig/contributions.png}
+\caption{Ilość przesłanych fragmentów kodu przez społecznośc WebThings Gateway. Zródło: \cite{gatewaycommits2020}}
+\label{fig:firmy}
+\end{figure}
+
  \section{Innowacyjność projektu na tle współczesnych rozwiązań}
  W odróżnieniu od szeroko stosowanych rozwiązań mój projekt zakłada użycie specyfikacji Web Thing API \cite{WebThing2020}, która pozwala na ujednolicenie dostępu do inteligentnych rzeczy za pomocą dodatkowej warstwy abstrakcji. Oznacza to, że system kreuje przestrzeń kooperacji urządzeń. Możliwe interakcje wpływają pozytywnie na koherentność systemu.
  
@@ -158,10 +172,29 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
  \section{Dalsze kierunki rozwoju}
  W tej części zostaną opisane możliwe kierunki rozwoju sterownika.
- 
- Integracja z systemem odzyskiwania ciepła ze spalin.
- Zmiana frameworka z Arduino na Espressif IoT Development Framework - bardziej profesjonalne rozwiązanie, lepsza współpraca z mikrokontrolerem.
- \ldots
+ \subsection{Integracja z innymi urządzeniami}
+ Wykorzystanie WebThing API umożliwi w przyszłości łatwą integrację sterownika z dodatkowymi urządzeniami.
+ Możliwe do wykorzystania są na przykład:
+ \begin{enumerate}
+ \item[•] integracja z czujnikiem pogodowym
+ \item[•] integracja z systemem odzyskiwania ciepła ze spalin
+ \item[•] współpraca z innymi źródłami ciepła
+ \end{enumerate}
+ \subsection{Zmiany w oprogramowaniu sterownika}
+ Oprogramowanie sterownika może zostać rozbudowane o przykładowe komponenty:
+ \begin{enumerate}
+ \item[•] dodatkowe opcje konfiguracyjne
+ \item[•] programowanie czasowe
+ \item[•] zabezpieczenie hasłem
+ \item[•] dodatkowe tryby pracy pieca
+ \end{enumerate}
+ Możliwą do wprowadzenia zmianą może być też zastąpienie frameworka Arduino, bardziej profesjonalnym Espressif IoT Development Framework który lepiej współpracuje z mikrokontrolerem ESP32.
+ \subsection{Zmiany sprzętowe}
+ Proponowanymi zmianami w obrębie sprzętowym są:
+ \begin{enumerate}
+ \item[•] zaprojektowanie i wykonanie płytki drukowanej
+ \item[•] zaprojektowanie i wykonanie dedykowanej obudowy, np.: w technologi druku 3D
+ \end{enumerate}
  
 
  \chapter{Charakterystyka metod obsługi pieca} 
