@@ -520,15 +520,18 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \section{Dodanie rzeczy webowych do Bramy WebThings}
  Kolejnym etapem integracji jest dodanie stworzonych przez sterownik rzeczy webowych do Bramy. Po włączeniu sterownika i połączeniu go z tą samą siecią lokalną co Brama należy wybrać opcję dodawania urządzeń. Brama automatycznie wykrywa rzeczy webowe i proponuje dodanie poszczególnych sensorów. Większość opcji można pozostawić jako domyślne potwierdzając tylko dodawanie.
  
+ \section{Wykorzystywanie interfejsu Bramy WebThings}
+ Dzięki zapewnieniu przez Fundację Mozilli zdalnej usługi tunelowania istnieje możliwość zalogowania się do Bramy WebThings poprzez, wybrany na etapie przygotowania, adres subdomeny oraz login i hasło. Po zalogowaniu się widoczne są aktualne parametry pracy sterownika oraz jest możliwość zmiany zadanej w pomieszczeniu temperatury. W zakładce "Logs" w interfejsie Bramy WebThings jest możliwość dodawania wykresów czasowych poszczególnych własności sensorów sterownika. W zakładce "Rules" jest możliwość dodawania reguł, np.: informujących użytkownika o wzroście temperatury poprzez powiadomienia push.
+ 
  \section{Tłumaczenie interfejsu Bramy WebThings}
- Aby poprawić dostępność i wygodę stworzonego rozwiązania, dla osób nie znających języka angielskiego, postanowiono dokonać tłumaczenia interfejsu Bramy WebThings na język polski. Projekt Bramy WebThings umożliwia dodawanie tłumaczeń z wykorzystaniem systemu Fluent \cite{fluent2020} który zapewnia naturalne brzmienie przekładów. Przygotowane tłumaczenie zostało dodane do projektu Bramy WebThings jako pull request. Zostało zatwierdzone i będzie dostępne po opublikowaniu najnowszej wersji Bramy WebThings.
+ Aby poprawić dostępność i wygodę stworzonego rozwiązania, dla osób nie znających języka angielskiego, postanowiono dokonać tłumaczenia interfejsu Bramy WebThings na język polski. Projekt Bramy WebThings umożliwia dodawanie tłumaczeń z wykorzystaniem systemu Fluent \cite{fluent2020} który zapewnia naturalne brzmienie przekładów. Przygotowane tłumaczenie zostało dodane do projektu Bramy WebThings jako pull request \cite{gatewaypl2019}. Po dokonaniu poprawek zostało zatwierdzone i będzie dostępne po opublikowaniu najnowszej wersji Bramy WebThings.
 
  \chapter{Przygotowanie instrukcji obsługi sterownika pieca kominkowego}
  Obserwacja - rzadka konieczność dostosowywania parametrów sterownika sprawia, że użytkownicy zapominają o tym jak konfigurować sterownik.
  
  
  \chapter{Efekt końcowy na tle koncepcji}
- Refleksja na temat tego jak wygląda to co zaplanowałem w stosunku tego co udało się uzyskać.
+ Refleksja na temat tego jak wygląda to co zaplanowałem w stosunku do tego co udało się uzyskać.
  
  
  \chapter{Podsumowanie}
