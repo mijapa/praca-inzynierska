@@ -275,6 +275,13 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Posiadany piec kominkowy potrzebuje przemieszczania liniowego przepustnicy, jednak odpowiednie serwomechanizmy są wciąż drogie i przewyższałyby swoją ceną koszt pozostałych podzespołów całego sterownika.
  Istnieje możliwość zaprojektowania i wydrukowania właściwego adaptera serwomechanizmu, lecz długi czas produkcji oraz testowania jego wytrzymałości przekraczałby zakres tej pracy.
   Ze względu na niewielką wymaganą precyzję ustawienia przepustnicy oraz zaistniałe opory, wybrałem standardowej wielkości, analogowy serwomechanizm MG-995, bez adapterów przekształcających ruch obrotowy na liniowy.
+   Zdjęcie~\ref{fig:servo} na stronie~\pageref{fig:servo} przedstawia serwomechanizm zainstalowany przy piecu kominkowym.
+    \begin{figure}[ht]
+\centering
+\includegraphics[width=0.8 \textwidth]{fig/servo.png}
+\caption{Serwomechanizm zainstalowany przy piecu kominkowym. (opracowanie własne)}
+\label{fig:servo}
+\end{figure}
  
  \section{Moduł Ethernet}
  Zdecydowałem się na dołączenie dodatkowego modułu Ethernet, ponieważ sterownik bez przerwy komunikuje się z siecią w celu wymiany informacji. Wykorzystanie komunikacji WiFi generowałoby niepotrzebny smog elektromagnetyczny. Wybrany moduł W5500 Lite jest nieznacznie droższy, ale za to bardziej kompaktowy niż inne rozwiązania oparte o układ W5500.
@@ -302,11 +309,18 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  W tym rozdziale opisany został proces prototypowania z wykorzystaniem płytki stykowej.
  Pozwala ona na łatwe połączenie elementów tworzonego układu. Podzespoły wpinane są w płytkę, a następnie łączone elektrycznie przy pomocy specjalnych przewodów.
  Pierwszym elementem sterownika umieszczonym na płytce był mikrokontroler ESP32. Nie wymagał on dodatkowych połączeń, ponieważ może być zasilany przez port USB.
+    Zdjęcie~\ref{fig:stykowa} na stronie~\pageref{fig:stykowa} przedstawia płytkę stykową z podłączonymi modułami sterownika pieca kominkowego.
+    \begin{figure}[ht]
+\centering
+\includegraphics[width=0.8 \textwidth]{fig/plytka_stykowa.png}
+\caption{Płytka stykowa z podłączonymi modułami. (opracowanie własne)}
+\label{fig:stykowa}
+\end{figure}
   
  \section{Połączenie mikrokontrolera oraz LCD}
  Użyty w projekcie wyświetlacz LCD 16x2 posiada dodatkowo konwerter I2C, który zmniejsza ilość linii niezbędnych do komunikacji z 16 do 4. Wykorzystana do komunikacji magistrala I2C jest szeregowa oraz dwukierunkowa. Wykorzystuje tylko dwie linie komunikacyjne - Serial Data i Serial Clock. Transfer danych może być zainicjowany tylko, gdy magistrala nie jest zajęta. Poza liniami transferu danych wyświetlacz potrzebuje także pary linii zasilania - masy oraz 5V.
   
- \section{Podłączenie układu DHT22 - termometr i czujnik wilgotności}\label{dht}
+ \section{Podłączenie termometru i czujnika wilgotności DHT22}\label{dht}
  Do komunikacji z mikrokontrolerem moduł termometru i czujnika wilgotności DHT22  używa magistrali 1-Wire, która wykorzystuje pojedynczą linię komunikacyjną. W zależności od długości przewodów należy wybrać właściwy rezystor podciągający.  Mikrokontroler ESP32 posiada wbudowany opornik podciągający o wartości około 50k Ohmów. Jeśli przewody przyłączeniowe nie są długie, wtedy nie ma potrzeby wykorzystywania dodatkowego rezystora.
  Moduł termometru DHT22 potrzebuje również zasilania 3,3V.
  
@@ -404,6 +418,13 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \chapter{Wykonanie prototypu sterownika pieca kominkowego na płytce uniwersalnej}\label{ch:prototyp:uniwersalna}
  W tym rozdziale opisano przeniesienie prototypu z płytki stykowej na płytkę uniwersalną.
  Wykorzystanie płytki uniwersalnej pozwala na pewniejsze połączenie podzespołów układu, jednocześnie pozostawiając wciąż pewną elastyczność do zmian w projekcie, co umożliwia dalsze jego doskonalenie.
+ Zdjęcie~\ref{fig:uni_gora} na stronie~\pageref{fig:uni_gora} przedstawia płytkę uniwersalną z gniazdami i połączeniami.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8 \textwidth]{fig/plytka_gora.png}
+\caption{Płytka uniwersalna z gniazdami i połączeniami. (opracowanie własne)}
+\label{fig:uni_gora}
+\end{figure}
  
  \section{Rozmieszczenie elementów}
  Dla wygodnego połączenia elementów wybrałem płytkę uniwersalną o rozmiarach 9cm x 15cm ze standardowym rastrem otworów 2,54mm.
@@ -412,10 +433,24 @@ platformio init --ide clion --board esp32doit-devkit-v1
   
   \section{Wykonanie panelu dotykowego}
  Panel dotykowy wykonałem z blaszek miedzianych o wymiarach 2cm x 2cm, przyklejonych do pokrywy sterownika, przylutowanych do przewodów zakończonych gniazdami. Podczas wycinania elementów należało zachować szczególną staranność dla zapewniania estetyki wykonania.
+  Zdjęcie~\ref{fig:wieczko} na stronie~\pageref{fig:wieczko} przedstawia wieczko wraz z panelem dotykowym i wyświetlaczem LCD.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8 \textwidth]{fig/wieczko.png}
+\caption{Wieczko wraz z panelem dotykowym i wyświetlaczem LCD. (opracowanie własne)}
+\label{fig:wieczko}
+\end{figure}
 
  \section{Połączenie elementów}
  Gniazda oraz goldpiny wszystkich elementów zostały połączone jednożyłowymi przewodami miedzianymi w izolacji. Przewody rozmieściłem tak, aby łatwo można było prześledzić drogę połączenia, a następnie przylutowane do płytki uniwersalnej. Różne kolory izolacji przewodów ułatwiają identyfikację połączeń. Zasilanie do złączy RJ-45 zostało doprowadzone tak, aby oba przewody znajdowały się w jednej parze skrętki, co pozwala na zmniejszenie ilości generowanych zakłóceń.
  Sprawdzenia poprawności połączeń dokonałem przy pomocy miernika uniwersalnego.
+   Zdjęcie~\ref{fig:uni_dol} na stronie~\pageref{fig:uni_dol} przedstawia spodnią stronę płytki uniwersalnej z widocznymi połączeniami lutowanym.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8 \textwidth]{fig/plytka_dol.png}
+\caption{Spodnia strona płytki uniwersalnej. (opracowanie własne)}
+\label{fig:uni_dol}
+\end{figure}
 
  \section{Zmiany w projekcie}
  Na etapie wykonywania prototypu na płytce uniwersalnej postanowiłem wprowadzić kilka zmian do projektu sterownika.
@@ -432,18 +467,25 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Po wykonaniu otworów i zamontowaniu komponentów sterownika przystąpiłem do montowania panelu dotykowego. Poszczególne pola panelu zostały przyklejone do przezroczystego wieczka obudowy na kształt "+", każdy w odległości około 4mm od drugiego, co pozwala na minimalizację zakłóceń.
  Ostatnim etapem wykonania obudowy było wklejenie ekranu LCD, w lewym górnym rogu przeźroczystego wieczka sterownika.
  Po umieszczeniu w obudowie i podłączeniu wszystkich elementów sterownika dokonałem testu działania z wykorzystaniem monitora portu szeregowego.
+   Zdjęcie~\ref{fig:wnetrze} na stronie~\pageref{fig:wnetrze} przedstawia spodnią część obudowy wraz z komponentami sterownika pieca kominkowego.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8 \textwidth]{fig/wnetrze.png}
+\caption{Spodnia część obudowy wraz z komponentami sterownika. (opracowanie własne)}
+\label{fig:wnetrze}
+\end{figure}
  
  \chapter{Opracowanie oprogramowania - część druga}\label{ch:oprog:2}
  W niniejszym rozdziale opisałem dalszą część tworzenia oprogramowania sterownika, skupiając się na doskonaleniu i rozbudowie poszczególnych modułów oprogramowania o nowe funkcje i udogodnienia dla potencjalnego użytkownika.
 
   \section{Rozbudowa portalu przechwytującego}
-  W portalu przechwytującym zaprog funkcję, wywoływaną w pętli głównej, podejmującą próbę połączenia z zapamiętaną siecią WiFi w przypadku utraty łączności.
+  W portalu przechwytującym zaprogramowałem funkcję, wywoływaną w pętli głównej, podejmującą próbę połączenia z zapamiętaną siecią WiFi w przypadku utraty łączności.
   
  \section{Rozbudowa obsługi termometru i czujnika wilgotności DHT22}
- Ponieważ jako punkt odniesienia dla sterownika postanowiono wykorzystać indeks cieplny zamiast temperatury w pliku dht stworzono funkcję pozwalającą na przekazanie indeksu do zmiennej. Dla zabezpieczenia poprawnej pracy sterownika funkcja ta zwraca informację o błędzie w przypadku niepowodzenia lub wątpliwych wartości temperatury i wilgotności na podstawie których obliczany jest indeks cieplny. 
+W pliku dht.cpp stworzyłem funkcję pozwalającą na przekazanie indeksu cieplnego do zmiennej. Postanowiłem wykorzystać go jako punkt odniesienia dla sterownika zamiast temperatury, gdyż precyzyjniej oddaje on warunki termiczne panujące w pomieszczeniu. Dla zabezpieczenia poprawnej pracy sterownika, w przypadku niepowodzenia odczytu lub wątpliwych wartości temperatury i wilgotności (na podstawie których obliczany jest indeks cieplny), funkcja zwraca informację o błędzie.
 
- \section{Rozbudowa obsługi termopary MAX6675}
- Dla zabezpieczenia poprawnej pracy sterownika jeśli odczyt temperatury się nie powiedzie, odczytane wartości są nierzeczywiste lub temperatura różni się znacznie od poprzedniego odczytu funkcja zwraca wartość 999 oraz wypisuje komunikat o błędzie. Zwrócenie przez funkcję tak wysokiej temperatury spowoduje szybkie zamknięcie przepustnicy przez regulator PID co będzie chroniło piec przed przegrzaniem.
+ \section{Rozbudowa obsługi termopary z modułem MAX6675}
+ W celu zabezpieczenia poprawnej pracy sterownika funkcja zwraca wartość 999 stopni Celsjusza oraz wypisuje komunikat o błędzie w przypadku: braku odczytu temperatury, wartości odbiegającej od stanu faktycznego w porównaniu z poprzednimi pomiarami. Zwrócenie przez funkcję tak wysokiej temperatury spowoduje szybkie zamknięcie przepustnicy przez regulator PID, co będzie chroniło piec przed przegrzaniem.
  
  \section{Rozbudowa obsługi wyświetlacza LCD}
  Z obsługi LCD usunięto funkcję testową. Dodana została funkcja wyświetlająca podstawowe nastawy sterownika: zadaną temperaturę w kominie, aktualną temperaturę w kominie, zadany indeks cieplny w pomieszczeniu, aktualny indeks cieplny w pomieszczeni oraz procentowe otwarcie przepustnicy. Dodana została funkcja pozwalająca na włączanie podświetlenia LCD i wyłączanie go po zadanym czasie.
@@ -471,19 +513,20 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Do obsługi brzęczyka dodano funkcję włączającą oraz wyłączającą alarm.
  
  \section{Rozbudowa obsługi WebThings}
- Do serwera WebThings dodano w sumie 6 różnych urządzeń dla których określono właściwości zgodne z  WoT Capability Schemas \cite{wotschemas2020}:
+ Do serwera WebThings dodano w sumie 6 różnych urządzeń, dla których określono właściwości zgodne z  WoT Capability Schemas \cite{wotschemas2020}:
  \begin{enumerate}
  \item[•] Sensor DHT22 posiada dwie własności: temperaturę (TemperatureProperty) i wilgotność (LevelProperty).
- \item[•] Sensor termopary posiada własność temperatury (TemperatureProperty).
+ \item[•] Sensor termopary posiada jedynie własność temperatury (TemperatureProperty).
  \item[•] Sensor PID posiada 6 własności: stopień otwarcia przepustnicy pieca (LevelProperty), temperaturę pomieszczenia (TemperatureProperty), zadaną temperaturę pomieszczenia (TargetTemperatureProperty), własność grzanie/chłodzenie (HeatingCoolingProperty), temperaturę w kominie (TemperatureProperty) oraz zadaną temperaturę w kominie (TemperatureProperty).
  \item[•] Sensor Dallas posiada jedną własność: temperaturę (TemperatureProperty).
  \item[•] Sensor dotyku posiada 5 własności (OnOffSwitch), po jednej dla każdego pola sensora.
  \item[•] Sensor zasilania posiada dwie własności (OnOffSwitch): zasilanie zewnętrzne oraz bateria pełna.
  \end{enumerate}
  Po określeniu właściwości dodatkowo należało przypisać każdej z nich odpowiednie atrybuty takie jak: tytuł, wielokrotność, jednostkę, tryb odczytu.
- Na końcu do każdego z sensorów dodana została funkcja uaktualniająca wartości w serwerze.
+ Na końcu, do każdego z sensorów, dodana została funkcja uaktualniająca wartości w serwerze WebThings.
  \subsection{Napotkane problemy}
  Pierwszym ze znalezionych problemów było zwracanie niepełnego opisu rzeczy webowej w formacie JSON przez serwer WebThings. Przyczyną było definiowanie przez bibliotekę webthing-arduino zbyt małego rozmiaru dokumentu JSON. Po zgłoszeniu problemu na stronie projektu został on naprawiony w najnowszej wersji biblioteki poprzez umożliwienie użytkownikom wyboru zwiększonego bufora lub definiowania własnego rozmiaru.
+ 
  Drugim z napotkanych problemów było uaktualnianie tylko jednej z własności sensora po wywołaniu funkcji update z biblioteki webthing-arduino. Poszukiwania rozwiązania przyniosły odpowiedź: przyczyną problemu jest błąd w dodatku WebThing do Bramy Mozilli. Tymczasowym rozwiązaniem pozwalającym na poprawne przekazywanie wartości do bramy jest wywoływanie funkcji update po zmianie każdej własności z osobna.
 
  \section{Testowanie sterownika}
@@ -521,58 +564,64 @@ platformio init --ide clion --board esp32doit-devkit-v1
  
  \section{Wykorzystywanie interfejsu Bramy WebThings}
  Dzięki zapewnieniu przez Fundację Mozilli zdalnej usługi tunelowania istnieje możliwość zalogowania się do Bramy WebThings poprzez, wybrany na etapie przygotowania, adres subdomeny oraz login i hasło. Po zalogowaniu się widoczne są aktualne parametry pracy sterownika oraz jest możliwość zmiany zadanej w pomieszczeniu temperatury. W zakładce "Logs" w interfejsie Bramy WebThings jest możliwość dodawania wykresów czasowych poszczególnych własności sensorów sterownika. W zakładce "Rules" jest możliwość dodawania reguł, np.: informujących użytkownika o wzroście temperatury poprzez powiadomienia push.
+  Zrzut ekranu~\ref{fig:gateway} na stronie~\pageref{fig:gateway} przedstawia interfejs Bramy WebThings.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8 \textwidth]{fig/gateway.png}
+\caption{Interfejs Bramy WebThings. (opracowanie własne)}
+\label{fig:gateway}
+\end{figure}
  
  \section{Tłumaczenie interfejsu Bramy WebThings}
  Aby poprawić dostępność i wygodę stworzonego rozwiązania, dla osób nie znających języka angielskiego, postanowiono dokonać tłumaczenia interfejsu Bramy WebThings na język polski. Projekt Bramy WebThings umożliwia dodawanie tłumaczeń z wykorzystaniem systemu Fluent \cite{fluent2020} który zapewnia naturalne brzmienie przekładów. Przygotowane tłumaczenie zostało dodane do projektu Bramy WebThings jako pull request \cite{gatewaypl2019}. Po dokonaniu poprawek zostało zatwierdzone i będzie dostępne po opublikowaniu najnowszej wersji Bramy WebThings.
  
   \section{Testowanie sterownika}
- Po zintegrowaniu sterownika z Bramą WebThings przeprowadzono testy manualne z wykorzystaniem interfejsu graficznego Bramy. Ułatwieniem wprowadzeniu testów była możliwość stworzenia wykresów parametrów sterownika w Bramie.
-
-
- %\chapter{Przygotowanie instrukcji obsługi sterownika pieca kominkowego}
- %Obserwacja - rzadka konieczność dostosowywania parametrów sterownika sprawia, że użytkownicy zapominają o tym jak konfigurować sterownik.
- 
+ Po zintegrowaniu sterownika z Bramą WebThings przeprowadzono testy manualne z wykorzystaniem interfejsu graficznego Bramy. Ułatwieniem wprowadzeniu testów była możliwość stworzenia wykresów parametrów sterownika w Bramie. 
  
  \chapter{Efekt końcowy na tle koncepcji}
 % Refleksja na temat tego jak wygląda to co zaplanowałem w stosunku do tego co udało się uzyskać.
- Z góry narzucony termin wykonania zawsze pozostawia pewien niedosyt co do zrealizowanej pracy.
- Brak możliwości informowania o zdarzeniach bezpośrednio przez sterownik. Możliwe tylko poprzez reguły Bramy.
- Brak minimalizacji otwarcia przepustnicy w przypadku zaniku napięcia.
- Jednak sterownik spełnia swoje podstawowe zadanie czyli pozwala na bezobsługową prace paleniska pomiędzy momentami dokładania paliwa, a wykorzystanie serwera WebThings pozwala na korzystanie z Bramy WebThings Mozilli oraz łatwą interakcję sterownika z innymi urządzeniami lub usługami online.
+ Z góry narzucony termin wykonania zawsze pozostawia pewien niedosyt, co do zrealizowanego projektu, jednakże wstępny zarys koncepcji został, prawie całkowicie, zrealizowany. To, czego nie udało się osiągnąć, dotyczy
+ braku możliwości informowania o zdarzeniach bezpośrednio przez sterownik, za to realizowane jest za pomocą reguły Bramy. Do niepowodzeń można zaliczyć także brak minimalizacji otwarcia przepustnicy w przypadku zaniku napięcia.
+ Jednak sterownik spełnia swoje podstawowe zadanie, czyli pozwala na bezobsługową prace paleniska pomiędzy momentami dokładania paliwa, a wykorzystanie serwera WebThings umożliwia korzystanie z Bramy WebThings Mozilli oraz łatwą interakcję sterownika z innymi urządzeniami lub usługami online.
+    Zdjęcie~\ref{fig:sterownik} na stronie~\pageref{fig:sterownik} przedstawia kompletny sterownik pieca kominkowego.
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.8 \textwidth]{fig/sterownik.png}
+\caption{Kompletny sterownik pieca kominkowego. (opracowanie własne)}
+\label{fig:sterownik}
+\end{figure}
  
  
  \chapter{Podsumowanie}
-% \addcontentsline{toc}{chapter}{Podsumowanie}
-W tym rozdziale zostaną opisane wnioski z pracy nad poszczególnymi rozdziałami pracy.
-% Wnioski, jaką drogę przeszliśmy. Rozdział po rozdziale opisujemy co było wyzwaniem.
+W niniejszej części zostaną opisane wnioski z pracy według kolejności wcześniej przedstawionych rozdziałów.
+
 \section{\nameref{ch:przeglad}}
-Przegląd istniejących rozwiązań pokazał jak mała ilość rozwiązań w zakresie sterowania pieców kominkowych istnieje na polskim rynku.
+Przegląd istniejącej oferty w tym segmencie pokazał jak mała ilość rozwiązań w zakresie sterowania pieców kominkowych istnieje na polskim rynku, co dowodzi temu, że potrzebne są nowe propozycje produktów.
 \section{\nameref{ch:koncepcja}}
-Przy tworzeniu koncepcji budowy sterownika pieca kominkowego wyzwaniem było zrozumienie procesu poprawnego spalania drewna. Zadaniem sterownika jest tylko pomoc w utrzymywaniu właściwej temperatury spalin. Ważne jest aby z jednej strony nie doprowadzić do przegrzania pomieszczenia, a z drugiej nie obniżyć temperatury panującej w piecu na tyle by powodować niedopalanie gazów drzewnych. Niestety tu główna odpowiedzialność spoczywa na użytkowniku dlatego ważne jest aby w dołączonej instrukcji obsługi opisać nie tylko samo użytkowanie sterownika ale i uniwersalne, poprawne zasady palenia w piecu kominkowym.
+Przy tworzeniu koncepcji budowy sterownika pieca kominkowego wyzwaniem było zrozumienie procesu poprawnego spalania drewna. Zadaniem sterownika jest tylko pomoc w utrzymywaniu właściwej temperatury spalin. Ważne jest, aby z jednej strony nie doprowadzić do przegrzania pomieszczenia, a z drugiej nie obniżyć temperatury panującej w piecu na tyle by powodować niedopalanie gazów drzewnych. Niestety, tu główna odpowiedzialność spoczywa na użytkowniku, dlatego ważne jest aby w dołączonej instrukcji obsługi opisać nie tylko samo użytkowanie sterownika, ale i uniwersalne, poprawne zasady palenia w piecu kominkowym.
 \section{\nameref{ch:wybor}}
-Podczas wybierania podzespołów sterownika pieca kominkowego największą trudność sprawiła mnogość dostępnych na rynku rozwiązań. Przeprowadzona analiza wielokryterialna musiała wziąć pod uwagę nie tylko cenę i kompatybilność podzespołów ale także stopień skomplikowania komunikacji i dostępne biblioteki tak aby proces konstrukcji zmieścił się w zamierzonym czasie.
-Głównym wnioskiem jest to, że przy mniejszej docelowej skali wytwarzania końcowych produktów należy wybrać podzespoły droższe ale o większej skali integracji. Na przykład wykorzystanie gotowej płytki deweloperskiej ESP32 z modułem Ethernet mimo że dwa razy droższej pozwoliłoby na znaczną oszczędność czasu poświęconego na łączenie elementów.
+Podczas wybierania podzespołów sterownika pieca kominkowego największą trudność sprawił mi wybór wśród mnogości dostępnych na rynku rozwiązań. Przeprowadzając analizę wielokryterialną musiałem wziąć pod uwagę nie tylko cenę i kompatybilność podzespołów, ale także stopień skomplikowania komunikacji oraz dostępne biblioteki tak, aby nie naruszyć ustalonego terminu oddania projektu.
+Głównym wnioskiem jest to, że przy mniejszej docelowej skali wytwarzania końcowych produktów należy wybrać podzespoły droższe, ale o większej skali integracji, na przykład gotową płytkę deweloperską ESP32 z modułem Ethernet. Pomimo, że cena podzespołu jest dwukrotnie wyższa, jego wybór pozwoliłby na znaczną oszczędność czasu poświęconego na łączenie elementów.
 \section{\nameref{ch:prototyp:stykowa}}
-Wykorzystanie płytki stykowej do tworzenia prototypu jest procesem łatwym. Jednak niedostateczna pewność połączeń może sprawiać trudne do wykrycia błędy w komunikacji.
+Wykorzystanie płytki stykowej do tworzenia prototypu nie jest procesem skomplikowanym. Jednak niedostateczna pewność połączeń może sprawiać trudne do wykrycia błędy w komunikacji.
 Przy dużej ilości elementów w projekcie należałoby łączyć podzespoły w grupy na osobnych płytkach.
 \section{\nameref{ch:oprog:1}}
-Największą trudność podczas opracowywania pierwszej - podstawowej - części oprogramowania przyniosło zaznajomienie się z ekosystemem PlatformIO oraz obsługą bibliotek wykorzystanych w projekcie. Aby sprawnie z nich korzystać należało zaznajomić się z licznymi przykładami i wybrać te które proponują poprawne koncepcje projektowe.
+Największą trudność podczas opracowywania pierwszej - podstawowej - części oprogramowania przyniosło zaznajomienie się z ekosystemem PlatformIO oraz obsługą bibliotek wykorzystanych w projekcie. Aby sprawnie z nich korzystać należało zaznajomić się z licznymi przykładami i wybrać te, które przedstawiają poprawne koncepcje projektowe.
 \section{\nameref{ch:prototyp:uniwersalna}}
-Wykonanie prototypu na płytce uniwersalnej wymagało dobrych zdolności manualnych, precyzji wykonania oraz umiejętności posługiwania się lutownicą. Prowadzenie przewodów wymagało dużego skupienia uwagi. W ciasnym sąsiedztwie wylutowywanie błędnie umieszczonych elementów sprawiało dużą trudność. Pomylenie mocowanych przewodów mogło skutkować uszkodzeniem podzespołów.
-Wybór portów 8p8c z wyprowadzeniami w rastrze 2,54mm lub umieszczonych na płytkach drukowanych znacznie ułatwiłby proces łączenia tych elementów z płytka uniwersalną.
-Włożona w konstrukcję prototypu na płytce uniwersalnej praca pozwoliła na dużo pewniejsze połączenie komponentów sterownika i dała większą pewność przy opracowywaniu oprogramowania.
+Wykonanie prototypu na płytce uniwersalnej wymagało dobrych zdolności manualnych, precyzji wykonania oraz umiejętności posługiwania się lutownicą. W ciasnym sąsiedztwie wylutowywanie błędnie umieszczonych elementów sprawiało dużą trudność.
+Wybór portów 8p8c, z wyprowadzeniami w rastrze 2,54mm, lub tych, umieszczonych na płytkach drukowanych, znacznie ułatwiłby proces łączenia ich z płytka uniwersalną.
+Praca włożona w konstrukcję prototypu na płytce uniwersalnej pozwoliła na niezawodne połączenie komponentów sterownika i dała większą pewność przy opracowywaniu oprogramowania.
 \section{\nameref{ch:obudowa}}
-Wykorzystanie do stworzenia obudowy dużej skrzynki plastikowej pozwoliło na łatwe wycięcie otworów na porty komunikacyjne sterownika.
+Tworzywo plastikowe, wykorzystanie do stworzenia skrzynki, umożliwiło łatwe wycięcie otworów na porty komunikacyjne sterownika.
 \section{\nameref{ch:oprog:2}}
-W drugiej części opracowywania oprogramowania największą trudność sprawiło wykorzystanie biblioteki arduino-webthings. Ponieważ jest to w miarę nowa biblioteka nie posiada jeszcze doprecyzowanej dokumentacji. Rozpoznanie błędów znajdujących się w bibliotece, a nie w kodzie użytkownika zajęły sporo czasu.
-Wykorzystywanie oprogramowania we wczesnym stadium rozwoju zawsze wiąże się z ryzykiem występowania niezidentyfikowanych jeszcze błędów i niekompletną dokumentacją. Potrzebny znaczny zapas czasu na rozwiązanie nieprzewidzianych problemów.
+W drugiej części opracowywania oprogramowania największą trudność sprawiło mi wykorzystanie biblioteki arduino-webthings, ponieważ jest to nowy zestaw komponentów programu, nie posiadający jeszcze doprecyzowanej dokumentacji. Podczas opracowywania kodu programu, przyczyną znaczącego spowolnienia pracy były błędy znajdujące się nie w kodzie użytkownika, a w bibliotece.
+Wykorzystywanie oprogramowania we wczesnym stadium rozwoju zawsze wiąże się z ryzykiem występowania niezidentyfikowanych jeszcze błędów i niekompletną dokumentacją, dlatego potrzebny jest znaczny zapas czasu na rozwiązanie nieprzewidzianych problemów.
 \section{\nameref{ch:gateway}}
-Uaktualnianie poprzednich wersji Bramy WebThings doprowadziło do wadliwego działania.
+Uaktualnianie poprzednich wersji Bramy WebThings doprowadziło do jej wadliwego działania.
 Stosowanie dużej ilości wykresów a w konsekwencji duża ilość zapisów i odczytów na kartę pamięci doprowadziła do szybkiej degradacji i konieczności wymiany.
 Lepszym rozwiązaniem na przyszłość może byćb zastosowanie zamiast Raspberry Pi, która nie posiada wbudowanej pamięci, innej platformy i skorzystanie z obrazu Dockera.
  
  \chapter{Dalszy kierunek prac}
-% \addcontentsline{toc}{chapter}{Kierunki dalszych prac}
 % Jeśli zaczynałbym projekt z moją dzisiejszą wiedzą jak podszedłbym do problemu. Jak dalej rozwijałbym pracę, jakie dalsze tematy zostałyby podjęte. 
 Posiadając wiedzę uzyskaną w trakcie tworzenia projektu podszedłbym inaczej do problemu opracowania koncepcji oraz wykonania sterownika pieca kominkowego. Przede wszystkim wykorzystałbym inne źródło zasilania awaryjnego, takie dające bezpośrednio więcej informacji o stanie baterii. Wykorzystałbym też płytkę deweloperską mikrokontrolera ESP32 z większą ilością wyprowadzeń tak aby pozostawić sobie pole do rozszerzenia liczby podłączonych czujników. W kwestii programowej poświęciłbym dodatkowy czas aby stworzyć testy jednostkowe których zabrakło w tej wersji oprogramowania.
 
@@ -599,7 +648,4 @@ W dalszej kolejności komunikacja z internetem zostanie przeniesiona z WiFi na p
  \addcontentsline{toc}{chapter}{Pozostałe źródła}
  \printbibliography[title={Pozostałe źródła}, nottype=article, nottype=book, nottype=inproceedings, nottype=thesis]
 
- 
-
  \end{document}
-
