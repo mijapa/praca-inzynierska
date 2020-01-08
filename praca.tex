@@ -371,78 +371,78 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \subsection{Dodanie biblioteki dla LCD}
  Do komunikacji z wyświetlaczem LCD, przy udziale magistrali I2C, wykorzystałem bibliotekę LiquidCrystal PCF8574 \cite{LCDlibrary}. Adres wyświetlacza na magistrali, przekazany jako argument konstruktora pozwala zainicjować bibliotekę. Metoda setBacklight pozwala na włączenie podświetlenia wyświetlacza. Do wypisywania tekstu na wyświetlaczu służą metody print oraz println.
  \subsection{Dodanie biblioteki dla serwomechanizmu}
- Do komunikacji z serwomechanizmem wykorzystałem bibliotekę ESP32Servo \cite{Servolibrary}. Aby rozpocząć pracę należy skorzystać z metody attach podając jako argument numer pinu będącego wyjściem sygnałowym. W celu ustawienia mechanizmu na wybraną pozycję należy skorzystać z metody write. Metoda detach służy do przerwania komunikacji z serwomechanizmem.
+ Do komunikacji z serwomechanizmem wykorzystałem bibliotekę ESP32Servo \cite{Servolibrary}. Aby rozpocząć pracę należy skorzystać z metody attach, podając jako argument numer pinu będącego wyjściem sygnałowym. W celu ustawienia mechanizmu na wybraną pozycję należy skorzystać z metody write. Metoda detach służy do przerwania komunikacji z serwomechanizmem.
  \subsection{Dodanie biblioteki dla PID}
- Do sterowania wychyleniem serwa wykorzystałem bibliotekę PID \cite{PIDlibrary}. Pozwala ona na wykorzystanie regulatora proporcjonalno-całkująco-różniczkującego do utrzymywania wartości wyjściowej na zadanym poziomie.
- Aby zainicjować bibliotekę  należy skorzystać z konstruktora przekazując jako parametr referencje do wartości wejściowej, wyjściowej, zadanej oraz trzy parametry regulatora. Przy pomocy funkcji SetSampleTime należy ustalić jak często regulator ma obliczać wartość wyjściową. Funkcja SetOutputLimits służy do określenia granic parametru wyjściowego, funkcja SetControlDirection służy do określenia kierunku sprzężenia wejścia z wyjściem, funkcja SetMode(AUTOMATIC) uruchamia działanie regulatora.
+ Do sterowania wychyleniem serwomechanizmu posłużyłem się biblioteką PID \cite{PIDlibrary}. Pozwala ona na wykorzystanie regulatora proporcjonalno-całkująco-różniczkującego do utrzymywania wartości wyjściowej na zadanym poziomie.
+ Aby zainicjować bibliotekę  należy skorzystać z konstruktora, przekazując jako parametr referencje do wartości wejściowej, wyjściowej, zadanej oraz trzy parametry regulatora. Przy pomocy funkcji SetSampleTime należy ustalić jak często regulator ma obliczać wartość wyjściową. Funkcja SetOutputLimits służy do określenia granic parametru wyjściowego. Natomiast funkcja SetControlDirection określa kierunek sprzężenia wejścia z wyjściem. Funkcja SetMode(AUTOMATIC) uruchamia działanie regulatora.
  \subsection{Dodanie biblioteki dla DS18B20}
- Do komunikacji z termometrem Dallas wykorzystałem bibliotekę DallasTemperature \cite{dallaslibrary}. Aby zainicjować bibliotekę należy skorzystać z konstruktora przekazując jako parametr referencję do obiektu oneWire. W celu odczytania temperatury nalezy skorzystać z metody requestTemperatures, a następnie getTempCByIndex.
- \subsection{Dodanie biblioteki dla W5500}
- Do komunikacji z modułem W5500 wykorzystałem bibliotekę Ethernet Library for Arduino \cite{ethernetlibrary}. Aby zainicjować bibliotekę należy użyć metody init podając jako parametr numer pinu Chip Select. Następnie należy skorzystać z metody WizReset wykonującej sekwencję resetowania modułu. W celu rozpoczęcia połączenia Ethernetowego należy użyć metody begin podając jako parametry adres MAC, adres IP, adres DNS, adres bramy oraz maskę.
+ Do komunikacji z termometrem Dallas wykorzystałem bibliotekę DallasTemperature \cite{dallaslibrary}. Aby zainicjować bibliotekę należy skorzystać z konstruktora, przekazując jako parametr referencję do obiektu oneWire. W celu odczytania temperatury nalezy skorzystać z metody requestTemperatures, a następnie getTempCByIndex.
+ \subsection{Dodanie biblioteki dla W5500 Light}
+ Do komunikacji z modułem W5500 Light wykorzystałem bibliotekę Ethernet Library for Arduino \cite{ethernetlibrary}. Aby zainicjować bibliotekę należy użyć metody init podając jako parametr numer pinu Chip Select. Następnie należy skorzystać z metody WizReset wykonującej sekwencję resetowania modułu. W celu rozpoczęcia połączenia Ethernetowego należy użyć metody begin, podając jako parametry adres MAC, adres IP, adres DNS, adres bramy oraz maskę.
  \subsection{Dodanie biblioteki WebThings}
- Do przekształcenia sterownika w rzecz webową wykorzystałem bibliotekę webthing-arduino \cite{webthinglibrary}. Biblioteka tworzy prosty serwer implementujący Web of Things API.
- Aby zainicjować bibliotekę należy skorzystać z konstruktora przekazując jako parametry nazwę oraz adres IP. Następnie należy utworzyć instancję urządzenia oraz dodać do urządzenia jego właściwości. Aby rozpocząć pracę serwera należy skorzystać z metody begin. Do przekazywania wartości właściwości urządzenia służą metody setValue oraz update.
+ Do przekształcenia sterownika w rzecz webową wykorzystałem bibliotekę webthing-arduino \cite{webthinglibrary}. Tworzy ona prosty serwer implementujący Web of Things API.
+ Aby zainicjować bibliotekę należy skorzystać z konstruktora, przekazując jako parametry nazwę oraz adres IP. Następnie należy utworzyć instancję urządzenia oraz dodać do niego jego właściwości. Aby rozpocząć pracę serwera należy skorzystać z metody begin. Do przekazywania wartości właściwości urządzenia służą metody setValue oraz update.
  
- \section{Dodanie zdalnego uaktualniania oprogramowania}
- Mechanizm Over The Air Update pozwala na wgrywanie nowych wersji oprogramowania przez sieć LAN lub Internet (jeśli urządzenie posiada publiczny adres IP). W celu uruchomieniu OTA należy w pliku konfiguracyjnym jako protokół wgrywania wybrać espota, a następnie podać adres urządzenia. Dodatkowo dla zabezpieczenie przed nieuprawnioną zmianą oprogramowania należy ustawić hasło blokujące dostęp.
+ \section{Dodanie możliwości zdalnego uaktualniania oprogramowania}
+ Mechanizm Over The Air Update pozwala na wgrywanie nowych wersji oprogramowania przez sieć LAN lub Internet (jeśli urządzenie posiada publiczny adres IP). W celu uruchomieniu OTA należy, w pliku konfiguracyjnym projektu jako protokół wgrywania, wybrać espota, a następnie podać adres urządzenia. Dla zabezpieczenia przed nieuprawnioną zmianą oprogramowania należy ustawić hasło blokujące dostęp.
  
  \section{Dodanie odczytu napięć}
- Mikrokontroler ESP32 posiada dwa 12 bitowe przetworniki ADC z których drugi nie może być używany gdy wykorzystywane jest WiFi. Domyślna rozdzielczość, 12 bitów (0 – 4095), może być zmniejszona do 9 (0 – 511).
- Aby odczytać wartości napięć pinów mikrokontrolera w pierwszej kolejności należy przy pomocy metody pinMode określić numer pinu oraz tryb pracy (INPUT), a następnie skorzystać z metody analogRead.
+ Mikrokontroler ESP32 posiada dwa 12 bitowe przetworniki ADC, z których drugi nie może być używany, gdy wykorzystywane jest WiFi. Domyślna rozdzielczość, 12 bitów (0 – 4095), może być zmniejszona do 9 bitów (0 – 511).
+ Przy pomocy metody pinMode można określić numer pinu oraz tryb pracy (INPUT). Następnie należy skorzystać z metody analogRead, aby odczytać wartości napięć pinów mikrokontrolera.
  
  \section{Dodanie wykrywania dotyku}
- Mikrokontroler ESP32 posiada wbudowane 10 pojemnościowych sensorów dotyku ale wykorzystana w projekcie płytka deweloperska ma wyprowadzone ich tylko 9. Odczyt sensorów dotyku jest bardzo prosty, wystarczy użyć funkcji touchRead jako argument podając numer pinu.
+ Mikrokontroler ESP32 posiada wbudowane 10 pojemnościowych sensorów dotyku, ale wykorzystana w projekcie płytka deweloperska ma wyprowadzone ich tylko 9. Odczyt sensorów dotyku jest bardzo prosty - wystarczy użyć funkcji touchRead jako argument, podając numer pinu.
  
  \section{Dodanie obsługi brzęczyka}
- Do wytwarzania dźwięku brzęczyk potrzebuje sygnału PWM. Do generowania sygnału PWM przez mikrokontroler wykorzystałem moduł LED Control z frameworka. W pierwszej kolejności należy skorzystać z funkcji ledcSetup podając trzy argumenty: kanał, częstotliwość oraz rozdzielczość. Następnie aby rozpocząć generowanie należ skorzystać z funkcji ledcAttachPin podając dwa argumenty: numer pinu do którego podłączone jest wejście sygnałowe brzęczyka oraz kanał.
- Aby zaprzestać generowania należy skorzystać z funkcji ledcWrite podając dwa argumenty: kanał oraz 0 (cykl pracy).
+ Do wytwarzania dźwięku brzęczyk potrzebuje sygnału PWM. Do generowania sygnału PWM przez mikrokontroler wykorzystałem moduł LED Control z frameworka. W pierwszej kolejności należy skorzystać z funkcji ledcSetup, podając trzy argumenty: kanał, częstotliwość oraz rozdzielczość. Następnie, aby rozpocząć generowanie należy skorzystać z funkcji ledcAttachPin, podając dwa argumenty: numer pinu, do którego podłączone jest wejście sygnałowe brzęczyka oraz kanał.
+ Aby zaprzestać generowania należy skorzystać z funkcji ledcWrite, podając dwa argumenty: kanał oraz 0 (cykl pracy).
  
  \section{Testowanie sterownika}
- Po każdym etapie dodawania kolejnych modułów projektu działanie sterownika było testowane z wykorzystaniem monitora portu szeregowego poprzez odczytanie mierzonych przez sterownik wartości.
+ Po każdym etapie dodawania kolejnych modułów projektu, działanie sterownika było testowane z wykorzystaniem monitora portu szeregowego poprzez odczytanie mierzonych przez sterownik wartości.
 
  
  \chapter{Wykonanie prototypu sterownika pieca kominkowego na płytce uniwersalnej}\label{ch:prototyp:uniwersalna}
  W tym rozdziale opisano przeniesienie prototypu z płytki stykowej na płytkę uniwersalną.
- Wykorzystanie płytki uniwersalnej pozwala na pewniejsze połączenie podzespołów układu jednocześnie pozostawiając wciąż pewną elastyczność do zmian w projekcie w ten sposób umożliwiając dalsze doskonalenie.
+ Wykorzystanie płytki uniwersalnej pozwala na pewniejsze połączenie podzespołów układu, jednocześnie pozostawiając wciąż pewną elastyczność do zmian w projekcie, co umożliwia dalsze jego doskonalenie.
  
  \section{Rozmieszczenie elementów}
- Dla wygodnego połączenia elementów wybrano płytkę uniwersalną o rozmiarach 9cm x 15cm ze standardowym rastrem otworów 2,54mm.
- Na początku na płytce zostały umieszczone gniazda pod największe elementy: moduł zasilania o wymiarach 9,8cm x 2,9cm oraz mikrokontroler o wymiarach 5,5cm x 2,8cm. Gniazda pod kolejne elementy rozmieszczano tak aby porty komunikacyjne oraz zasilania znajdowały się na dwóch krawędziach płytki. 
- Największą trudność sprawiło umieszczenie na płytce portów sieciowych, gdyż wyprowadzenie ich połączeń sygnałowych nie jest zgodne z rastrem 2,54mm, a dodatkowo potrzebne są otwory montażowe.
+ Dla wygodnego połączenia elementów wybrałem płytkę uniwersalną o rozmiarach 9cm x 15cm ze standardowym rastrem otworów 2,54mm.
+ Na początku na płytce umieściłem gniazda pod największe elementy: moduł zasilania o wymiarach 9,8cm x 2,9cm oraz mikrokontroler o wymiarach 5,5cm x 2,8cm. Gniazda pod kolejne elementy rozmieściłem tak, aby porty komunikacyjne oraz zasilania znajdowały się na dwóch krawędziach płytki. 
+ Największą trudność sprawiło mi umieszczenie na płytce portów sieciowych, gdyż wyprowadzenie ich połączeń sygnałowych nie jest zgodne z rastrem 2,54mm, a dodatkowo potrzebne są otwory montażowe.
   
   \section{Wykonanie panelu dotykowego}
- Panel dotykowy został wykonany z blaszek miedzianych o wymiarach 2cm x 2cm, przyklejonych do pokrywy sterownika, przylutowanych do przewodów zakończonych gniazdami. Podczas wycinania elementów należało zachować szczególną staranność dla zapewniania estetyki wykonania.
+ Panel dotykowy wykonałem z blaszek miedzianych o wymiarach 2cm x 2cm, przyklejonych do pokrywy sterownika, przylutowanych do przewodów zakończonych gniazdami. Podczas wycinania elementów należało zachować szczególną staranność dla zapewniania estetyki wykonania.
 
  \section{Połączenie elementów}
- Gniazda oraz goldpiny wszystkich elementów zostały połączone jednożyłowymi przewodami miedzianymi w izolacji. Przewody zostały rozmieszczone tak aby łatwo można było prześledzić drogę połączenia, a następnie przylutowane do płytki uniwersalnej. Różne kolory izolacji przewodów ułatwiają identyfikację połączeń. Zasilanie do złączy RJ-45 zostało doprowadzone tak aby oba przewody znajdowały się w jednej parze skrętki, co pozwala na zmniejszenie ilości generowanych zakłóceń.
- Sprawdzenia poprawności połączeń dokonano przy pomocy miernika uniwersalnego.
+ Gniazda oraz goldpiny wszystkich elementów zostały połączone jednożyłowymi przewodami miedzianymi w izolacji. Przewody rozmieściłem tak, aby łatwo można było prześledzić drogę połączenia, a następnie przylutowane do płytki uniwersalnej. Różne kolory izolacji przewodów ułatwiają identyfikację połączeń. Zasilanie do złączy RJ-45 zostało doprowadzone tak, aby oba przewody znajdowały się w jednej parze skrętki, co pozwala na zmniejszenie ilości generowanych zakłóceń.
+ Sprawdzenia poprawności połączeń dokonałem przy pomocy miernika uniwersalnego.
 
  \section{Zmiany w projekcie}
- Na etapie wykonywania prototypu na płytce uniwersalnej postanowiono wprowadzić kilka zmian do projektu sterownika.
+ Na etapie wykonywania prototypu na płytce uniwersalnej postanowiłem wprowadzić kilka zmian do projektu sterownika.
  \subsection{Dodanie dzielnika napięcia}
- W celu wyrywania aktualnego źródła zasilania sterownika zdecydowano o pomiarze napięcia zasilania diod sygnalizacyjnych w układzie modułu zasilania awaryjnego. Aby dostosować napięcia do zakresu bezpiecznego dla mikrokontrolera zastosowano dzielniki napięcia składające się z rezystorów 1k Ohm.
+ W celu wykrywania aktualnego źródła zasilania sterownika, zdecydowałem się na pomiar napięcia zasilania diod sygnalizacyjnych w układzie modułu zasilania awaryjnego. Aby dostosować napięcia do zakresu bezpiecznego dla mikrokontrolera, zastosowałem dzielniki napięcia składające się z rezystorów 1k Ohm.
  \subsection{Dodanie głównego włącznika zasilania}
- Dla umożliwienia łatwiejszego włączania zasilania zdecydowano się umieścić w projekcie dodatkowy przełącznik zasilania podłączony do modułu zasilania awaryjnego. Do małego przełącznika znajdującego się w module zasilania przylutowano dwa goldpiny. Duży przełącznik został podłączony do przewodów zakończonych gniazdami szpilkowymi pasującymi do goldpinów.
+ Dla umożliwienia łatwiejszego włączania zasilania zdecydowałem się umieścić w projekcie dodatkowy przełącznik zasilania podłączony do modułu zasilania awaryjnego. Do małego przełącznika znajdującego się w module zasilania przylutowałem dwa goldpiny. Duży przełącznik podłączyłem do przewodów zakończonych gniazdami szpilkowymi pasującymi do goldpinów.
 
  \section{Testowanie prototypu}
- Po podłączeniu wszystkich elementów sterownika do płytki uniwersalnej sprawdzono działanie z wykorzystaniem monitora portu szeregowego.
+ Po podłączeniu wszystkich elementów sterownika do płytki uniwersalnej dokonałem testu działania z wykorzystaniem monitora portu szeregowego.
  
  \chapter{Wykonanie obudowy}\label{ch:obudowa}
- Pierwotnie rozważano możliwość wydruku obudowy na drukarce 3D \cite{Frence2014} jednak wielkość potrzebnej obudowy oraz czas niezbędny do wykonania projektu obudowy przesądziły o wykorzystaniu gotowej skrzynki z plastiku z przeźroczystym wieczkiem o rozmiarze 15,8cm x 9cm x 6cm pozwalającym na swobodne zmieszczenie wszystkich komponentów sterownika. Płytka uniwersalna została przycięta na rogach ponieważ skrzynka posada tam miejsca na śruby. W skrzynce wykonano w sumie 5 otworów. Jeden na górnej powierzchni obudowy, na port micro USB, przeznaczony na wypadek potrzeby bezpośredniego podłączenia do mikrokontrolera. Jeden na prawym brzegu obudowy, na port micro USB, przeznaczony do zasilania podczas normalnej pracy. Trzy otwory na dolnej powierzchni obudowy. Z lewej strony otwór na gniazdo 8p8c (często błędnie nazywane RJ-45) przeznaczone do połączenia z internetem. W środkowej części potrójne gniazdo 8p8c przeznaczone do komunikacji z czujnikami zewnętrznymi oraz serwomechanizmem. Z prawej strony otwór na główny włącznik.
- Po wykonaniu otworów i zamontowaniu komponentów sterownika przystąpiono do montowania panelu dotykowego. Poszczególne pola panelu zostały przyklejone do przezroczystego wieczka obudowy na kształt "+", każdy w odległości około 4mm od drugiego, co pozwala na minimalizację zakłóceń.
- Ostatnim etapem wykonania obudowy było wklejenie ekranu lcd w lewym górnym rogu przeźroczystego wieczka sterownika.
- Po umieszczeniu w obudowie i podłączeniu wszystkich elementów sterownika sprawdzono działanie z wykorzystaniem monitora portu szeregowego.
+ Pierwotnie, w oparciu o pracę Francuza \cite{Frence2014} zamierzałem wydrukować obudowę w  drukarce 3D. Jednak wielkość potrzebnej obudowy oraz czas niezbędny do wykonania projektu przesądziły o wykorzystaniu gotowej skrzynki, wykonanej z plastiku o przeźroczystym wieczku w rozmiarze 15,8cm x 9cm x 6cm, pozwalającej na swobodne zmieszczenie wszystkich komponentów sterownika. Płytka uniwersalna została przycięta na rogach, ponieważ obudowa posiada tam miejsca na śruby. W skrzynce wykonałem 5 otworów: pierwszy na górnej powierzchni obudowy (względem docelowego umiejscowienia sterownika) na port micro USB, który jest przeznaczony na wypadek potrzeby bezpośredniego podłączenia do mikrokontrolera. Drugi na prawej płaszczyźnie, również na port micro USB, przeznaczony do zasilania podczas normalnej pracy. Natomiast na dolnej powierzchni obudowy znajdują się trzy otwory: z lewej strony wejście na gniazdo 8p8c, przeznaczone do połączenia z internetem. W środkowej części potrójne gniazdo 8p8c, służące do komunikacji z czujnikami zewnętrznymi oraz serwomechanizmem. Po prawej stronie znajduje się miejsce na główny włącznik.
+ Po wykonaniu otworów i zamontowaniu komponentów sterownika przystąpiłem do montowania panelu dotykowego. Poszczególne pola panelu zostały przyklejone do przezroczystego wieczka obudowy na kształt "+", każdy w odległości około 4mm od drugiego, co pozwala na minimalizację zakłóceń.
+ Ostatnim etapem wykonania obudowy było wklejenie ekranu LCD, w lewym górnym rogu przeźroczystego wieczka sterownika.
+ Po umieszczeniu w obudowie i podłączeniu wszystkich elementów sterownika dokonałem testu działania z wykorzystaniem monitora portu szeregowego.
  
- \chapter{Opracowaniu oprogramowania - część druga}\label{ch:oprog:2}
- W tym rozdziale opisano dalszą część tworzenia oprogramowania sterownika. 
+ \chapter{Opracowanie oprogramowania - część druga}\label{ch:oprog:2}
+ W niniejszym rozdziale opisałem dalszą część tworzenia oprogramowania sterownika, skupiając się na doskonaleniu i rozbudowie poszczególnych modułów oprogramowania o nowe funkcje i udogodnienia dla potencjalnego użytkownika.
 
   \section{Rozbudowa portalu przechwytującego}
-  W portalu przechwytującym zaprogramowano funkcję, wywoływaną w pętli głównej, podejmującą próbę połączenia z zapamiętaną siecią WiFi w przypadku utraty łączności.
+  W portalu przechwytującym zaprog funkcję, wywoływaną w pętli głównej, podejmującą próbę połączenia z zapamiętaną siecią WiFi w przypadku utraty łączności.
   
- \section{Rozbudowa obsługi DHT22}
+ \section{Rozbudowa obsługi termometru i czujnika wilgotności DHT22}
  Ponieważ jako punkt odniesienia dla sterownika postanowiono wykorzystać indeks cieplny zamiast temperatury w pliku dht stworzono funkcję pozwalającą na przekazanie indeksu do zmiennej. Dla zabezpieczenia poprawnej pracy sterownika funkcja ta zwraca informację o błędzie w przypadku niepowodzenia lub wątpliwych wartości temperatury i wilgotności na podstawie których obliczany jest indeks cieplny. 
 
- \section{Rozbudowa obsługi MAX6675}
+ \section{Rozbudowa obsługi termopary MAX6675}
  Dla zabezpieczenia poprawnej pracy sterownika jeśli odczyt temperatury się nie powiedzie, odczytane wartości są nierzeczywiste lub temperatura różni się znacznie od poprzedniego odczytu funkcja zwraca wartość 999 oraz wypisuje komunikat o błędzie. Zwrócenie przez funkcję tak wysokiej temperatury spowoduje szybkie zamknięcie przepustnicy przez regulator PID co będzie chroniło piec przed przegrzaniem.
  
  \section{Rozbudowa obsługi wyświetlacza LCD}
