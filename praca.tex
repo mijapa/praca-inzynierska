@@ -79,11 +79,11 @@
  \item[•] inteligentna produkcja przemysłowa
  \item[•] inteligentna logistyka i łańcuchy dostaw.
 \end{enumerate}
- Przyjęte przez niewielkie grupy korporacji standardy internetu rzeczy podlegają ciągłej ewolucji spowodowanej rozwojem technologicznym, a zamknięte protokoły prowadzą do sytuacji w której zmiana dostawcy rozwiązań jest mocno utrudniona i może powodować konieczność zmiany sprzętu. Standardy webowe, takie jak HTTP, JSON i Web Socket, zawdzięczają swoją popularność otwartości oraz braku opłat. Ich zastosowanie do integracji urządzeń i aplikacji w znacznym stopniu może ułatwić wchodzenie w interakcję z rzeczami.
+ Przyjęte przez niewielkie grupy korporacji standardy internetu rzeczy podlegają ciągłej ewolucji spowodowanej rozwojem technologicznym, a zamknięte protokoły prowadzą do sytuacji, w której zmiana dostawcy rozwiązań jest mocno utrudniona i może powodować konieczność zmiany sprzętu. Standardy webowe, takie jak HTTP, JSON i Web Socket, zawdzięczają swoją popularność otwartości oraz brakowi opłat. Ich zastosowanie do integracji urządzeń i aplikacji w znacznym stopniu może ułatwić wchodzenie w interakcję z rzeczami.
  
  \section{Stan aktualnej wiedzy}
  \subsection{Sterowniki}
- Obecnie na rynku dostępny jest szeroki wachlarz rozwiązań, od prostych jednokomponentowych do bardziej zaawansowanych, złożonych. Począwszy od regulatorów pokojowych, które jedynie włączają ogrzewanie kiedy temperatura pomieszczenia obniży się poniżej nastawionej wartości, poprzez rozbudowane, umożliwiające programowanie temperatury zarówno w ciągu doby (niższa w nocy, wyższa po południu), jak i w wybrane dni tygodnia, skończywszy na automatyce pogodowej, która dzięki wykorzystaniu czujnika zewnętrznego, umieszczonego na ścianie domu, przewiduje zwiększone zapotrzebowanie na ciepło i wcześniej dostosowuje moc kotła.
+ Obecnie na rynku dostępny jest szeroki wachlarz rozwiązań, od prostych jednokomponentowych do bardziej zaawansowanych, złożonych. Począwszy od regulatorów pokojowych, które jedynie włączają ogrzewanie kiedy temperatura pomieszczenia obniży się poniżej nastawionej wartości, poprzez rozbudowane, umożliwiające programowanie temperatury zarówno w ciągu doby (niższa w nocy, wyższa po południu), jak i w wybrane dni tygodnia. Skończywszy na automatyce pogodowej, która dzięki wykorzystaniu czujnika zewnętrznego, umieszczonego na ścianie domu, przewiduje zwiększone zapotrzebowanie na ciepło i wcześniej dostosowuje moc kotła.
  Coraz więcej dostępnych na rynku sterowników umożliwia zdalne nastawienie temperatury. W znakomitej większości standard komunikacji tych rozwiązań jest zamknięty, co utrudnia współpracę  z innymi inteligentnymi urządzeniami.
  \subsection{Internet rzeczy i WWW rzeczy}
  W Europie Wschodniej występuje wciąż mała na tle konkurencji liczba firm oferujących rozwiązania IoT.
@@ -113,7 +113,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
 
  \section{Cele pracy}
  Celem niniejszej pracy jest \textbf{opracowanie koncepcji sterownika pieca kominkowego} zgodnego ze szkicem specyfikacji Web Thing API.
- 
+ +
  \section{Zakres pracy}
  Zakres pracy obejmuje:
  \begin{enumerate}
@@ -129,7 +129,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \end{enumerate}
  
  \section{Założenia i wymagania}
- Projekt sterownika zostanie wykonany zgodnie z dobrymi praktykami dotyczącymi programowania zawartymi między innymi w \cite{Grebosz2018} \cite{Francuz2015}. Część sprzętowa projektu zostanie opracowana na podstawie książek \cite{Monk2014} \cite{Monk2014a} \cite{Monk2018} \cite{Kurczyk2019} \cite{Huang2018} \cite{Wallace2019} oraz norm Polskiego Komitetu Normalizacyjnego \cite{PKN1999} \cite{PKN2000}.
+ Projekt sterownika zostanie wykonany zgodnie z dobrymi praktykami dotyczącymi programowania zawartymi między innymi w pracach Grębosza \cite{Grebosz2018} i Francuza \cite{Francuz2015}. Część sprzętowa projektu zostanie opracowana na podstawie książek Monka \cite{Monk2014} \cite{Monk2014a} \cite{Monk2018}, Kurczyka \cite{Kurczyk2019}, Huanga \cite{Huang2018} i Wallace'a \cite{Wallace2019} oraz norm Polskiego Komitetu Normalizacyjnego \cite{PKN1999} \cite{PKN2000}.
  
  \subsection{Wykorzystane narzędzia}
  \begin{enumerate}
@@ -173,12 +173,11 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \section{Dalsze kierunki rozwoju}
  W tej części zostaną opisane możliwe kierunki rozwoju sterownika.
  \subsection{Integracja z innymi urządzeniami}
- Wykorzystanie WebThing API umożliwi w przyszłości łatwą integrację sterownika z dodatkowymi urządzeniami.
- Możliwe do wykorzystania są na przykład:
+ Wykorzystanie WebThing API umożliwi w przyszłości łatwą integrację sterownika z dodatkowymi urządzeniami, takimi jak:
  \begin{enumerate}
- \item[•] integracja z czujnikiem pogodowym
- \item[•] integracja z systemem odzyskiwania ciepła ze spalin
- \item[•] współpraca z innymi źródłami ciepła
+ \item[•] czujnik pogodowy
+ \item[•] systemem odzyskiwania ciepła ze spalin
+ \item[•] inne źródła ciepła
  \end{enumerate}
  \subsection{Zmiany w oprogramowaniu sterownika}
  Oprogramowanie sterownika może zostać rozbudowane o przykładowe komponenty:
@@ -188,7 +187,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \item[•] zabezpieczenie hasłem
  \item[•] dodatkowe tryby pracy pieca
  \end{enumerate}
- Możliwą do wprowadzenia zmianą może być też zastąpienie frameworka Arduino, bardziej profesjonalnym Espressif IoT Development Framework który lepiej współpracuje z mikrokontrolerem ESP32.
+ Możliwą do wprowadzenia zmianą może być też zastąpienie frameworka Arduino, bardziej profesjonalnym Espressif IoT Development Framework, który lepiej współpracuje z mikrokontrolerem ESP32.
  \subsection{Zmiany sprzętowe}
  Proponowanymi zmianami w obrębie sprzętowym są:
  \begin{enumerate}
@@ -202,118 +201,115 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
  Obsługa półautomatyczna pozwala na samodzielną pracę urządzenia pomiędzy momentami dokładania paliwa. Można wyróżnić dwie jej odsłony. Mechaniczna, w której głowica termostatyczna połączona jest z mechanizmem dźwigni. Na jej ramieniu znajduje się łańcuszek lub linka. Zaletą jest niski koszt. Elektroniczna, gdzie stosuje się sterownik pokojowy z serwomechanizmem. Koszt tego rozwiązania jest umiarkowany oraz zapewnia szerokie możliwości regulacji, umożliwiając dokonywanie nastaw lokalnie lub zdalnie. 
  
- Najdroższe jak i najbardziej autonomiczne rozwiązanie stanowi obsługa automatyczna, w której kocioł z podajnikiem paliwa pracuje samodzielnie do kilku dni
+ Najdroższe jak i najbardziej autonomiczne rozwiązanie stanowi obsługa automatyczna, w której kocioł z podajnikiem paliwa pracuje samodzielnie do kilku dni.
  
  
  \chapter{Przegląd istniejących rozwiązań} 
  \section{Standardy integracji inteligentnych urządzeń}
- W przypadku internetu rzeczy producenci nie zwracali uwagi na stworzenie otwartych systemów komunikujących się ze sobą urządzeń. W szczególności ograniczone były działania  podejmowane dla umożliwienia doraźnego współdziałania elementów składających się na internet rzeczy pomimo, że organizacje standaryzacyjne zaproponowały wiele protokołów. Żaden z tych standardów nie zdobył na tyle dużej popularności by zdominować pozostałe rozwiązania. Coraz więcej urządzeń podłączanych do internetu udostępnia API, jednak każdy z nich został zaimplementowany z wykorzystaniem innych protokołów i używa innego modelu danych. Zamiast proponować kompletnie nowe standardy, Web of Things wykorzystuje istniejące, dobrze znane standardy webowe.
+ W przypadku internetu rzeczy producenci nie zwracali uwagi na stworzenie otwartych systemów komunikujących się ze sobą urządzeń. Szczególnie ograniczone były działania  podejmowane dla umożliwienia doraźnego współdziałania elementów składających się na internet rzeczy. Pomimo, że organizacje standaryzacyjne zaproponowały wiele protokołów, żaden z tych standardów nie zdobył na tyle dużej popularności by zdominować pozostałe rozwiązania. Coraz więcej urządzeń podłączanych do internetu udostępnia API, jednak każdy z nich został zaimplementowany z wykorzystaniem innych protokołów i używa innego modelu danych. Zamiast proponować kompletnie nowe normy komunikacyjne, Web of Things wykorzystuje istniejące, dobrze znane standardy webowe.
   
  \section{Sterowniki kominkowe}
- Na Polskim rynku istnieje szeroka gama rozwiązań przeznaczonych do kotłów na paliwo stałe, jednak stosunkowo niewielka ilość sterowników przeznaczonych dla kominków. - tylko z dodatkową przepustnicą co ogranicza możliwość regulacji (powietrze pierwotne i wtórne).
+ Na polskim rynku istnieje szeroka gama rozwiązań przeznaczonych dla kotłów na paliwo stałe, jednak stosunkowo niewielką ilość sterowników przeznaczono dla kominków. Istnieją wyłącznie modele z dodatkową przepustnicą, co ogranicza możliwość regulacji dopływu powietrza pierwotnego i wtórnego.
  \subsection{TECH STEROWNIKI}
- Firma TECH ma w swojej aktualnej ofercie \cite{Tech} trzy sterowniki do kominków. Dwa znich są do kominków z płaszczem wodnym. Trzeci \cite{TechSterownik} przeznaczony jest do kominków z dystrybucją gorącego powietrza i mógłby zostać zastosowany przy piecu kominkowym. Czujnik mierzy temperaturę spalin.
+ Firma TECH ma w swojej aktualnej ofercie \cite{Tech} trzy sterowniki do kominków. Dwa z nich są do kominków z płaszczem wodnym. Trzeci \cite{TechSterownik} przeznaczony jest do kominków z dystrybucją gorącego powietrza i mógłby zostać zastosowany przy piecu kominkowym. Czujnik mierzy temperaturę spalin w kominie.
  Aby mieć możliwość zdalnego dostępu do sterownika należy skorzystać z jednego z dwóch dodatkowych modułów komunikacyjnych - GSM lub Ethernet. Dostęp jest możliwy jedynie przez stronę producenta lub aplikację mobilną, brak publicznego API.
  Sam moduł Ethernet kosztuje około 500zł \cite{TechEthernetCena}.
  \subsection{EUROSTER}
- Firma EUROSTER ma w swojej aktualnej ofercie \cite{Euroster} tylko jeden seteronik do kominków. Jest on \cite{EurosterSterownik} przeznaczony do współpracy z kominkiem z płaszczem wodnym więc nie może być zastosowany do pieca kominkowego. Nie posiada możliwości zdalnego dostępu. Czujnik mierzy temperaturę wody obiegowej.
+ Firma EUROSTER ma w swojej aktualnej ofercie \cite{Euroster} tylko jeden sterownik do kominków. Jest on \cite{EurosterSterownik} przeznaczony do współpracy z kominkiem z płaszczem wodnym, więc nie może być zastosowany do pieca kominkowego, gdyż czujnik mierzy temperaturę wody obiegowej, która nie występuje w piecu kominkowym. Sterownik nie posiada możliwości zdalnego dostępu.
  Cena samego sterownika to około 300zł \cite{EurosterSterownikCena}. Dodatkowo należy zakupić przepustnicę.
  \subsection{Kratki}
  Firma Kratki ma w swoje ofercie \cite{Kratki} jeden sterownik do kominków występujący w kilku wersjach różniących się obudową i wielkością dołączonej do zestawu przepustnicy.
- Jest on przeznaczony do współpracy z kominkami każdego rodzaju dlatego może zostać zastosowany do pieca kominkowego. Nie posiada możliwości zdalnego dostępu. Czujnik mierzy temperaturę w pobliżu paleniska. 
+ Jest on przeznaczony do współpracy z kominkami każdego rodzaju, dlatego może zostać zastosowany do pieca kominkowego. Czujnik mierzy temperaturę w pobliżu paleniska. Sterownik nie posiada możliwości zdalnego dostępu. 
  Cena samego sterownika to około 400zł \cite{KratkiSterownik}.
   \subsection{Podsumowanie}
-  Tylko jeden z wymienionych producentów pozwala na zdalny dostęp do sterownika, jednak jest on tylko możliwy za pośrednictwem serwerów producenta. Brak publicznego API. Cena tego rozwiązania jest wysoka.
+  Tylko jeden z wymienionych producentów pozwala na zdalny dostęp do sterownika, jednak jest on wyłącznie możliwy za pośrednictwem serwerów producenta. Brak publicznego API. Cena tego rozwiązania jest wysoka.
   Tylko jeden z wymienionych sterowników posiada czujnik pozwalający na mierzenie temperatury spalin.
   
   
  \chapter{Opracowanie koncepcji budowy sterownika pieca kominkowego}
- Regulacja dopływu powietrza do komory spalania. Jak dobrać otwarcie przepustnicy? Pomiar temperatury spalin.
- W minimalnej wersji: pomiar temperatury spalin i dobranie otwarcia przepustnicy. Potrzebne tylko mikrokontroler, serwo oraz termopara.
- Dodatki:
+ Projektowanie koncepcji sterownika pieca kominkowego rozpocząłem od skompletowania minimalnej wersji, na którą składały się: mikrokontroler, serwomechanizm oraz termopara. Do regulacji pracy pieca kominkowego jest potrzebne urządzenie potrafiące zmieniać położenie przepustnicy dolotu powietrza do komory spalania. Najbardziej optymalnym wyborem okazał się prosty serwomechanizm, którego dodatkową zaletą okazała się przystępna cena. Stopień otwarcia przepustnicy dobierany jest na podstawie temperatury spalin w kominie, mierzonej przez termoparę.
+ Dodatkowymi elementami uzupełniającymi koncepcję są:
  \begin{enumerate}
- \item termometr mierzący temperaturę w pomieszczeniu aby zwiększać moc przy większym zapotrzebowaniu na energię
- \item wyświetlacz przekazujący informacje użytkownikowi
- \item wyjście sterujące wentylatorem wymuszający obieg powietrza do innych pomieszczeń dla lepszej dystrybucji energii
- \item czujnik otwarcia drzwi paleniska aby zmieniać parametry pracy po dołożeniu drewna
- \item zdalny dostęp do sterownika dla ułatwienia obsługi
- \item rtc dla programowania zadań czasowych
- \item połączenie Ethernet, usunięcie niepotrzebnego ruchu WiFi.
- \item zapasowe źródło zasilania, pozwalające na kontrolę pracy pieca w razie zaniku napięcia w sieci
- \item zewnętrzny termometr, automatyka pogodowa
- \item przyciski na sterowniku, do zmiany podstawowych parametrów
+ \item[•] termometr, mierzący temperaturę w pomieszczeniu, umożliwiający dobór mocy pieca w stosunku do zapotrzebowania na ciepło
+ \item[•] wyświetlacz przekazujący informacje użytkownikowi
+ \item[•] czujnik otwarcia drzwi paleniska umożliwiający zmianę parametry pracy po dołożeniu drewna
+ \item[•] zdalny dostęp do sterownika w celu ułatwienia obsługi
+ \item[•] moduł Ethernet pozwalający na usunięcie niepotrzebnego ruchu WiFi
+ \item[•] zapasowe źródło zasilania, pozwalające na kontrolę pracy pieca w razie zaniku napięcia w sieci
+ \item[•] przyciski na sterowniku do zmiany podstawowych parametrów
  \end{enumerate}  
  
   
  \chapter{Wybór podzespołów sterownika pieca kominkowego}
  \section{Mikrokontroler lub platforma komputerowa}
- Rozważanymi kandydatami na serce sterownika były platformy komputerowe:
+ Rozważanymi kandydatami na serce sterownika były:
  \begin{enumerate}
- \item RaspberryPi
- \item OrangePi
- \end{enumerate}
- oraz mikrokontrolery:
+ \item platformy komputerowe:
  \begin{enumerate}
- \item Seria Arduino
- \item STM32F103C8T6
- \item ESP8266
- \item ESP32
+ \item[•] RaspberryPi
+ \item[•] OrangePi
  \end{enumerate}
- 
- Ze względu na koszt jak i rozdzielenie odpowiedzialności zdecydowano się na wybór mikrokontrolera.
- ESP32 - układ SoC, następca ESP8266, wbudowane wi-fi, bluetooth, dwa rdzenie, energooszczędność, stosunkowo niska cena, gotowy moduł pozwalający na wygodne prototypownie.
+\item mikrokontrolery:
+ \begin{enumerate}
+ \item[•] Seria Arduino
+ \item[•] STM32F103C8T6
+ \item[•] ESP8266
+ \item[•] ESP32
+ \end{enumerate}
+ \end{enumerate}
+ Ze względu na koszt jak i rozdzielenie odpowiedzialności zdecydowałem się na wybór mikrokontrolera ESP32. Jest to układ System on Chip będący następcą ESP8266. Posiada on dwa rdzenie, moduł komunikacji WiFi oraz bluetooth. Wyróżnia go energooszczędność. Dużą zaletą jest stosunkowo niska cena (w Chinach około 25zł). Gotowa płytka deweloperska pozwala na wygodne prototypownie.
  
  \section{Wyświetlacz}
- Ze sterownika będą też korzystać osoby o pogorszonym wzroku, dlatego wyświetlacz powinien być duży i kontrastowy.
- Ze względu na to, że wszytki parametry sterownika będą dostępne przez stronę internetową, wybrany został wyświetlacz LCD 2x16 który pozwoli na prezentowanie tylko kilku wybranych parametrów.
+ Aby sterownik sprostał potrzebom użytkowników o pogorszonym wzroku, wyświetlacz powinien być duży i kontrastowy.
+ Ze względu na to, że wszystkie parametry będą dostępne przez stronę internetową, wybrany został wyświetlacz LCD 2x16, który pozwoli na prezentowanie tylko kilku z nich w jednej chwili.
  
  \section{Termometr}
- Wybrany układ termometru DHT22 pozwala na pomiar temperatury i wilgotności jednocześnie zapewniając dobrą dokładność odczytów. Dodatkowo wybrano moduł termometru Dallas DS18B20 który pozwoli na pomiar temperatury wewnątrz sterownika.
+ Wybrany układ termometru DHT22 pozwala na pomiar temperatury i wilgotności, jednocześnie zapewniając dobrą precyzję odczytów. Dodatkowo wybrałem prosty moduł termometru Dallas DS18B20, który pozwala na pomiar temperatury wewnątrz sterownika.
  
  \section{Termopara}
- Układ MAX6675 jest jednym ze starszych rozwiązań dostępnych na rynku, a dzięki temu niedrogi i dobrze przetestowany. 
-
+ Zdecydowałem się na układ MAX6675, który jest jednym z najlepiej przetestowanych i najtańszych rozwiązań, ze względu na swoją długą obecność na rynku.
+ 
  \section{Układ poruszający przepustnicą} 
- Posiadany piec kominkowy potrzebuje przemieszczania liniowego przepustnicy jednak odpowiednie serwomechanizmy są wciąż drogie i przewyższałyby swoją ceną koszt pozostałych podzespołów całego sterownika.
- Istnieje możliwość zaprojektowania i wydrukowania właściwego adaptera serwomechanizmu, jednak długi czas produkcji oraz testowania wytrzymałości przekraczałby zakres tej pracy.
-  Ze względu na niewielką wymaganą precyzję ustawienia przepustnicy oraz zaistniałe opory, wybrano standardowej wielkości, analogowe serwo MG-995, bez adapterów przekształcających na ruch liniowy.
+ Posiadany piec kominkowy potrzebuje przemieszczania liniowego przepustnicy, jednak odpowiednie serwomechanizmy są wciąż drogie i przewyższałyby swoją ceną koszt pozostałych podzespołów całego sterownika.
+ Istnieje możliwość zaprojektowania i wydrukowania właściwego adaptera serwomechanizmu, lecz długi czas produkcji oraz testowania jego wytrzymałości przekraczałby zakres tej pracy.
+  Ze względu na niewielką wymaganą precyzję ustawienia przepustnicy oraz zaistniałe opory, wybrałem standardowej wielkości, analogowy serwomechanizm MG-995, bez adapterów przekształcających ruch obrotowy na liniowy.
  
  \section{Moduł Ethernet}
- Ponieważ sterownik bez przerwy komunikuje się z Bramą, to aby nie generować smogu elektromagnetycznego zdecydowano na dołączenie dodatkowego modułu komunikacji Ethernet. Wybrany moduł W5500 Lite jest nieznacznie droższy ale za to bardziej kompaktowy niż inne rozwiązania oparte o układ W5500.
+ Zdecydowałem się na dołączenie dodatkowego modułu Ethernet, ponieważ sterownik bez przerwy komunikuje się z siecią w celu wymiany informacji. Wykorzystanie komunikacji WiFi generowałoby niepotrzebny smog elektromagnetyczny. Wybrany moduł W5500 Lite jest nieznacznie droższy, ale za to bardziej kompaktowy niż inne rozwiązania oparte o układ W5500.
  
  \section{Zegar czasu rzeczywistego}
- Pierwotnie planowano wykorzystanie modułu czasu rzeczywistego z podtrzymaniem, jednak ponieważ sterownik przez większość czasu będzie podłączony do internetu skąd może pozyskać aktualną godzinę, zrezygnowano z tego rozwiązania.
+ Pierwotnie planowałem wykorzystanie modułu czasu rzeczywistego z podtrzymaniem. Jednakże, sterownik przez większość czasu będzie podłączony do internetu, skąd może pozyskać aktualną godzinę, dlatego zrezygnowałem z tego rozwiązania.
  
  \section{Urządzenie wskazujące}
- Pierwszym planowanym rozwiązaniem było wykorzystanie przycisków typu pushbutton. Ponieważ mikrokontroler ESP32 posiada specjalne piny umożliwiające rozpoznawanie dotyku poprzez detekcję zmian pojemności, zdecydowano się zastąpić pushbuttony panelem dotykowym.
+ Pierwszym planowanym rozwiązaniem było wykorzystanie przycisków typu pushbutton. Mikrokontroler ESP32 posiada jednak specjalne piny umożliwiające rozpoznawanie dotyku poprzez detekcję zmian pojemności, dlatego zdecydowałem się zastąpić pushbuttony panelem dotykowym.
  
  \section{Czujnik otwarcia drzwi paleniska}
- Czujnik otwarcia drzwi paleniska pozwoli na wykrywanie momentów dokładania paliwa. W projekcie wykorzystano prosty przełącznik podłączony do pinu cyfrowego mikrokontrolera.
+ Czujnik otwarcia drzwi paleniska pozwala na wykrywanie momentów dokładania paliwa. W projekcie wykorzystałem prosty przełącznik podłączony do pinu cyfrowego mikrokontrolera.
  
  \section{Zasilanie awaryjne}
- Najprostszym z rozważanych rozwiązań było zastosowanie dodatkowego, zewnętrznego modułu typu powerbank, jednak jego wykorzystanie nie dawałoby, żadnej kontroli nad trybem zasilania sterownika, co mogło by skutkować nagłym przerwaniem dostaw energii, a w konsekwencji możliwością przegrzania pieca. Wybrano płytkę rozszerzeń typu battery shield z dwoma akumulatorami litowo-jonowymi 18650 o pojemności około 3600mAh każda oraz układem ładowania i zabezpieczającym przed całkowitym rozładowaniem.
+ Najprostszym z rozważanych rozwiązań było zastosowanie dodatkowego, zewnętrznego modułu typu powerbank. Jednak jego wykorzystanie nie dawałoby żadnej kontroli nad trybem zasilania sterownika, co mogłoby skutkować nagłym przerwaniem dostaw energii, a w konsekwencji możliwością przegrzania pieca. Wybrałem płytkę rozszerzeń typu battery shield z dwoma akumulatorami litowo-jonowymi 18650 o pojemności około 3600mAh każdy oraz układem ładowania i układem zabezpieczającym przed całkowitym rozładowaniem.
  
  \section{Źródło dźwięku}
- Jako źródło dźwięku w projekcie zdecydowano się wykorzystać brzęczyk pasywny. Brzęczyk pasywny w odróżnieniu od aktywnego, umożliwiają generowanie dźwięków o zmiennej częstotliwości za pomocą sygnału PWM. Dla łatwiejszego wykorzystania w projekcie zdecydowano się wybrać moduł brzęczyka zawierający tranzystor sterujący który chroni źródło sygnału przed przeciążeniem prądowym.
+ Jako źródło dźwięku w projekcie zdecydowałem się wykorzystać brzęczyk pasywny. W odróżnieniu od aktywnego, umożliwia on generowanie dźwięków o zmiennej częstotliwości za pomocą sygnału PWM. Dla ułatwienia konstrukcji zdecydowałem się wybrać moduł brzęczyka zawierający tranzystor sterujący, który chroni źródło sygnału przed przeciążeniem prądowym.
  
  \section{Rodzaj połączenia czujników zewnętrznych}
- Ze względu na łatwość i pewność połączenia zdecydowano na wybranie standardu złącza 8P8C wykorzystywanego w rożnego rodzaju sprzęcie telekomunikacyjnym i komputerowym. Rozpowszechnione jako złącze do budowy sieci w standardzie Ethernet. 8P8C to złącze o ośmiu miejscach na styk i ośmiu stykach.
+ Ze względu na łatwość i pewność połączenia zdecydowałem się na wybranie standardu złącza 8P8C, wykorzystywanego w rożnego rodzaju sprzęcie telekomunikacyjnym i komputerowym. Jest ono rozpowszechnione jako złącze do budowy sieci w standardzie Ethernet. 8P8C to złącze o ośmiu miejscach na styk i ośmiu stykach.
  
  
  \chapter{Wykonanie prototypu sterownika pieca kominkowego na płytce stykowej}
  W tym rozdziale opisany został proces prototypowania z wykorzystaniem płytki stykowej.
- Płytka stykowa pozwala na łatwe połączenie elementów tworzonego układu. W pierwszej kolejności podzespoły wpinane są w płytkę, a następnie łączone elektrycznie przy pomocy specjalnych przewodów.
- Pierwszym, elementem sterownika umieszczonym na płytce był mikrokontroler ESP32. Ponieważ może być on zasilany przez port USB nie wymagał więc dodatkowych podłączeń. 
- 
- \section{Podłączenie mikrokontrolera oraz LCD}
- Użyty w projekcie wyświetlacz LCD 16x2 posiada dodatkowo konwerter I2C który zmniejsza ilość linii niezbędnych do komunikacji z 16 do 4. Wykorzystana do komunikacji magistrala I2C to szeregowa, dwukierunkowa magistrala która wykorzystuje tylko dwie linie komunikacyjne - Serial Data oraz Serial Clock. Transfer danych może być zainicjowany tylko gdy magistrala nie jest zajęta. Poza liniami transferu danych wyświetlacz potrzebuje także pary linii zasilania - masy oraz 5V.
+ Pozwala ona na łatwe połączenie elementów tworzonego układu. Podzespoły wpinane są w płytkę, a następnie łączone elektrycznie przy pomocy specjalnych przewodów.
+ Pierwszym elementem sterownika umieszczonym na płytce był mikrokontroler ESP32. Nie wymagał on dodatkowych połączeń, ponieważ może być zasilany przez port USB.
+  
+ \section{Połączenie mikrokontrolera oraz LCD}
+ Użyty w projekcie wyświetlacz LCD 16x2 posiada dodatkowo konwerter I2C, który zmniejsza ilość linii niezbędnych do komunikacji z 16 do 4. Wykorzystana do komunikacji magistrala I2C jest szeregowa oraz dwukierunkowa. Wykorzystuje tylko dwie linie komunikacyjne - Serial Data i Serial Clock. Transfer danych może być zainicjowany tylko, gdy magistrala nie jest zajęta. Poza liniami transferu danych wyświetlacz potrzebuje także pary linii zasilania - masy oraz 5V.
   
  \section{Podłączenie układu DHT22 - termometr i czujnik wilgotności}\label{dht}
- Moduł DHT22 do komunikacji z mikrokontrolerem używa magistrali 1-Wire która wykorzystuje pojedynczą linię komunikacyjną. W zależności od długości przewodów należy wybrać właściwy rezystor podciągający. Mikrokontroler ESP32 posiada wbudowany rezystor podciągający o wartości około 50k Ohmów dlatego jeśli przewody przyłączeniowe nie są długie nie ma potrzeby wykorzystywania dodatkowego rezystora.
- Moduł termometru DHT22 potrzebuje dodatkowo zasilania 3,3V.
+ Do komunikacji z mikrokontrolerem moduł termometru i czujnika wilgotności DHT22  używa magistrali 1-Wire, która wykorzystuje pojedynczą linię komunikacyjną. W zależności od długości przewodów należy wybrać właściwy rezystor podciągający.  Mikrokontroler ESP32 posiada wbudowany opornik podciągający o wartości około 50k Ohmów. Jeśli przewody przyłączeniowe nie są długie, wtedy nie ma potrzeby wykorzystywania dodatkowego rezystora.
+ Moduł termometru DHT22 potrzebuje również zasilania 3,3V.
  
  \section{Podłączenie termometru Dallas}
- Układ DS18B20 wykorzystuje do komunikacji z mikrokontrolerem magistrale 1-Wire opisaną w części \ref{dht}. Dodatkowo potrzebuje zasilania 3,3V.
+ Układ termometru Dallas DS18B20, do komunikacji z mikrokontrolerem, wykorzystuje magistrale 1-Wire opisaną w części \ref{dht}. Dodatkowo potrzebuje zasilania 3,3V.
  
  \section{Podłączenie układu MAX6675 - termopara}
  Układ MAX6675 wykorzystuje do komunikacji magistralę SPI - 3 linie komunikacyjne: SO - Master Input Slave Output, CS - Chip Select, SCK - Serial Clock. Do zasilania potrzebne jest napięcie 3,3V.
