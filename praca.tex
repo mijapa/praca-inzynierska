@@ -7,6 +7,7 @@
 %\usepackage{txfonts}
 \usepackage{polski}
  
+ \usepackage[raggedright]{titlesec}
  \usepackage{amsmath}
  \usepackage{amssymb}
  \usepackage{indentfirst}
@@ -226,7 +227,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
   Tylko jeden z wymienionych sterowników posiada czujnik pozwalający na mierzenie temperatury spalin.
   
   
- \chapter{Opracowanie koncepcji budowy sterownika pieca kominkowego}\label{ch:koncepcja}
+ \chapter[Opracowanie koncepcji budowy sterownika pieca...]{Opracowanie koncepcji budowy sterownika pieca kominkowego}\label{ch:koncepcja}
  Projektowanie koncepcji sterownika pieca kominkowego rozpocząłem od skompletowania minimalnej wersji, na którą składały się: mikrokontroler, serwomechanizm oraz termopara. Do regulacji pracy pieca kominkowego jest potrzebne urządzenie potrafiące zmieniać położenie przepustnicy dolotu powietrza do komory spalania. Najbardziej optymalnym wyborem okazał się prosty serwomechanizm, którego dodatkową zaletą okazała się przystępna cena. Stopień otwarcia przepustnicy dobierany jest na podstawie temperatury spalin w kominie, mierzonej przez termoparę.
  Dodatkowymi elementami uzupełniającymi koncepcję są:
  \begin{enumerate}
@@ -241,6 +242,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
   
  \chapter{Wybór podzespołów sterownika pieca kominkowego}\label{ch:wybor}
+ \chaptermark{Wybór podzespołów sterownika...}
  \section{Mikrokontroler lub platforma komputerowa}
  Rozważanymi kandydatami na serce sterownika były:
  \begin{enumerate}
@@ -532,8 +534,11 @@ platformio init --ide clion --board esp32doit-devkit-v1
  
  
  \chapter{Efekt końcowy na tle koncepcji}
- Refleksja na temat tego jak wygląda to co zaplanowałem w stosunku do tego co udało się uzyskać.
- 
+% Refleksja na temat tego jak wygląda to co zaplanowałem w stosunku do tego co udało się uzyskać.
+ Z góry narzucony termin wykonania zawsze pozostawia pewien niedosyt co do zrealizowanej pracy.
+ Brak możliwości informowania o zdarzeniach bezpośrednio przez sterownik. Możliwe tylko poprzez reguły Bramy.
+ Brak minimalizacji otwarcia przepustnicy w przypadku zaniku napięcia.
+ Jednak sterownik spełnia swoje podstawowe zadanie czyli pozwala na bezobsługową prace paleniska pomiędzy momentami dokładania paliwa, a wykorzystanie serwera WebThings pozwala na korzystanie z Bramy WebThings Mozilli oraz łatwą interakcję sterownika z innymi urządzeniami lub usługami online.
  
  
  \chapter{Podsumowanie}
@@ -565,23 +570,17 @@ Wykorzystywanie oprogramowania we wczesnym stadium rozwoju zawsze wiąże się z
 Uaktualnianie poprzednich wersji Bramy WebThings doprowadziło do wadliwego działania.
 Stosowanie dużej ilości wykresów a w konsekwencji duża ilość zapisów i odczytów na kartę pamięci doprowadziła do szybkiej degradacji i konieczności wymiany.
 Lepszym rozwiązaniem na przyszłość może byćb zastosowanie zamiast Raspberry Pi, która nie posiada wbudowanej pamięci, innej platformy i skorzystanie z obrazu Dockera.
-a 
  
  \chapter{Dalszy kierunek prac}
 % \addcontentsline{toc}{chapter}{Kierunki dalszych prac}
- Jeśli zaczynałbym projekt z moją dzisiejszą wiedzą jak podszedłbym do problemu. Jak dalej rozwijałbym pracę, jakie dalsze tematy zostałyby podjęte. 
+% Jeśli zaczynałbym projekt z moją dzisiejszą wiedzą jak podszedłbym do problemu. Jak dalej rozwijałbym pracę, jakie dalsze tematy zostałyby podjęte. 
+Posiadając wiedzę uzyskaną w trakcie tworzenia projektu podszedłbym inaczej do problemu opracowania koncepcji oraz wykonania sterownika pieca kominkowego. Przede wszystkim wykorzystałbym inne źródło zasilania awaryjnego, takie dające bezpośrednio więcej informacji o stanie baterii. Wykorzystałbym też płytkę deweloperską mikrokontrolera ESP32 z większą ilością wyprowadzeń tak aby pozostawić sobie pole do rozszerzenia liczby podłączonych czujników. W kwestii programowej poświęciłbym dodatkowy czas aby stworzyć testy jednostkowe których zabrakło w tej wersji oprogramowania.
+
+Bezpośrednio podjętym dalszym kierunkiem prac będzie w pierwszej kolejności poprawa bezpieczeństwa pracy sterownika tak aby piec kominkowy mógł zostać pozostawiony bez nadzoru na dłuższy czas.
+Kolejnym podjętym krokiem będzie podział pracy pieca kominkowego na odrębne fazy i opracowanie do nich indywidualnych podprogramów. Następnie stworzone zostanie menu użytkownika wyświetlane na LCD.
+W dalszej kolejności komunikacja z internetem zostanie przeniesiona z WiFi na połączenie Ethernet.
 
 
-% \chapter*{Podsumowanie}
-
-% Nasz wybór (patrz: s.~\pageref{sec:wybor}) miał istotne znaczenie.
-% O tym, co było następnie, pisaliśmy w podrozdziale \ref{sec:nastepnie}.
-% Konsekwencje\,\ldots
-
- 
-%  \nocite{*}
-% \bibliography{library}
-% \bibliographystyle{acm}
  
  \inputencoding{utf8}
  
