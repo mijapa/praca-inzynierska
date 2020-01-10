@@ -1,6 +1,7 @@
 bibliografia/
 missfont.log
 praca.aux
+praca.out
 praca.bbl
 praca.bcf
 praca.blg
@@ -10,4 +11,5 @@ praca.pdf
 praca.run.xml
 praca.synctex.gz
 praca.toc
+praca.tex.bak
 texput.log
