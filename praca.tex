@@ -45,7 +45,7 @@
  \center{(praca inżynierska)}
  \vspace{0.3\textheight}
  \par
- \rightline{Promotor: Dr Radosław Czarnecki}
+ \rightline{Promotor: dr inż. Radosław Czarnecki}
 
  \vspace{0.1\textheight}
  \center{Kraków 2020}
@@ -59,14 +59,14 @@
  
  \section{Rys historyczny - ujęcie problemowe}
  \subsection{Problem ogrzewania}
- Problem ogrzewania pomieszczeń towarzyszy człowiekowi od zarania dziejów \cite{Hoppe2018}. Zwykle był to proces wymagający ciągłego nadzoru. Potrzeba automatyzacji wydaje się naturalną konsekwencją zmiany trybu życia człowieka. Wraz z pojawieniem się nowoczesnych kotłów powstały pierwsze mechanizmy kontrolujące pracę urządzenia bez nieustannej konieczności doglądania go.
+ Problem ogrzewania pomieszczeń towarzyszy człowiekowi od zarania dziejów \cite{Hoppe2018}. Zwykle był to proces wymagający ciągłego nadzoru. Potrzeba automatyzacji wydaje się naturalną konsekwencją zmiany trybu życia człowieka. Wraz z pojawieniem się nowoczesnych kotłów, powstały pierwsze mechanizmy kontrolujące pracę urządzenia bez nieustannej konieczności doglądania go.
  Pojawienie się sterowników cyfrowych zaoferowało zupełnie nowe możliwości, takie jak:
   \begin{enumerate}
  \item[•] większą efektywność pracy systemu grzewczego
  \item[•] zmniejszenie emitowanych zanieczyszczeń
  \item[•] wzrost komfortu użytkowania
  \item[•] poprawę bezpieczeństwa
- \item[•] w nowszych modelach - zdalne sterowanie
+ \item[•] zdalne sterowanie (w nowszych modelach)
   \end{enumerate}
  Sterowniki cyfrowe wydają się również odpowiedzią na coraz bardziej dostrzegany problem odpowiedzialnego wykorzystywania zasobów naturalnych \cite{Mazurek2018}\cite{Mazurek2018a}, gdyż za ich pomocą do zapewnienia komfortu termicznego pomieszczeń potrzebna jest znacznie mniejsza ilość paliwa. Stanowią one również propozycję rozwiązania problemu ubóstwa energetycznego.
  \subsection{Integracja urządzeń}
@@ -74,18 +74,18 @@
  Termin internet rzeczy powstał w 1999 roku wymyślony przez Kevina Ashtona \cite{Ashton2009} jednak jego popularność rozpoczęła się dopiero kilka lat temu, a w tej chwili przechodzi okres stagnacji.
  Możemy wyróżnić wiele przypadków zastosowania internetu rzeczy:
  \begin{enumerate}
- \item[•] bezprzewodowe sieci czujników i pomiary rozproszone
- \item[•] urządzenia ubieralne i pomiary osobiste
- \item[•] inteligentne domy i budynki
- \item[•] inteligentne miasta i sieci energetyczne
- \item[•] inteligentna produkcja przemysłowa
+ \item[•] bezprzewodowe sieci czujników i pomiary rozproszone,
+ \item[•] urządzenia ubieralne i pomiary osobiste,
+ \item[•] inteligentne budynki,
+ \item[•] inteligentne miasta i sieci energetyczne,
+ \item[•] inteligentna produkcja przemysłowa,
  \item[•] inteligentna logistyka i łańcuchy dostaw.
 \end{enumerate}
  Przyjęte przez niewielkie grupy korporacji standardy internetu rzeczy podlegają ciągłej ewolucji spowodowanej rozwojem technologicznym, a zamknięte protokoły prowadzą do sytuacji, w której zmiana dostawcy rozwiązań jest mocno utrudniona i może powodować konieczność zmiany sprzętu. Standardy webowe, takie jak HTTP, JSON i Web Socket, zawdzięczają swoją popularność otwartości oraz brakowi opłat. Ich zastosowanie do integracji urządzeń i aplikacji w znacznym stopniu może ułatwić wchodzenie w interakcję z rzeczami.
  
  \section{Stan aktualnej wiedzy}
  \subsection{Sterowniki}
- Obecnie na rynku dostępny jest szeroki wachlarz rozwiązań, od prostych jednokomponentowych do bardziej zaawansowanych, złożonych. Począwszy od regulatorów pokojowych, które jedynie włączają ogrzewanie kiedy temperatura pomieszczenia obniży się poniżej nastawionej wartości, poprzez rozbudowane, umożliwiające programowanie temperatury zarówno w ciągu doby (niższa w nocy, wyższa po południu), jak i w wybrane dni tygodnia. Skończywszy na automatyce pogodowej, która dzięki wykorzystaniu czujnika zewnętrznego, umieszczonego na ścianie domu, przewiduje zwiększone zapotrzebowanie na ciepło i wcześniej dostosowuje moc kotła.
+ Obecnie na rynku dostępny jest szeroki wachlarz rozwiązań, od prostych jednokomponentowych do bardziej zaawansowanych i złożonych. Począwszy od regulatorów pokojowych, które jedynie włączają ogrzewanie kiedy temperatura pomieszczenia obniży się poniżej nastawionej wartości, poprzez rozbudowane, umożliwiające programowanie temperatury zarówno w ciągu doby (niższa w nocy, wyższa po południu), jak i w wybrane dni tygodnia. Skończywszy na automatyce pogodowej, która dzięki wykorzystaniu czujnika zewnętrznego, umieszczonego na ścianie domu, przewiduje zwiększone zapotrzebowanie na ciepło i wcześniej dostosowuje moc kotła.
  Coraz więcej dostępnych na rynku sterowników umożliwia zdalne nastawienie temperatury. W znakomitej większości standard komunikacji tych rozwiązań jest zamknięty, co utrudnia współpracę  z innymi inteligentnymi urządzeniami.
  \subsection{Internet rzeczy i WWW rzeczy}
  W Europie Wschodniej występuje wciąż mała na tle konkurencji liczba firm oferujących rozwiązania IoT.
@@ -106,7 +106,7 @@
 \end{figure}
 
  \section{Innowacyjność projektu na tle współczesnych rozwiązań}
- W odróżnieniu od szeroko stosowanych rozwiązań mój projekt zakłada użycie specyfikacji Web Thing API \cite{WebThing2020}, która pozwala na ujednolicenie dostępu do inteligentnych rzeczy za pomocą dodatkowej warstwy abstrakcji. Oznacza to, że system kreuje przestrzeń kooperacji urządzeń. Możliwe interakcje wpływają pozytywnie na koherentność systemu.
+ W odróżnieniu od szeroko stosowanych rozwiązań projekt zakłada użycie specyfikacji Web Thing API \cite{WebThing2020}, która pozwala na ujednolicenie dostępu do inteligentnych rzeczy za pomocą dodatkowej warstwy abstrakcji. Oznacza to, że system kreuje przestrzeń kooperacji urządzeń. Możliwe interakcje wpływają pozytywnie na koherentność systemu.
  
  \section{Motywacja}
 Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz poświęcanej uwagi potrzebnych do obsługi pieca kominkowego, pracującego jako główne źródło ciepła w domu jednorodzinnym. Ponadto niekomfortowym ograniczeniem dotychczas stosowanych rozwiązań jest zmuszanie klienta do użytkowania produktów pochodzących od tego samego producenta, co w znaczącym stopniu ogranicza możliwość wyboru preferowanego sprzętu.
@@ -115,7 +115,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \chapter{Cele pracy, zakres pracy, założenia}\label{ch:cele}
 
  \section{Cele pracy}
- Celem niniejszej pracy jest \textbf{opracowanie koncepcji sterownika pieca kominkowego} zgodnego ze szkicem specyfikacji Web Thing API.
+ Celem niniejszej pracy jest \textbf{opracowanie koncepcji sterownika pieca kominkowego} zgodnego ze szkicem specyfikacji Web Thing API oraz stworzenie dedykowanego oprogramowania.
 
  \section{Zakres pracy}
  Zakres pracy obejmuje:
@@ -163,9 +163,9 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \section{Efekt końcowy}
  Planowanym efektem końcowym pracy będzie stworzenie sterownika pieca kominkowego, pozwalającego na bezobsługową pracę paleniska pomiędzy momentami uzupełniania paliwa.
 
- Element wyróżniający wykonany sterownik stanowi wykorzystanie Web Thing REST API, który pozwala na wykorzystanie sieci jako zunifikowanej warstwy abstrakcji dla zdecentralizowanego internetu rzeczy.
+ Element wyróżniający, wykonany sterownik, stanowi wykorzystanie Web Thing REST API, który pozwala na wykorzystanie sieci jako zunifikowanej warstwy abstrakcji dla zdecentralizowanego internetu rzeczy.
  
- Rysunek~\ref{fig:wizja} na stronie~\pageref{fig:wizja} przedstawia wizję struktury elementów sterownika.
+ Rysunek~\ref{fig:wizja} przedstawia wizję struktury elementów sterownika.
  \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/fritzing_bredboard_v1.png}
@@ -200,9 +200,13 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
 
  \chapter{Charakterystyka metod obsługi pieca}\label{ch:charakterystyka}
- Obsługa w pełni manualna wymaga stałego nadzoru nad przebiegiem spalania. Jest bardzo absorbująca. Łatwo prowadzi do przekroczenia pożądanych temperatur. Pogarsza efektywność procesu spalania, co prowadzi do obniżenia ogólnej sprawności kotła, większego zapotrzebowania na opał, a w konsekwencji znacznie wyższych kosztów ogrzewania.
+ Obsługa w pełni manualna wymaga stałego nadzoru nad przebiegiem spalania. Jest to bardzo absorbujące i często nieekonomiczne ze względu na łatwość przekroczenia pożądanych temperatur. Obsługa manualna pogarsza również efektywność procesu spalania, co prowadzi do obniżenia ogólnej sprawności kotła, większego zapotrzebowania na opał, a w konsekwencji znacznie wyższych kosztów ogrzewania.
  
- Obsługa półautomatyczna pozwala na samodzielną pracę urządzenia pomiędzy momentami dokładania paliwa. Można wyróżnić dwie jej odsłony. Mechaniczna, w której głowica termostatyczna połączona jest z mechanizmem dźwigni. Na jej ramieniu znajduje się łańcuszek lub linka. Zaletą jest niski koszt. Elektroniczna, gdzie stosuje się sterownik pokojowy z serwomechanizmem. Koszt tego rozwiązania jest umiarkowany oraz zapewnia szerokie możliwości regulacji, umożliwiając dokonywanie nastaw lokalnie lub zdalnie. 
+ Obsługa półautomatyczna pozwala na samodzielną pracę urządzenia pomiędzy momentami dokładania paliwa. Można wyróżnić dwie jej odsłony:
+ \begin{enumerate}
+ \item[•] mechaniczna, w której głowica termostatyczna połączona jest z mechanizmem dźwigni. Na jej ramieniu znajduje się łańcuszek lub linka. Zaletą jest niski koszt. 
+ \item[•] elektroniczna, gdzie stosuje się sterownik pokojowy z serwomechanizmem. Koszt tego rozwiązania jest umiarkowany oraz zapewnia szerokie możliwości regulacji, umożliwiając dokonywanie nastaw lokalnie lub zdalnie. 
+\end{enumerate}
  
  Najdroższe jak i najbardziej autonomiczne rozwiązanie stanowi obsługa automatyczna, w której kocioł z podajnikiem paliwa pracuje samodzielnie do kilku dni.
  
@@ -225,12 +229,12 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Jest on przeznaczony do współpracy z kominkami każdego rodzaju, dlatego może zostać zastosowany do pieca kominkowego. Czujnik mierzy temperaturę w pobliżu paleniska. Sterownik nie posiada możliwości zdalnego dostępu. 
  Cena samego sterownika to około 400zł \cite{KratkiSterownik}.
   \subsection{Podsumowanie}
-  Tylko jeden z wymienionych producentów pozwala na zdalny dostęp do sterownika, jednak jest on wyłącznie możliwy za pośrednictwem serwerów producenta. Brak publicznego API. Cena tego rozwiązania jest wysoka.
+  Tylko jeden z wymienionych producentów pozwala na zdalny dostęp do sterownika, jednak jest on wyłącznie możliwy za pośrednictwem serwerów producenta. Brak publicznego API. Koszt tego rozwiązania jest wysoki.
   Tylko jeden z wymienionych sterowników posiada czujnik pozwalający na mierzenie temperatury spalin.
   
   
  \chapter[Opracowanie koncepcji budowy sterownika pieca...]{Opracowanie koncepcji budowy sterownika pieca kominkowego}\label{ch:koncepcja}
- Projektowanie koncepcji sterownika pieca kominkowego rozpocząłem od skompletowania minimalnej wersji, na którą składały się: mikrokontroler, serwomechanizm oraz termopara. Do regulacji pracy pieca kominkowego jest potrzebne urządzenie potrafiące zmieniać położenie przepustnicy dolotu powietrza do komory spalania. Najbardziej optymalnym wyborem okazał się prosty serwomechanizm, którego dodatkową zaletą okazała się przystępna cena. Stopień otwarcia przepustnicy dobierany jest na podstawie temperatury spalin w kominie, mierzonej przez termoparę.
+ Projektowanie koncepcji sterownika pieca kominkowego należy rozpocząć od skompletowania minimalnej wersji, na którą składa się: mikrokontroler, serwomechanizm oraz termopara. Do regulacji pracy pieca kominkowego jest potrzebne urządzenie potrafiące zmieniać położenie przepustnicy dolotu powietrza do komory spalania. Najbardziej optymalnym wyborem okazał się prosty serwomechanizm, którego dodatkową zaletą okazała się przystępna cena. Stopień otwarcia przepustnicy dobierany jest na podstawie temperatury spalin w kominie, mierzonej przez termoparę.
  Dodatkowymi elementami uzupełniającymi koncepcję są:
  \begin{enumerate}
  \item[•] termometr, mierzący temperaturę w pomieszczeniu, umożliwiający dobór mocy pieca w stosunku do zapotrzebowania na ciepło
@@ -246,7 +250,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \chapter{Wybór podzespołów sterownika pieca kominkowego}\label{ch:wybor}
  \chaptermark{Wybór podzespołów sterownika...}
  \section{Mikrokontroler lub platforma komputerowa}
- Rozważanymi kandydatami na serce sterownika były:
+ Jako serce sterownika można wykorzystać:
  \begin{enumerate}
  \item platformy komputerowe:
  \begin{enumerate}
@@ -261,23 +265,23 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \item[•] ESP32
  \end{enumerate}
  \end{enumerate}
- Ze względu na koszt jak i rozdzielenie odpowiedzialności zdecydowałem się na wybór mikrokontrolera ESP32. Jest to układ System on Chip będący następcą ESP8266. Posiada on dwa rdzenie, moduł komunikacji WiFi oraz bluetooth. Wyróżnia go energooszczędność. Dużą zaletą jest stosunkowo niska cena (w Chinach około 25zł). Gotowa płytka deweloperska pozwala na wygodne prototypownie.
+ Ze względu na koszt jak i rozdzielenie odpowiedzialności w pracy wybrano mikrokontrolera ESP32. Jest to układ System on Chip będący następcą ESP8266. Posiada on dwa rdzenie, moduł komunikacji WiFi oraz bluetooth. Wyróżnia go energooszczędność. Dużą zaletą jest stosunkowo niska cena (w Chinach około 25zł). Gotowa płytka deweloperska pozwala na wygodne prototypownie.
  
  \section{Wyświetlacz}
  Aby sterownik sprostał potrzebom użytkowników o pogorszonym wzroku, wyświetlacz powinien być duży i kontrastowy.
  Ze względu na to, że wszystkie parametry będą dostępne przez stronę internetową, wybrany został wyświetlacz LCD 2x16, który pozwoli na prezentowanie tylko kilku z nich w jednej chwili.
  
  \section{Termometr}
- Wybrany układ termometru DHT22 pozwala na pomiar temperatury i wilgotności, jednocześnie zapewniając dobrą precyzję odczytów. Dodatkowo wybrałem prosty moduł termometru Dallas DS18B20, który pozwala na pomiar temperatury wewnątrz sterownika.
+ Wybrany układ termometru DHT22 pozwala na pomiar temperatury i wilgotności, jednocześnie zapewniając dobrą precyzję odczytów. Dodatkowo, sterownik rozszerzony został o moduł termometru Dallas DS18B20, który pozwala na pomiar temperatury wewnątrz sterownika.
  
  \section{Termopara}
- Zdecydowałem się na układ MAX6675, który jest jednym z najlepiej przetestowanych i najtańszych rozwiązań, ze względu na swoją długą obecność na rynku.
+ W pracy wybrano układ MAX6675, który jest jednym z najlepiej przetestowanych i najtańszych rozwiązań, ze względu na swoją długą obecność na rynku.
  
  \section{Układ poruszający przepustnicą} 
  Posiadany piec kominkowy potrzebuje przemieszczania liniowego przepustnicy, jednak odpowiednie serwomechanizmy są wciąż drogie i przewyższałyby swoją ceną koszt pozostałych podzespołów całego sterownika.
  Istnieje możliwość zaprojektowania i wydrukowania właściwego adaptera serwomechanizmu, lecz długi czas produkcji oraz testowania jego wytrzymałości przekraczałby zakres tej pracy.
   Ze względu na niewielką wymaganą precyzję ustawienia przepustnicy oraz zaistniałe opory, wybrałem standardowej wielkości, analogowy serwomechanizm MG-995, bez adapterów przekształcających ruch obrotowy na liniowy.
-   Zdjęcie~\ref{fig:servo} na stronie~\pageref{fig:servo} przedstawia serwomechanizm zainstalowany przy piecu kominkowym.
+   Zdjęcie~\ref{fig:servo} przedstawia serwomechanizm zainstalowany przy piecu kominkowym.
     \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/servo.jpg}
@@ -311,7 +315,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  W tym rozdziale opisany został proces prototypowania z wykorzystaniem płytki stykowej.
  Pozwala ona na łatwe połączenie elementów tworzonego układu. Podzespoły wpinane są w płytkę, a następnie łączone elektrycznie przy pomocy specjalnych przewodów.
  Pierwszym elementem sterownika umieszczonym na płytce był mikrokontroler ESP32. Nie wymagał on dodatkowych połączeń, ponieważ może być zasilany przez port USB.
-    Zdjęcie~\ref{fig:stykowa} na stronie~\pageref{fig:stykowa} przedstawia płytkę stykową z podłączonymi modułami sterownika pieca kominkowego.
+    Zdjęcie~\ref{fig:stykowa} przedstawia płytkę stykową z podłączonymi modułami sterownika pieca kominkowego.
     \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/plytka_stykowa.jpg}
@@ -420,7 +424,7 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \chapter{Wykonanie prototypu sterownika pieca kominkowego na płytce uniwersalnej}\label{ch:prototyp:uniwersalna}
  W tym rozdziale opisano przeniesienie prototypu z płytki stykowej na płytkę uniwersalną.
  Wykorzystanie płytki uniwersalnej pozwala na pewniejsze połączenie podzespołów układu, jednocześnie pozostawiając wciąż pewną elastyczność do zmian w projekcie, co umożliwia dalsze jego doskonalenie.
- Zdjęcie~\ref{fig:uni_gora} na stronie~\pageref{fig:uni_gora} przedstawia płytkę uniwersalną z gniazdami i połączeniami.
+ Zdjęcie~\ref{fig:uni_gora} przedstawia płytkę uniwersalną z gniazdami i połączeniami.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/plytka_gora.jpg}
@@ -435,7 +439,7 @@ platformio init --ide clion --board esp32doit-devkit-v1
   
   \section{Wykonanie panelu dotykowego}
  Panel dotykowy wykonałem z blaszek miedzianych o wymiarach 2cm x 2cm, przyklejonych do pokrywy sterownika, przylutowanych do przewodów zakończonych gniazdami. Podczas wycinania elementów należało zachować szczególną staranność dla zapewniania estetyki wykonania.
-  Zdjęcie~\ref{fig:wieczko} na stronie~\pageref{fig:wieczko} przedstawia wieczko wraz z panelem dotykowym i wyświetlaczem LCD.
+  Zdjęcie~\ref{fig:wieczko} przedstawia wieczko wraz z panelem dotykowym i wyświetlaczem LCD.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/wieczko.jpg}
@@ -446,7 +450,7 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \section{Połączenie elementów}
  Gniazda oraz goldpiny wszystkich elementów zostały połączone jednożyłowymi przewodami miedzianymi w izolacji. Przewody rozmieściłem tak, aby łatwo można było prześledzić drogę połączenia, a następnie przylutowane do płytki uniwersalnej. Różne kolory izolacji przewodów ułatwiają identyfikację połączeń. Zasilanie do złączy RJ-45 zostało doprowadzone tak, aby oba przewody znajdowały się w jednej parze skrętki, co pozwala na zmniejszenie ilości generowanych zakłóceń.
  Sprawdzenia poprawności połączeń dokonałem przy pomocy miernika uniwersalnego.
-   Zdjęcie~\ref{fig:uni_dol} na stronie~\pageref{fig:uni_dol} przedstawia spodnią stronę płytki uniwersalnej z widocznymi połączeniami lutowanym.
+   Zdjęcie~\ref{fig:uni_dol} przedstawia spodnią stronę płytki uniwersalnej z widocznymi połączeniami lutowanym.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/plytka_dol.jpg}
@@ -469,7 +473,7 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Po wykonaniu otworów i zamontowaniu komponentów sterownika przystąpiłem do montowania panelu dotykowego. Poszczególne pola panelu zostały przyklejone do przezroczystego wieczka obudowy na kształt "+", każdy w odległości około 4mm od drugiego, co pozwala na minimalizację zakłóceń.
  Ostatnim etapem wykonania obudowy było wklejenie ekranu LCD, w lewym górnym rogu przeźroczystego wieczka sterownika.
  Po umieszczeniu w obudowie i podłączeniu wszystkich elementów sterownika dokonałem testu działania z wykorzystaniem monitora portu szeregowego.
-   Zdjęcie~\ref{fig:wnetrze} na stronie~\pageref{fig:wnetrze} przedstawia spodnią część obudowy wraz z komponentami sterownika pieca kominkowego.
+   Zdjęcie~\ref{fig:wnetrze} przedstawia spodnią część obudowy wraz z komponentami sterownika pieca kominkowego.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/wnetrze.jpg}
@@ -547,7 +551,7 @@ W pliku dht.cpp stworzyłem funkcję pozwalającą na przekazanie indeksu ciepln
  
  \section{Wykorzystywanie interfejsu Bramy WebThings}
  Dzięki zapewnieniu przez Fundację Mozilli zdalnej usługi tunelowania istnieje możliwość zalogowania się do Bramy WebThings poprzez, wybrany na etapie przygotowania, adres subdomeny oraz login i hasło. Po zalogowaniu się widoczne są aktualne parametry pracy sterownika oraz istnieje opcja zmiany temperatury zadanej w pomieszczeniu. W zakładce "Logs", w interfejsie Bramy WebThings, jest możliwość dodawania wykresów czasowych poszczególnych własności sensorów sterownika. Natomiast zakładka "Rules" umożliwia tworzenie reguł, np.: informujących użytkownika o wzroście temperatury poprzez powiadomienia push.
-  Zrzut ekranu~\ref{fig:gateway} na stronie~\pageref{fig:gateway} przedstawia interfejs Bramy WebThings.
+  Zrzut ekranu~\ref{fig:gateway} przedstawia interfejs Bramy WebThings.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/gateway.png}
@@ -565,7 +569,7 @@ W pliku dht.cpp stworzyłem funkcję pozwalającą na przekazanie indeksu ciepln
  Z góry narzucony termin wykonania zawsze pozostawia pewien niedosyt, co do zrealizowanego projektu, jednakże wstępny zarys koncepcji został, prawie całkowicie, zrealizowany. To, czego nie udało się osiągnąć, dotyczy
  braku możliwości informowania o zdarzeniach bezpośrednio przez sterownik, za to realizowane jest za pomocą reguły Bramy. Do niepowodzeń można zaliczyć także brak minimalizacji otwarcia przepustnicy w przypadku zaniku napięcia.
  Jednak sterownik spełnia swoje podstawowe zadanie, czyli pozwala na bezobsługową prace paleniska pomiędzy momentami dokładania paliwa, a wykorzystanie serwera WebThings umożliwia korzystanie z Bramy WebThings Mozilli oraz łatwą interakcję sterownika z innymi urządzeniami lub usługami online.
-    Zdjęcie~\ref{fig:sterownik} na stronie~\pageref{fig:sterownik} przedstawia kompletny sterownik pieca kominkowego.
+    Zdjęcie~\ref{fig:sterownik} przedstawia kompletny sterownik pieca kominkowego.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/sterownik.jpg}
