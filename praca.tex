@@ -29,6 +29,11 @@
  \renewcommand{\listtablename}{Spis tabel}
  \renewcommand{\bibname}{Bibliografia}
 
+\makeatletter
+\renewcommand{\l@section}{\@dottedtocline{1}{1.5em}{2.6em}}
+\renewcommand{\l@subsection}{\@dottedtocline{2}{4.0em}{3.6em}}
+\renewcommand{\l@subsubsection}{\@dottedtocline{3}{7.4em}{4.5em}}
+\makeatother
 
 
  \begin{document}
@@ -233,7 +238,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
   Tylko jeden z wymienionych sterowników posiada czujnik pozwalający na mierzenie temperatury spalin.
   
   
- \chapter[Opracowanie koncepcji budowy sterownika pieca...]{Opracowanie koncepcji budowy sterownika pieca kominkowego}\label{ch:koncepcja}
+ \chapter[Opracowanie koncepcji budowy sterownika pieca\\ kominkowego]{Opracowanie koncepcji budowy sterownika pieca kominkowego}\label{ch:koncepcja}
  Projektowanie koncepcji sterownika pieca kominkowego należy rozpocząć od skompletowania minimalnej wersji, na którą składa się: mikrokontroler, serwomechanizm oraz termopara. Do regulacji pracy pieca kominkowego jest potrzebne urządzenie potrafiące zmieniać położenie przepustnicy dolotu powietrza do komory spalania. Najbardziej optymalnym wyborem okazał się prosty serwomechanizm, którego dodatkową zaletą okazała się przystępna cena. Stopień otwarcia przepustnicy dobierany jest na podstawie temperatury spalin w kominie, mierzonej przez termoparę.
  Dodatkowymi elementami uzupełniającymi koncepcję są:
  \begin{enumerate}
@@ -311,7 +316,8 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Ze względu na łatwość i pewność połączenia zdecydowałem się na wybranie standardu złącza 8P8C, wykorzystywanego w rożnego rodzaju sprzęcie telekomunikacyjnym i komputerowym. Jest ono rozpowszechnione jako złącze do budowy sieci w standardzie Ethernet. 8P8C to złącze o ośmiu miejscach na styk i ośmiu stykach.
  
  
- \chapter{Wykonanie prototypu sterownika pieca kominkowego na płytce stykowej}\label{ch:prototyp:stykowa}
+ \chapter[Wykonanie prototypu sterownika pieca kominkowego\\ na płytce stykowej]{Wykonanie prototypu sterownika pieca kominkowego na płytce stykowej}\label{ch:prototyp:stykowa}
+ \chaptermark{Prototyp na płytce stykowej}
  W tym rozdziale opisany został proces prototypowania z wykorzystaniem płytki stykowej.
  Pozwala ona na łatwe połączenie elementów tworzonego układu. Podzespoły wpinane są w płytkę, a następnie łączone elektrycznie przy pomocy specjalnych przewodów.
  Pierwszym elementem sterownika umieszczonym na płytce był mikrokontroler ESP32. Nie wymagał on dodatkowych połączeń, ponieważ może być zasilany przez port USB.
@@ -355,7 +361,8 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Podłączenie zewnętrznych czujników do sterownika wykonałem z wykorzystaniem skrętki ekranowanej, która zapewnia odporność komunikacji na zakłócenia transmisji.
  
  
- \chapter{Opracowanie oprogramowania - część pierwsza}\label{ch:oprog:1}
+ \chapter{Opracowanie oprogramowania -~część pierwsza}\label{ch:oprog:1}
+  \chaptermark{Opracowanie oprogramowania I}
  W tym rozdziale opisano proces opracowywania pierwszej części oprogramowania, stanowiącej podstawę komunikacji z modułami sterownika. Dalsza część procesu programowania została opisana w rozdziale \ref{ch:oprog:2}.
  
  \section{Utworzenie projektu}
@@ -421,7 +428,8 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Po każdym etapie dodawania kolejnych modułów projektu, działanie sterownika było testowane z wykorzystaniem monitora portu szeregowego poprzez odczytanie mierzonych przez sterownik wartości.
 
  
- \chapter{Wykonanie prototypu sterownika pieca kominkowego na płytce uniwersalnej}\label{ch:prototyp:uniwersalna}
+ \chapter[Wykonanie prototypu sterownika pieca kominkowego\\ na płytce uniwersalnej]{Wykonanie prototypu sterownika pieca kominkowego na płytce uniwersalnej}\label{ch:prototyp:uniwersalna}
+  \chaptermark{Prototyp na płytce uniwersalnej}
  W tym rozdziale opisano przeniesienie prototypu z płytki stykowej na płytkę uniwersalną.
  Wykorzystanie płytki uniwersalnej pozwala na pewniejsze połączenie podzespołów układu, jednocześnie pozostawiając wciąż pewną elastyczność do zmian w projekcie, co umożliwia dalsze jego doskonalenie.
  Zdjęcie~\ref{fig:uni_gora} przedstawia płytkę uniwersalną z gniazdami i połączeniami.
@@ -481,7 +489,8 @@ platformio init --ide clion --board esp32doit-devkit-v1
 \label{fig:wnetrze}
 \end{figure}
  
- \chapter{Opracowanie oprogramowania - część druga}\label{ch:oprog:2}
+ \chapter{Opracowanie oprogramowania -~część druga}\label{ch:oprog:2}
+  \chaptermark{Opracowanie oprogramowania II}
  W niniejszym rozdziale opisałem dalszą część tworzenia oprogramowania sterownika, skupiając się na doskonaleniu i rozbudowie poszczególnych modułów oprogramowania o nowe funkcje i udogodnienia dla potencjalnego użytkownika.
 
   \section{Rozbudowa portalu przechwytującego}
@@ -539,7 +548,8 @@ W pliku dht.cpp stworzyłem funkcję pozwalającą na przekazanie indeksu ciepln
  Po opracowaniu kolejnej części oprogramowania, działanie sterownika było testowane z wykorzystaniem monitora portu szeregowego, poprzez odczytanie mierzonych wartości.
 
 
- \chapter{Zintegrowanie sterownika pieca kominkowego z Mozilla Gateway}\label{ch:gateway}
+ \chapter[Zintegrowanie sterownika pieca kominkowego\\ z Mozilla Gateway]{Zintegrowanie sterownika pieca kominkowego z Mozilla Gateway}\label{ch:gateway}
+  \chaptermark{Zintegrowanie z Mozilla Gateway}
  W tym rozdziale opisany został proces integrowania sterownika pieca kominkowego z Bramą Mozilli.
  
  \section{Przygotowanie lokalnej Bramy WebThings}
