@@ -100,9 +100,9 @@
 \caption{Liczba firm oferujących rozwiązania IoT na poszczególnych rynkach. (źródło: \cite{gov2019})}
 \label{fig:firmy}
 \end{figure}
- Wzmożony rozwój tematu WWW rzeczy zapoczątkowany został przez pracę doktorską Dominique'a Guinarda \cite{Guinard2011}, a pogłębiło go wydanie książki \cite{Guinard2017} podsumowującej dotychczasowe prace autora w tym temacie \cite{Guinard2009} \cite{Guinard2010} \cite{Guinard2010a} \cite{Guinard2011} \cite{Guinard2011a}.
+ Wzmożony rozwój tematu WWW rzeczy zapoczątkowany został przez pracę doktorską Dominique'a Guinarda \cite{Guinard2011}, a~pogłębiło go wydanie książki \cite{Guinard2017} podsumowującej dotychczasowe prace autora w tym temacie \cite{Guinard2009} \cite{Guinard2010} \cite{Guinard2010a} \cite{Guinard2011} \cite{Guinard2011a}.
  W 2014 roku przy World Wide Web Consortium, grupie zajmującej się ustanawianiem standardów pisania i przesyłu stron WWW, powstała Web of Things Interest Group \cite{wotig2014} która pracuje nad dokumentami opisującymi Rzeczy Webowe \cite{thingdescription} oraz Architekturę \cite{wotarchitecture}.
- W 2017 roku do projektowania Web of Things przyłącza się fundacja Mozilli \cite{mozilla2017} tworząc i rozbudowując projekt WebThings Gateway. Przyciągnął on liczną i aktywną społeczność znacząco rozwijającą przedsięwzięcie.  W następnych latach przybywa kolejnych prac naukowych na temat Web of Things \cite{IEEE2018} \cite{Raggett2018} \cite{Korkan2019}.
+ W 2017 roku do projektowania Web~of~Things przyłącza się fundacja Mozilli \cite{mozilla2017} tworząc i rozbudowując projekt WebThings Gateway. Przyciągnął on liczną i aktywną społeczność znacząco rozwijającą przedsięwzięcie.  W następnych latach przybywa kolejnych prac naukowych na temat Web~of~Things \cite{IEEE2018} \cite{Raggett2018} \cite{Korkan2019}.
    \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8 \textwidth]{fig/contributions.png}
@@ -114,7 +114,7 @@
  W odróżnieniu od szeroko stosowanych rozwiązań projekt zakłada użycie specyfikacji Web Thing API \cite{WebThing2020}, która pozwala na ujednolicenie dostępu do inteligentnych rzeczy za pomocą dodatkowej warstwy abstrakcji. Oznacza to, że system kreuje przestrzeń kooperacji urządzeń. Możliwe interakcje wpływają pozytywnie na koherentność systemu.
  
  \section{Motywacja}
-Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz poświęcanej uwagi potrzebnych do obsługi pieca kominkowego, pracującego jako główne źródło ciepła w domu jednorodzinnym. Ponadto niekomfortowym ograniczeniem dotychczas stosowanych rozwiązań jest zmuszanie klienta do użytkowania produktów pochodzących od tego samego producenta, co w znaczącym stopniu ogranicza możliwość wyboru preferowanego sprzętu.
+Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz poświęcanej uwagi potrzebnych do obsługi pieca kominkowego, pracującego jako główne źródło ciepła w domu jednorodzinnym. Ponadto niekomfortowym ograniczeniem dotychczas stosowanych rozwiązań jest zmuszanie klienta do użytkowania produktów pochodzących od tego samego producenta, co~w~znaczącym stopniu ogranicza możliwość wyboru preferowanego sprzętu.
 
 
  \chapter{Cele pracy, zakres pracy, założenia}\label{ch:cele}
@@ -223,7 +223,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \section{Sterowniki kominkowe}
  Na polskim rynku istnieje szeroka gama rozwiązań przeznaczonych dla kotłów na paliwo stałe, jednak stosunkowo niewielką ilość sterowników przeznaczono dla kominków. Istnieją wyłącznie modele z dodatkową przepustnicą, co ogranicza możliwość regulacji dopływu powietrza pierwotnego i wtórnego.
  \subsection{TECH STEROWNIKI}
- Firma TECH ma w swojej aktualnej ofercie \cite{Tech} trzy sterowniki do kominków. Dwa z nich są do kominków z płaszczem wodnym. Trzeci \cite{TechSterownik} przeznaczony jest do kominków z dystrybucją gorącego powietrza i mógłby zostać zastosowany przy piecu kominkowym. Czujnik mierzy temperaturę spalin w kominie.
+ Firma TECH ma w swojej aktualnej ofercie \cite{Tech} trzy sterowniki do kominków. Dwa z nich są do kominków z płaszczem wodnym. Trzeci \cite{TechSterownik} przeznaczony jest do kominków z dystrybucją gorącego powietrza i mógłby zostać zastosowany przy piecu kominkowym. Czujnik mierzy temperaturę spalin w~kominie.
  Aby mieć możliwość zdalnego dostępu do sterownika należy skorzystać z jednego z dwóch dodatkowych modułów komunikacyjnych - GSM lub Ethernet. Dostęp jest możliwy jedynie przez stronę producenta lub aplikację mobilną, brak publicznego API.
  Sam moduł Ethernet kosztuje około 500zł \cite{TechEthernetCena}.
  \subsection{EUROSTER}
@@ -253,7 +253,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  
   
  \chapter{Wybór podzespołów sterownika pieca kominkowego}\label{ch:wybor}
- \chaptermark{Wybór podzespołów sterownika...}
+ \chaptermark{Wybór podzespołów sterownika}
  \section{Mikrokontroler lub platforma komputerowa}
  Jako serce sterownika można wykorzystać:
  \begin{enumerate}
@@ -270,7 +270,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \item[•] ESP32
  \end{enumerate}
  \end{enumerate}
- Ze względu na koszt jak i rozdzielenie odpowiedzialności w pracy wybrano mikrokontrolera ESP32. Jest to układ System on Chip będący następcą ESP8266. Posiada on dwa rdzenie, moduł komunikacji WiFi oraz bluetooth. Wyróżnia go energooszczędność. Dużą zaletą jest stosunkowo niska cena (w Chinach około 25zł). Gotowa płytka deweloperska pozwala na wygodne prototypownie.
+ Ze względu na koszt jak i rozdzielenie odpowiedzialności w pracy wybrano mikrokontrolera ESP32. Jest to układ System on Chip będący następcą ESP8266. Posiada on dwa rdzenie, moduł komunikacji WiFi oraz bluetooth. Wyróżnia go energooszczędność. Dużą zaletą jest stosunkowo niska cena (w~Chinach około 25zł). Gotowa płytka deweloperska pozwala na wygodne prototypownie.
  
  \section{Wyświetlacz}
  Aby sterownik sprostał potrzebom użytkowników o pogorszonym wzroku, wyświetlacz powinien być duży i kontrastowy.
@@ -298,7 +298,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Zdecydowano się na dołączenie dodatkowego modułu Ethernet, ponieważ sterownik bez przerwy komunikuje się z siecią w celu wymiany informacji. Wykorzystanie komunikacji WiFi generowałoby niepotrzebny smog elektromagnetyczny. Wybrany moduł W5500 Lite jest nieznacznie droższy, ale za to bardziej kompaktowy niż inne rozwiązania oparte o układ W5500.
  
  \section{Zegar czasu rzeczywistego}
- Pierwotnie planowano wykorzystać moduł czasu rzeczywistego z podtrzymaniem. Jednakże, sterownik przez większość czasu będzie podłączony do internetu, skąd może pozyskać aktualną godzinę, dlatego zrezygnowano z tego rozwiązania.
+ Pierwotnie planowano wykorzystać moduł czasu rzeczywistego z podtrzymaniem. Jednakże, sterownik przez większość czasu będzie podłączony do internetu, skąd może pozyskać aktualną godzinę, dlatego zrezygnowano z~tego rozwiązania.
  
  \section{Urządzenie wskazujące}
  Pierwszym planowanym rozwiązaniem było wykorzystanie przycisków typu pushbutton. Mikrokontroler ESP32 posiada jednak specjalne piny umożliwiające rozpoznawanie dotyku poprzez detekcję zmian pojemności, dlatego zdecydowano się zastąpić pushbuttony panelem dotykowym.
@@ -310,7 +310,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Najprostszym z rozważanych rozwiązań było zastosowanie dodatkowego, zewnętrznego modułu typu powerbank. Jednak jego wykorzystanie nie dawałoby żadnej kontroli nad trybem zasilania sterownika, co mogłoby skutkować nagłym przerwaniem dostaw energii, a w konsekwencji możliwością przegrzania pieca. Wybrano płytkę rozszerzeń typu battery shield z dwoma akumulatorami litowo-jonowymi 18650 o pojemności około 3600mAh każdy oraz układem ładowania i układem zabezpieczającym przed całkowitym rozładowaniem.
  
  \section{Źródło dźwięku}
- Jako źródło dźwięku w projekcie wykorzystano brzęczyk pasywny. W odróżnieniu od aktywnego, umożliwia on generowanie dźwięków o zmiennej częstotliwości za pomocą sygnału PWM. Dla ułatwienia konstrukcji zdecydowano się wybrać moduł brzęczyka zawierający tranzystor sterujący, który chroni źródło sygnału przed przeciążeniem prądowym.
+ Jako źródło dźwięku w projekcie wykorzystano brzęczyk pasywny. W~odróżnieniu od aktywnego, umożliwia on generowanie dźwięków o zmiennej częstotliwości za pomocą sygnału PWM. Dla ułatwienia konstrukcji zdecydowano się wybrać moduł brzęczyka zawierający tranzystor sterujący, który chroni źródło sygnału przed przeciążeniem prądowym.
  
  \section{Rodzaj połączenia czujników zewnętrznych}
  Ze względu na łatwość i pewność połączenia zdecydowano się na wybranie standardu złącza 8P8C, wykorzystywanego w rożnego rodzaju sprzęcie telekomunikacyjnym i komputerowym. Jest ono rozpowszechnione jako złącze do budowy sieci w standardzie Ethernet. 8P8C to złącze o ośmiu miejscach na styk i ośmiu stykach.
@@ -384,7 +384,7 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Program napisany dla tej platformy musi posiadać plik main, w którym są dwie funkcje: setup oraz loop.
  Setup wykonywany jest tylko raz po uruchomieniu mikrokontrolera, natomiast loop wykonuje się w nieskończonej pętli aż do momentu zakończenia pracy.
  
- \section{Dodanie bibliotek i podstawowa komunikacja z urządzeniami}
+ \section{Dodanie bibliotek i podstawowa komunikacja z~urządzeniami}
  Pisanie oprogramowania rozpoczęto od dodania bibliotek pozwalających na komunikację z urządzeniami, aby sprawdzić poprawność działania prototypu wykonanego na płytce stykowej. Dla każdego urządzenia stworzono osobny plik .h zawierający deklaracje funkcji oraz plik .cpp zawierający ich definicje.
  W dalszej kolejności zostało opisane użycie poszczególnych bibliotek.
   \subsection{Dodanie portalu przechwytującego}
@@ -403,9 +403,9 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Do sterowania wychyleniem serwomechanizmu posłużono się biblioteką PID \cite{PIDlibrary}. Pozwala ona na wykorzystanie regulatora proporcjonalno-całkująco-różniczkującego do utrzymywania wartości wyjściowej na zadanym poziomie.
  Aby zainicjować bibliotekę  należy skorzystać z konstruktora, przekazując jako parametr referencje do wartości wejściowej, wyjściowej, zadanej oraz trzy parametry regulatora. Przy pomocy funkcji SetSampleTime należy ustalić jak często regulator ma obliczać wartość wyjściową. Funkcja SetOutputLimits służy do określenia granic parametru wyjściowego. Natomiast funkcja SetControlDirection określa kierunek sprzężenia wejścia z wyjściem. Funkcja SetMode(AUTOMATIC) uruchamia działanie regulatora.
  \subsection{Dodanie biblioteki dla DS18B20}
- Do komunikacji z termometrem Dallas wykorzystano bibliotekę DallasTemperature \cite{dallaslibrary}. Aby zainicjować bibliotekę należy skorzystać z konstruktora, przekazując jako parametr referencję do obiektu oneWire. W celu odczytania temperatury należy skorzystać z metody requestTemperatures, a następnie getTempCByIndex.
+ Do komunikacji z termometrem Dallas wykorzystano bibliotekę DallasTemperature \cite{dallaslibrary}. Aby zainicjować bibliotekę należy skorzystać z konstruktora, przekazując jako parametr referencję do obiektu oneWire. W celu odczytania temperatury należy skorzystać z metody requestTemperatures, a~następnie getTempCByIndex.
  \subsection{Dodanie biblioteki dla W5500 Light}
- Do komunikacji z modułem W5500 Light wykorzystano bibliotekę Ethernet Library for Arduino \cite{ethernetlibrary}. Aby zainicjować bibliotekę należy użyć metody init, podając jako parametr numer pinu Chip Select. Następnie należy skorzystać z metody WizReset wykonującej sekwencję resetowania modułu. W celu rozpoczęcia połączenia Ethernetowego należy użyć metody begin, podając jako parametry adres MAC, adres IP, adres DNS, adres bramy oraz maskę.
+ Do komunikacji z modułem W5500 Light wykorzystano bibliotekę Ethernet Library for Arduino \cite{ethernetlibrary}. Aby zainicjować bibliotekę należy użyć metody init, podając jako parametr numer pinu Chip Select. Następnie należy skorzystać z metody WizReset wykonującej sekwencję resetowania modułu. W~celu rozpoczęcia połączenia Ethernetowego należy użyć metody begin, podając jako parametry adres MAC, adres IP, adres DNS, adres bramy oraz maskę.
  \subsection{Dodanie biblioteki WebThings}
  Do przekształcenia sterownika w rzecz webową wykorzystano bibliotekę webthing-arduino \cite{webthinglibrary}. Tworzy ona prosty serwer implementujący Web of Things API.
  Aby zainicjować bibliotekę należy skorzystać z konstruktora, przekazując jako parametry nazwę oraz adres IP. Następnie należy utworzyć instancję urządzenia oraz dodać do niego jego właściwości. Aby rozpocząć pracę serwera należy skorzystać z metody begin. Do przekazywania wartości właściwości urządzenia służą metody setValue oraz update.
@@ -443,10 +443,10 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \section{Rozmieszczenie elementów}
  Dla wygodnego połączenia elementów wybrano płytkę uniwersalną o rozmiarach 9cm x 15cm ze standardowym rastrem otworów 2,54mm.
  Na początku na płytce umieszczono gniazda pod największe elementy: moduł zasilania o wymiarach 9,8cm x 2,9cm oraz mikrokontroler o wymiarach 5,5cm x 2,8cm. Gniazda pod kolejne elementy rozmieszczono tak, aby porty komunikacyjne oraz zasilania znajdowały się na dwóch krawędziach płytki. 
- Największą trudność sprawiło umieszczenie na płytce portów sieciowych, gdyż wyprowadzenie ich połączeń sygnałowych nie jest zgodne z rastrem 2,54mm, a dodatkowo potrzebne są otwory montażowe.
+ Największą trudność sprawiło umieszczenie na płytce portów sieciowych, gdyż wyprowadzenie ich połączeń sygnałowych nie jest zgodne z rastrem 2,54mm, a~dodatkowo potrzebne są otwory montażowe.
   
   \section{Wykonanie panelu dotykowego}
- Panel dotykowy wykonano z blaszek miedzianych o wymiarach 2cm x 2cm, przyklejonych do pokrywy sterownika, przylutowanych do przewodów zakończonych gniazdami. Podczas wycinania elementów należało zachować szczególną staranność dla zapewniania estetyki wykonania.
+ Panel dotykowy wykonano z blaszek miedzianych o wymiarach 2cm~x~2cm, przyklejonych do pokrywy sterownika, przylutowanych do przewodów zakończonych gniazdami. Podczas wycinania elementów należało zachować szczególną staranność dla zapewniania estetyki wykonania.
   Zdjęcie~\ref{fig:wieczko} przedstawia wieczko wraz z panelem dotykowym i wyświetlaczem LCD.
 \begin{figure}[ht]
 \centering
@@ -476,8 +476,9 @@ platformio init --ide clion --board esp32doit-devkit-v1
  \section{Testowanie prototypu}
  Po podłączeniu wszystkich elementów sterownika do płytki uniwersalnej dokonano testu działania z wykorzystaniem monitora portu szeregowego.
  
- \chapter{Wykonanie obudowy}\label{ch:obudowa}
- Pierwotnie, w oparciu o pracę Francuza \cite{Frence2014} zamierzano wydrukować obudowę w  drukarce 3D. Jednak wielkość potrzebnej obudowy oraz czas niezbędny do wykonania projektu przesądziły o wykorzystaniu gotowej skrzynki, wykonanej z plastiku o przeźroczystym wieczku w rozmiarze 15,8cm x 9cm x 6cm, pozwalającej na swobodne zmieszczenie wszystkich komponentów sterownika. Płytka uniwersalna została przycięta na rogach, ponieważ obudowa posiada tam miejsca na śruby. W skrzynce wykonano 5 otworów: pierwszy na górnej powierzchni obudowy (względem docelowego umiejscowienia sterownika) na port micro USB, który jest przeznaczony na wypadek potrzeby bezpośredniego podłączenia do mikrokontrolera. Drugi na prawej płaszczyźnie, również na port micro USB, przeznaczony do zasilania podczas normalnej pracy. Natomiast na dolnej powierzchni obudowy znajdują się trzy otwory: z lewej strony wejście na gniazdo 8p8c, przeznaczone do połączenia z internetem. W środkowej części potrójne gniazdo 8p8c, służące do komunikacji z czujnikami zewnętrznymi oraz serwomechanizmem. Po prawej stronie znajduje się miejsce na główny włącznik.
+ \chapter{Wykonanie obudowy sterownika pieca kominkowego}\label{ch:obudowa}
+ \chaptermark{Wykonanie obudowy sterownika}
+ Pierwotnie, w oparciu o pracę Francuza \cite{Frence2014} zamierzano wydrukować obudowę w  drukarce 3D. Jednak wielkość potrzebnej obudowy oraz czas niezbędny do wykonania projektu przesądziły o wykorzystaniu gotowej skrzynki, wykonanej z plastiku o przeźroczystym wieczku w rozmiarze 15,8cm~x~9cm~x~6cm, pozwalającej na swobodne zmieszczenie wszystkich komponentów sterownika. Płytka uniwersalna została przycięta na rogach, ponieważ obudowa posiada tam miejsca na śruby. W skrzynce wykonano 5 otworów: pierwszy na górnej powierzchni obudowy (względem docelowego umiejscowienia sterownika) na port micro USB, który jest przeznaczony na wypadek potrzeby bezpośredniego podłączenia do mikrokontrolera. Drugi na prawej płaszczyźnie, również na port micro USB, przeznaczony do zasilania podczas normalnej pracy. Natomiast na dolnej powierzchni obudowy znajdują się trzy otwory: z lewej strony wejście na gniazdo 8p8c, przeznaczone do połączenia z internetem. W środkowej części potrójne gniazdo 8p8c, służące do komunikacji z~czujnikami zewnętrznymi oraz serwomechanizmem. Po prawej stronie znajduje się miejsce na główny włącznik.
  Po wykonaniu otworów i zamontowaniu komponentów sterownika przystąpiono do montowania panelu dotykowego. Poszczególne pola panelu zostały przyklejone do przezroczystego wieczka obudowy na kształt "+", każdy w odległości około 4mm od drugiego, co pozwala na minimalizację zakłóceń.
  Ostatnim etapem wykonania obudowy było wklejenie ekranu LCD, w lewym górnym rogu przeźroczystego wieczka sterownika.
  Po umieszczeniu w obudowie i podłączeniu wszystkich elementów sterownika dokonano testu działania z wykorzystaniem monitora portu szeregowego.
@@ -494,13 +495,13 @@ platformio init --ide clion --board esp32doit-devkit-v1
  W niniejszym rozdziale opisano dalszą część tworzenia oprogramowania sterownika, skupiając się na doskonaleniu i rozbudowie poszczególnych modułów oprogramowania o nowe funkcje i udogodnienia dla potencjalnego użytkownika.
 
   \section{Rozbudowa portalu przechwytującego}
-  W portalu przechwytującym zaprogramowano funkcję, wywoływaną w pętli głównej, podejmującą próbę połączenia z zapamiętaną siecią WiFi w przypadku utraty łączności.
+  W portalu przechwytującym zaprogramowano funkcję, wywoływaną w~pętli głównej, podejmującą próbę połączenia z zapamiętaną siecią WiFi w~przypadku utraty łączności.
   
  \section{Rozbudowa obsługi termometru i czujnika wilgotności DHT22}
 W pliku dht.cpp stworzono funkcję pozwalającą na przekazanie indeksu cieplnego do zmiennej. Postanowiłem wykorzystać go jako punkt odniesienia dla sterownika zamiast temperatury, gdyż precyzyjniej oddaje on warunki termiczne panujące w pomieszczeniu. Dla zabezpieczenia poprawnej pracy sterownika, w przypadku niepowodzenia odczytu lub wątpliwych wartości temperatury i wilgotności (na podstawie których obliczany jest indeks cieplny), funkcja zwraca informację o błędzie.
 
  \section{Rozbudowa obsługi termopary z modułem MAX6675}
- W celu zabezpieczenia poprawnej pracy sterownika funkcja zwraca wartość 999 stopni Celsjusza oraz wypisuje komunikat o błędzie w przypadku: braku odczytu temperatury, wartości odbiegającej od stanu faktycznego w porównaniu z poprzednimi pomiarami. Zwrócenie przez funkcję tak wysokiej temperatury spowoduje szybkie zamknięcie przepustnicy przez regulator PID, co będzie chroniło piec przed przegrzaniem.
+ W celu zabezpieczenia poprawnej pracy sterownika funkcja zwraca wartość 999 stopni Celsjusza oraz wypisuje komunikat o błędzie w przypadku: braku odczytu temperatury, wartości odbiegającej od stanu faktycznego w~porównaniu z poprzednimi pomiarami. Zwrócenie przez funkcję tak wysokiej temperatury spowoduje szybkie zamknięcie przepustnicy przez regulator PID, co będzie chroniło piec przed przegrzaniem.
  
  \section{Rozbudowa obsługi wyświetlacza LCD}
  Z obsługi LCD usunięto metodę testową. Dodano funkcję wyświetlającą podstawowe nastawy sterownika: zadaną temperaturę w kominie, aktualną temperaturę w kominie, zadany indeks cieplny w pomieszczeniu, aktualny indeks cieplny w pomieszczeniu oraz procentowe otwarcie przepustnicy. Napisano również funkcję, pozwalająca na włączanie podświetlenia LCD i wyłączanie go po zadanym czasie.
@@ -509,7 +510,7 @@ W pliku dht.cpp stworzono funkcję pozwalającą na przekazanie indeksu cieplneg
  Obsługę serwomechanizmu uzupełniono o wyłączanie sygnału sterującego po zmianie pozycji, co w znacznym stopniu przyczyniło się do poprawy kultury pracy. Często występującym problemem było blokowanie się przepustnicy, ze względu na duże opory, przy nieznacznej zmianie wychylenia. Po wyłączeniu sygnału PWM serwomechanizm zaprzestaje prób usytuowania się w zadawanej pozycji i zostaje w tej, którą osiągnął wcześniej. Zapobiega to niepotrzebnemu poborowi energii oraz redukuje głośny dźwięk wydawany przez urządzenie.
 
  \section{Rozbudowa obsługi regulatora PID}
- W celu poprawy komfortu termicznego w pomieszczeniu, wykorzystano dwa regulatory PID. Pierwszy z nich, na podstawie aktualnej temperatury w pomieszczeniu i zadanej temperatury, oblicza zadaną temperaturę dla spalin w kominie. Drugi, na podstawie aktualnych odczytów temperatury z komina i temperatury zadanej przez pierwszy z regulatorów, oblicza wychylenie serwomechanizmu, a co za tym idzie, stopień otwarcia przepustnicy powietrza dolotowego do komory spalania.
+ W celu poprawy komfortu termicznego w pomieszczeniu, wykorzystano dwa regulatory PID. Pierwszy z nich, na podstawie aktualnej temperatury w~pomieszczeniu i zadanej temperatury, oblicza zadaną temperaturę dla spalin w~kominie. Drugi, na podstawie aktualnych odczytów temperatury z komina i temperatury zadanej przez pierwszy z regulatorów, oblicza wychylenie serwomechanizmu, a co za tym idzie, stopień otwarcia przepustnicy powietrza dolotowego do komory spalania.
  Dla większej odporności na błędy, dodano funkcje sprawdzające poprawność wartości wejściowych oraz tych obliczanych przez regulatory. Dodatkowo stworzono funkcję wypisującą powyższe wartości na port szeregowy.
 
  \section{Rozbudowa obsługi termometru Dallas DS18B20}
@@ -540,7 +541,7 @@ Biblioteka arduino-webthings, przy pracy z mikrokontrolerem ESP32, domyślnie wy
  \item[•] Sensor zasilania posiada dwie własności (OnOffSwitch): zasilanie zewnętrzne oraz bateria pełna.
  \end{enumerate}
  Po określeniu właściwości, należało także przypisać każdej z nich odpowiednie atrybuty, takie jak: tytuł, wielokrotność, jednostkę, tryb odczytu.
- Ostatecznie, do każdego z sensorów, dodano funkcję uaktualniającą wartości w serwerze WebThings.
+ Ostatecznie, do każdego z sensorów, dodano funkcję uaktualniającą wartości w~serwerze WebThings.
  \subsection{Napotkane problemy}
  Pierwszym ze znalezionych problemów było zwracanie niepełnego opisu rzeczy webowej w formacie JSON przez serwer WebThings. Przyczyna tkwiła w definiowaniu przez bibliotekę webthing-arduino zbyt małego rozmiaru dokumentu JSON. Po zgłoszeniu problemu na stronie projektu, został on naprawiony poprzez umożliwienie użytkownikom wyboru zwiększonego bufora lub definiowania jego rozmiaru.
  
@@ -556,7 +557,7 @@ Biblioteka arduino-webthings, przy pracy z mikrokontrolerem ESP32, domyślnie wy
  
  \section{Przygotowanie lokalnej Bramy WebThings}
   Projekt WebThings Gateway by Mozilla oferuje cztery możliwości instalacji: wykorzystanie obrazu dla Raspberry Pi, wykorzystanie obrazu Docker, użycie pakietu na Arch Linux lub samodzielna budowa ze źródła. Wybrano opcję wykorzystania gotowego obrazu dla Raspberry Pi.
-  Po jego wgraniu i uruchomieniu urządzenia należy przejść do procesu konfiguracji \cite{gatewaystarted2019}, połączyć się z daną siecią WiFi, natomiast w portalu przechwytującym wskazać połączenie z jakiego będziemy korzystać. Następnie należy wybrać subdomenę oraz utworzyć konto pierwszego użytkownika. Wtedy brama staje się gotowa do działania.
+  Po jego wgraniu i~uruchomieniu urządzenia należy przejść do procesu konfiguracji \cite{gatewaystarted2019}, połączyć się z daną siecią WiFi, natomiast w portalu przechwytującym wskazać połączenie z jakiego będziemy korzystać. Następnie należy wybrać subdomenę oraz utworzyć konto pierwszego użytkownika. Wtedy brama staje się gotowa do działania.
 
  \section{Dodanie rzeczy webowych do Bramy WebThings}
  Kolejnym etapem integracji było dodanie stworzonych przez sterownik rzeczy webowych do Bramy. Po włączeniu go i połączeniu z tą samą siecią lokalną co Brama, należy wybrać opcję dodawania urządzeń. Brama automatycznie wykrywa rzeczy webowe i proponuje dodanie poszczególnych sensorów. Większość opcji można pozostawić jako domyślne, potwierdzając tylko dodawanie.
@@ -593,38 +594,38 @@ Biblioteka arduino-webthings, przy pracy z mikrokontrolerem ESP32, domyślnie wy
  \chapter{Podsumowanie}
 W niniejszej części zostaną opisane wnioski z pracy według kolejności wcześniej przedstawionych rozdziałów.
 
-\section{\nameref{ch:przeglad}}
+\section{Przegląd istniejących rozwiązań}
 Przegląd istniejącej oferty w tym segmencie pokazał jak mała ilość rozwiązań w zakresie sterowania pieców kominkowych istnieje na polskim rynku, co dowodzi temu, że potrzebne są nowe propozycje produktów.
 
-\section{\nameref{ch:koncepcja}}
+\section{Opracowanie koncepcji budowy sterownika pieca kominkowego}
 Przy tworzeniu koncepcji budowy sterownika pieca kominkowego wyzwaniem było zrozumienie procesu poprawnego spalania drewna. Zadaniem sterownika jest tylko pomoc w utrzymywaniu właściwej temperatury spalin. Ważne jest, aby z jednej strony nie doprowadzić do przegrzania pomieszczenia, a z drugiej nie obniżyć temperatury panującej w piecu na tyle by powodować niedopalanie gazów drzewnych. Niestety, tu główna odpowiedzialność spoczywa na użytkowniku, dlatego ważne jest aby w dołączonej instrukcji obsługi opisać nie tylko samo użytkowanie sterownika, ale i uniwersalne, poprawne zasady palenia w piecu kominkowym.
 
-\section{\nameref{ch:wybor}}
-Podczas wybierania podzespołów sterownika pieca kominkowego największą trudność sprawił wybór wśród mnogości dostępnych na rynku rozwiązań. Przeprowadzając analizę wielokryterialną wzięto pod uwagę nie tylko cenę i kompatybilność podzespołów, ale także stopień skomplikowania komunikacji oraz dostępne biblioteki tak, aby nie naruszyć ustalonego terminu oddania projektu.
-Głównym wnioskiem jest to, że przy mniejszej docelowej skali wytwarzania końcowych produktów należy wybrać podzespoły droższe, ale o większej skali integracji, na przykład gotową płytkę deweloperską ESP32 z modułem Ethernet. Pomimo, że cena podzespołu jest dwukrotnie wyższa, jego wybór pozwoliłby na znaczną oszczędność czasu poświęconego na łączenie elementów.
+\section{Wybór podzespołów sterownika pieca kominkowego}
+Podczas wybierania podzespołów sterownika pieca kominkowego największą trudność sprawił wybór wśród mnogości dostępnych na rynku rozwiązań. Przeprowadzając analizę wielokryterialną wzięto pod uwagę nie tylko cenę i~kompatybilność podzespołów, ale także stopień skomplikowania komunikacji oraz dostępne biblioteki tak, aby nie naruszyć ustalonego terminu oddania projektu.
+Głównym wnioskiem jest to, że przy mniejszej docelowej skali wytwarzania końcowych produktów należy wybrać podzespoły droższe, ale o~większej skali integracji, na przykład gotową płytkę deweloperską ESP32 z~modułem Ethernet. Pomimo, że cena podzespołu jest dwukrotnie wyższa, jego wybór pozwoliłby na znaczną oszczędność czasu poświęconego na łączenie elementów.
 
-\section{\nameref{ch:prototyp:stykowa}}
+\section{Wykonanie prototypu sterownika pieca kominkowego na płytce stykowej}
 Wykorzystanie płytki stykowej do tworzenia prototypu nie jest procesem skomplikowanym. Jednak niedostateczna pewność połączeń może sprawiać trudne do wykrycia błędy w komunikacji.
-Przy dużej ilości elementów w projekcie należałoby łączyć podzespoły w grupy na osobnych płytkach.
+Przy dużej ilości elementów w~projekcie należałoby łączyć podzespoły w grupy na osobnych płytkach.
 
-\section{\nameref{ch:oprog:1}}
+\section{Opracowanie oprogramowania -~część pierwsza}
 Największą trudność podczas opracowywania pierwszej - podstawowej - części oprogramowania przyniosło zaznajomienie się z ekosystemem PlatformIO oraz obsługą bibliotek wykorzystanych w projekcie. Aby sprawnie z~nich korzystać należało zapoznać się z licznymi przykładami i wybrać te, które przedstawiają poprawne koncepcje projektowe.
 
-\section{\nameref{ch:prototyp:uniwersalna}}
+\section{Wykonanie prototypu sterownika pieca kominkowego na płytce uniwersalnej}
 Wykonanie prototypu na płytce uniwersalnej wymagało dobrych zdolności manualnych, precyzji wykonania oraz umiejętności posługiwania się lutownicą. W ciasnym sąsiedztwie wylutowywanie błędnie umieszczonych elementów sprawiało dużą trudność.
 Wybór portów 8p8c, z wyprowadzeniami w rastrze 2,54mm, lub tych, umieszczonych na płytkach drukowanych, znacznie ułatwiłby proces łączenia ich z płytką uniwersalną.
 Praca włożona w konstrukcję prototypu na płytce uniwersalnej pozwoliła na niezawodne połączenie komponentów sterownika i dała większą pewność przy opracowywaniu oprogramowania.
 
-\section{\nameref{ch:obudowa}}
+\section{Wykonanie obudowy sterownika pieca kominkowego}
 Tworzywo plastikowe, wykorzystane do stworzenia skrzynki, umożliwiło łatwe wycięcie otworów na porty komunikacyjne sterownika.
 
-\section{\nameref{ch:oprog:2}}
-W drugiej części opracowywania oprogramowania największą trudność sprawiło wykorzystanie biblioteki arduino-webthings, ponieważ jest to nowy zestaw komponentów programu, nie posiadający jeszcze doprecyzowanej dokumentacji. Podczas opracowywania kodu programu, przyczyną znaczącego spowolnienia pracy były błędy znajdujące się nie w kodzie użytkownika, a w bibliotece.
+\section{Opracowanie oprogramowania -~część druga}
+W drugiej części opracowywania oprogramowania największą trudność sprawiło wykorzystanie biblioteki arduino-webthings, ponieważ jest to nowy zestaw komponentów programu, nie posiadający jeszcze doprecyzowanej dokumentacji. Podczas opracowywania kodu programu, przyczyną znaczącego spowolnienia pracy były błędy znajdujące się nie w kodzie użytkownika, a~w~bibliotece.
 Wykorzystywanie oprogramowania we wczesnym stadium rozwoju zawsze wiąże się z ryzykiem występowania niezidentyfikowanych jeszcze błędów i niekompletną dokumentacją, dlatego potrzebny jest znaczny zapas czasu na rozwiązanie nieprzewidzianych problemów.
 
-\section{\nameref{ch:gateway}}
+\section{Zintegrowanie sterownika pieca kominkowego z Mozilla Gateway}
 Uaktualnianie poprzednich wersji Bramy WebThings doprowadziło do jej wadliwego działania.
-Podczas testów, stosowanie dużej ilości wykresów, a w konsekwencji zwiększonej liczby zapisów i odczytów z karty pamięci, doprowadziło do jej szybkiej degradacji i konieczności wymiany.
+Podczas testów, stosowanie dużej ilości wykresów, a~w~konsekwencji zwiększonej liczby zapisów i odczytów z karty pamięci, doprowadziło do jej szybkiej degradacji i konieczności wymiany.
 Bardziej efektywnym rozwiązaniem byłoby zastosowanie innej platformy zamiast Raspberry Pi, która nie posiada wbudowanej pamięci, oraz skorzystanie z obrazu Dockera.
  
  \chapter{Dalszy kierunek prac}
