@@ -80,8 +80,8 @@
  Możemy wyróżnić wiele przypadków zastosowania internetu rzeczy:
  \begin{enumerate}
  \item[•] bezprzewodowe sieci czujników i pomiary rozproszone,
- \item[•] urządzenia ubieralne i pomiary osobiste,
- \item[•] inteligentne budynki,
+ \item[•] urządzenia ubieralne i urządzenia do pomiaru parametrów zdrowia,
+ \item[•] inteligentne domy i budynki,
  \item[•] inteligentne miasta i sieci energetyczne,
  \item[•] inteligentna produkcja przemysłowa,
  \item[•] inteligentna logistyka i łańcuchy dostaw.
@@ -120,7 +120,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  \chapter{Cele pracy, zakres pracy, założenia}\label{ch:cele}
 
  \section{Cele pracy}
- Celem niniejszej pracy jest \textbf{opracowanie koncepcji sterownika pieca kominkowego} zgodnego ze szkicem specyfikacji Web Thing API oraz stworzenie dedykowanego oprogramowania.
+ Celem niniejszej pracy jest \textbf{opracowanie koncepcji sterownika pieca kominkowego} zgodnego ze szkicem specyfikacji Web Thing API oraz \textbf{stworzenie dedykowanego oprogramowania}.
 
  \section{Zakres pracy}
  Zakres pracy obejmuje:
@@ -238,8 +238,8 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
   Tylko jeden z wymienionych sterowników posiada czujnik pozwalający na mierzenie temperatury spalin.
   
   
- \chapter[Opracowanie koncepcji budowy sterownika pieca\\ kominkowego]{Opracowanie koncepcji budowy sterownika pieca kominkowego}\label{ch:koncepcja}
- Projektowanie koncepcji sterownika pieca kominkowego należy rozpocząć od skompletowania minimalnej wersji, na którą składa się: mikrokontroler, serwomechanizm oraz termopara. Do regulacji pracy pieca kominkowego jest potrzebne urządzenie potrafiące zmieniać położenie przepustnicy dolotu powietrza do komory spalania. Najbardziej optymalnym wyborem okazał się prosty serwomechanizm, którego dodatkową zaletą okazała się przystępna cena. Stopień otwarcia przepustnicy dobierany jest na podstawie temperatury spalin w kominie, mierzonej przez termoparę.
+ \chapter[Opracowanie koncepcji budowy sterownika\\ pieca kominkowego]{Opracowanie koncepcji budowy sterownika pieca kominkowego}\label{ch:koncepcja}
+ Projektowanie koncepcji sterownika pieca kominkowego należy rozpocząć od skompletowania minimalnej wersji, na którą składa się: mikrokontroler, serwomechanizm oraz termopara. Do regulacji pracy pieca kominkowego jest potrzebne urządzenie potrafiące zmieniać położenie przepustnicy dolotu powietrza do komory spalania. Najbardziej optymalnym wyborem okazał się prosty serwomechanizm, którego dodatkową zaletą jest przystępna cena. Stopień otwarcia przepustnicy dobierany jest na podstawie temperatury spalin w kominie, mierzonej przez termoparę.
  Dodatkowymi elementami uzupełniającymi koncepcję są:
  \begin{enumerate}
  \item[•] termometr, mierzący temperaturę w pomieszczeniu, umożliwiający dobór mocy pieca w stosunku do zapotrzebowania na ciepło
@@ -277,7 +277,7 @@ Pomysł na pracę zrodził się z potrzeby zmniejszenia ilości czasu oraz pośw
  Ze względu na to, że wszystkie parametry będą dostępne przez stronę internetową, wybrany został wyświetlacz LCD 2x16, który pozwoli na prezentowanie tylko kilku z nich w jednej chwili.
  
  \section{Termometr}
- Wybrany układ termometru DHT22 pozwala na pomiar temperatury i wilgotności, jednocześnie zapewniając dobrą precyzję odczytów. Dodatkowo, sterownik rozszerzony został o moduł termometru Dallas DS18B20, który pozwala na pomiar temperatury wewnątrz urządzenia.
+ Wybrany układ termometru DHT22 pozwala na pomiar temperatury i~wilgotności, jednocześnie zapewniając dobrą precyzję odczytów. Dodatkowo, sterownik rozszerzony został o moduł termometru Dallas DS18B20, który pozwala na pomiar temperatury wewnątrz urządzenia.
  
  \section{Termopara}
  W pracy wybrano układ MAX6675, który jest jednym z najlepiej przetestowanych i najtańszych rozwiązań, ze względu na swoją długą obecność na rynku.
@@ -403,7 +403,7 @@ platformio init --ide clion --board esp32doit-devkit-v1
  Do sterowania wychyleniem serwomechanizmu posłużono się biblioteką PID \cite{PIDlibrary}. Pozwala ona na wykorzystanie regulatora proporcjonalno-całkująco-różniczkującego do utrzymywania wartości wyjściowej na zadanym poziomie.
  Aby zainicjować bibliotekę  należy skorzystać z konstruktora, przekazując jako parametr referencje do wartości wejściowej, wyjściowej, zadanej oraz trzy parametry regulatora. Przy pomocy funkcji SetSampleTime należy ustalić jak często regulator ma obliczać wartość wyjściową. Funkcja SetOutputLimits służy do określenia granic parametru wyjściowego. Natomiast funkcja SetControlDirection określa kierunek sprzężenia wejścia z wyjściem. Funkcja SetMode(AUTOMATIC) uruchamia działanie regulatora.
  \subsection{Dodanie biblioteki dla DS18B20}
- Do komunikacji z termometrem Dallas wykorzystano bibliotekę DallasTemperature \cite{dallaslibrary}. Aby zainicjować bibliotekę należy skorzystać z konstruktora, przekazując jako parametr referencję do obiektu oneWire. W celu odczytania temperatury nalezy skorzystać z metody requestTemperatures, a następnie getTempCByIndex.
+ Do komunikacji z termometrem Dallas wykorzystano bibliotekę DallasTemperature \cite{dallaslibrary}. Aby zainicjować bibliotekę należy skorzystać z konstruktora, przekazując jako parametr referencję do obiektu oneWire. W celu odczytania temperatury należy skorzystać z metody requestTemperatures, a następnie getTempCByIndex.
  \subsection{Dodanie biblioteki dla W5500 Light}
  Do komunikacji z modułem W5500 Light wykorzystano bibliotekę Ethernet Library for Arduino \cite{ethernetlibrary}. Aby zainicjować bibliotekę należy użyć metody init, podając jako parametr numer pinu Chip Select. Następnie należy skorzystać z metody WizReset wykonującej sekwencję resetowania modułu. W celu rozpoczęcia połączenia Ethernetowego należy użyć metody begin, podając jako parametry adres MAC, adres IP, adres DNS, adres bramy oraz maskę.
  \subsection{Dodanie biblioteki WebThings}
@@ -516,9 +516,9 @@ W pliku dht.cpp stworzono funkcję pozwalającą na przekazanie indeksu cieplneg
  Obsługę termometru Dallas uzupełniono o sprawdzanie odczytywanej wartości oraz informowanie o błędnym odczycie.
 
  \section{Rozbudowa obsługi modułu Ethernet W5500}
- Wbrew wcześniejszym założeniom nie udało się w przyjętym czasie przenieść komunikacji z radiowej na kablową.
+ Wbrew wcześniejszym założeniom, nie udało się w przyjętym czasie przenieść komunikacji z radiowej na kablową.
 Biblioteka arduino-webthings, przy pracy z mikrokontrolerem ESP32, domyślnie wykorzystuje tylko połączenie WiFi. Aby umożliwić wykorzystanie połączenia Ethernetowego, potrzebne są zwiększone nakłady pracy.
-  Obsługa modułu Ethernet W5500 została jedynie poszerzona o funkcje z biblioteki, sprawdzające rodzaj wykrytego urządzenia, oraz status połączenia kablowego.
+  Obsługa modułu Ethernet W5500 została jedynie poszerzona o funkcje z biblioteki, sprawdzające rodzaj wykrytego urządzenia oraz status połączenia kablowego.
  
  \section{Rozbudowa obsługi odczytu napięć}
  Obsługę odczytu napięć, uzupełniono o funkcję rozpoznającą źródło zasilania, która na podstawie dobranych doświadczalnie wartości progowych, cyklicznie przekazuje wyniki do części programu obsługującej WebThings.
@@ -608,15 +608,15 @@ Wykorzystanie płytki stykowej do tworzenia prototypu nie jest procesem skomplik
 Przy dużej ilości elementów w projekcie należałoby łączyć podzespoły w grupy na osobnych płytkach.
 
 \section{\nameref{ch:oprog:1}}
-Największą trudność podczas opracowywania pierwszej - podstawowej - części oprogramowania przyniosło zaznajomienie się z ekosystemem PlatformIO oraz obsługą bibliotek wykorzystanych w projekcie. Aby sprawnie z nich korzystać należało zaznajomić się z licznymi przykładami i wybrać te, które przedstawiają poprawne koncepcje projektowe.
+Największą trudność podczas opracowywania pierwszej - podstawowej - części oprogramowania przyniosło zaznajomienie się z ekosystemem PlatformIO oraz obsługą bibliotek wykorzystanych w projekcie. Aby sprawnie z~nich korzystać należało zapoznać się z licznymi przykładami i wybrać te, które przedstawiają poprawne koncepcje projektowe.
 
 \section{\nameref{ch:prototyp:uniwersalna}}
 Wykonanie prototypu na płytce uniwersalnej wymagało dobrych zdolności manualnych, precyzji wykonania oraz umiejętności posługiwania się lutownicą. W ciasnym sąsiedztwie wylutowywanie błędnie umieszczonych elementów sprawiało dużą trudność.
-Wybór portów 8p8c, z wyprowadzeniami w rastrze 2,54mm, lub tych, umieszczonych na płytkach drukowanych, znacznie ułatwiłby proces łączenia ich z płytka uniwersalną.
+Wybór portów 8p8c, z wyprowadzeniami w rastrze 2,54mm, lub tych, umieszczonych na płytkach drukowanych, znacznie ułatwiłby proces łączenia ich z płytką uniwersalną.
 Praca włożona w konstrukcję prototypu na płytce uniwersalnej pozwoliła na niezawodne połączenie komponentów sterownika i dała większą pewność przy opracowywaniu oprogramowania.
 
 \section{\nameref{ch:obudowa}}
-Tworzywo plastikowe, wykorzystanie do stworzenia skrzynki, umożliwiło łatwe wycięcie otworów na porty komunikacyjne sterownika.
+Tworzywo plastikowe, wykorzystane do stworzenia skrzynki, umożliwiło łatwe wycięcie otworów na porty komunikacyjne sterownika.
 
 \section{\nameref{ch:oprog:2}}
 W drugiej części opracowywania oprogramowania największą trudność sprawiło wykorzystanie biblioteki arduino-webthings, ponieważ jest to nowy zestaw komponentów programu, nie posiadający jeszcze doprecyzowanej dokumentacji. Podczas opracowywania kodu programu, przyczyną znaczącego spowolnienia pracy były błędy znajdujące się nie w kodzie użytkownika, a w bibliotece.
@@ -624,7 +624,7 @@ Wykorzystywanie oprogramowania we wczesnym stadium rozwoju zawsze wiąże się z
 
 \section{\nameref{ch:gateway}}
 Uaktualnianie poprzednich wersji Bramy WebThings doprowadziło do jej wadliwego działania.
-Podczas testów, stosowanie dużej ilości wykresów, a w konsekwencji zwiększonej liczby zapisów i odczytów z karty pamięci, doprowadziło do szybkiej degradacji i konieczności wymiany.
+Podczas testów, stosowanie dużej ilości wykresów, a w konsekwencji zwiększonej liczby zapisów i odczytów z karty pamięci, doprowadziło do jej szybkiej degradacji i konieczności wymiany.
 Bardziej efektywnym rozwiązaniem byłoby zastosowanie innej platformy zamiast Raspberry Pi, która nie posiada wbudowanej pamięci, oraz skorzystanie z obrazu Dockera.
  
  \chapter{Dalszy kierunek prac}
